@@ -33,10 +33,7 @@ public class PostreController {
         return stub.getPostres();
     }
     
-    @RequestMapping(value="/{code}", method = RequestMethod.GET)
-    public boolean isPostre(@RequestBody code){
-        
-    }
+ 
     
     @RequestMapping (method = RequestMethod.POST)
     public void postPostre(@RequestBody Postre postre) {
