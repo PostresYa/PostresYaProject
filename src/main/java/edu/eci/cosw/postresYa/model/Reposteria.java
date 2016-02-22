@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,12 @@ public class Reposteria {
     
     public Reposteria(){
         
+    }
+    public Reposteria(int nit,String name,String coverageRange){
+        this.nit=nit;
+        this.name=name;
+        this.coverageRange=coverageRange;
+        postres=new ArrayList<Postre>();
     }
     public int getNit() {
         return nit;
@@ -40,10 +47,9 @@ public class Reposteria {
         return postres;
     }
 
-    public void setPostres(List<Postre> postres) {
-        this.postres = postres;
+    public void addPostres(Postre postre) {
+        postres.add(postre);
     }
-
     public String getCoverageRange() {
         return coverageRange;
     }

@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+import java.awt.Image;
 import java.io.InputStream;
 
 /**
@@ -16,16 +17,16 @@ public class Postre {
     private String name;
     private int price;
     private String description;
-    private InputStream image;//la foto no se sabe
+    private Image image;//la foto no se sabe
     public Postre(){
         
     }
-    public Postre(String code,String name,int price,String description,InputStream image){
+    public Postre(String code,String name,int price,String description){
         this.code=code;
         this.name=name;
         this.price=price;
         this.description=description;
-        this.image=image;
+        
     }
     
     public String getCode() {
@@ -60,13 +61,7 @@ public class Postre {
         this.description = description;
     }
 
-    public InputStream getImage() {
-        return image;
-    }
 
-    public void setImage(InputStream image) {
-        this.image = image;
-    }
     
     
 }
