@@ -1,0 +1,12 @@
+<p>This is the partial for view 1.</p>
+
+ <div  ng-show="authenticated">
+    nombre : <input ng-model = "name"><br>
+    codigo : <input ng-model = "code"><br>
+    precio:<input  ng-model = "price" type="number" min="1" max="10" > <br>
+    descripcion:<input ng-model = "description"><br>
+    <button ng-click="agregarPostre()"> SEND </button>
+</div>                    
+ <div  ng-show="!authenticated">
+    <h1> Usted no esta autenticado</h1>
+</div>                    
