@@ -6,7 +6,7 @@ deployment:
   staging:
     branch: master
     heroku: 
-      appname: proyectpostresya
+      appname: projectpostresya
 
 test:
   post:
