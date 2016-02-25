@@ -6,5 +6,10 @@ angular.module('services.module1', ['ngRoute','ngResource'])
             
         return $resource('/postres',{},{ get: { method: 'GET', isArray: true
 } });
+    })
+    
+    .factory('postresChange', function($resource) {
+            
+        return $resource('/postres/change');
     });
 

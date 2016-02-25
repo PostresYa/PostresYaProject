@@ -52,6 +52,10 @@ public class PostreController {
         stub.addPostre(postre);
     }
     
+     @RequestMapping (value="/change", method = RequestMethod.POST)
+    public void changePostre(@RequestBody Postre postre) throws PostreException {
+        stub.changePostre(postre);
+    }
     
         
     @RequestMapping(value="/{code}/picture", method = RequestMethod.GET)

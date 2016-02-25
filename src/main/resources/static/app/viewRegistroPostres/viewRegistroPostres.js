@@ -9,7 +9,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
   });
 }])
 
-.controller('ViewRegistroPostresCtrl', ['$scope','postres',function($scope,postres) {
+.controller('ViewRegistroPostresCtrl', ['$scope','postres','postresChange',function($scope,postres,postresChange) {
 
         $scope.name="";
         $scope.price ="";
@@ -17,28 +17,56 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
         $scope.description ="";
         
         $scope.agregarPostre = function(){
-            
-            console.info($scope.price);
-          /*
-            if (!isNaN($scope.priority)){
-                if($scope.priority<=10  && $scope.priority>0){
+
+            if (!isNaN($scope.price)){
+                if($scope.price>0){
                     
+                    postres.get(function(data){
+                    var listadotemp=data;
+                     var codeExist=false;
+                    for(var pos=0; pos<listadotemp.length ;pos++){
+                        
+                         if(listadotemp[pos].code == $scope.code){
+                            codeExist=true;
+                        }
+                    }
+                    if (codeExist){
+                        var seguro = confirm("El codigo ya esta asociado, esta seguro de cambiar los valores?");
+                        if (seguro == true) {
+                            var newProduct={"code":$scope.code,"name":$scope.name,"price":$scope.price,"description":$scope.description};
                     
-                    var newitem={"description":$scope.description,"priority":$scope.priority};
+                            postresChange.save(newProduct,function(){
+                                  console.info("Change   "+ newProduct);
+                                  
+                                  $scope.name="";
+                                  $scope.code="";
+                                  $scope.price="";
+                                  $scope.description="";
+                            });
+                        
+                            
+                        } 
+                    }else{
+                         var newProduct={"code":$scope.code,"name":$scope.name,"price":$scope.price,"description":$scope.description};
                     
-                    tareas.save(newitem,function(){
-                        console.info("saved   "+ newitem);
+                         postres.save(newProduct,function(){
+                               console.info("saved   "+ newProduct);
+                                    $scope.name="";
+                                  $scope.code="";
+                                  $scope.price="";
+                                  $scope.description="";
+                         });
+                    }
                     });
                     
-                    //service1.addTodo({propiedad1:$scope.propiedad1,propiedad2:$scope.propiedad2});
-                 $scope.description="";
-                 $scope.priority="";
-                // alert("Sent!!");
+                    
+                    
                 }
-               
+                    
+       
             }else{
                 alert("error priority");
-            }*/
+            }
  
             
            

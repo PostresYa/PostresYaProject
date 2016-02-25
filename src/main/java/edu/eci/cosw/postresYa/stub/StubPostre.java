@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.net.MalformedURLException;
+import java.util.Iterator;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -54,7 +55,10 @@ public class StubPostre implements Stub{
 
     @Override
     public void addPostre(Postre postre) throws PostreException{
+       
         postres.add(postre);
+        postresMap.put(postre.getCode(), postre);
+        postresImages.put(postre.getCode(),"src/main/resources/static/app/images/PostreNuevo.png");
     }
 
     @Override
@@ -78,6 +82,33 @@ public class StubPostre implements Stub{
         }
         
        
+    }
+
+    @Override
+    public void changePostre(Postre postre) throws PostreException {
+        
+        Postre postreDelete=null;
+        Iterator<Postre> iterator= postres.iterator();
+        for(int i=0;i<postres.size();i++){
+            if(iterator.hasNext()){
+                Postre postretemp=iterator.next();
+                if (postretemp.getCode().equals(postre.getCode())){
+                  postreDelete=postretemp;
+                }
+            }
+        }
+       
+        postres.remove(postreDelete);
+        postres.add(postre);
+        changeReference(postre);
+        
+    }
+    
+    private void changeReference(Postre postre){
+        postresMap.get(postre.getCode()).setName(postre.getName());
+        postresMap.get(postre.getCode()).setDescription(postre.getDescription());
+        postresMap.get(postre.getCode()).setPrice(postre.getPrice());
+        
     }
     
 }

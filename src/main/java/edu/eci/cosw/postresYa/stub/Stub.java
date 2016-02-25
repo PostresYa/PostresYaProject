@@ -19,7 +19,7 @@ import java.util.Set;
 public interface Stub {
     Set<Postre> getPostres();
     void addPostre(Postre postre) throws PostreException;
-    
+    void changePostre(Postre postre) throws PostreException;
     public Postre getPostreByCode(String code) throws PostreException; 
 
     public InputStream getPostrePicture(String code) throws PostreException;
