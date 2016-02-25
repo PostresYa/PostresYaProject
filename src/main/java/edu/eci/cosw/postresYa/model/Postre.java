@@ -6,6 +6,8 @@
 package edu.eci.cosw.postresYa.model;
 
 import java.awt.Image;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 /**
@@ -17,7 +19,10 @@ public class Postre {
     private String name;
     private int price;
     private String description;
-    private Image image;//la foto no se sabe
+   
+
+
+    
     public Postre(){
         
     }
@@ -26,6 +31,9 @@ public class Postre {
         this.name=name;
         this.price=price;
         this.description=description;
+        
+       
+        
         
     }
     

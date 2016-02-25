@@ -5,14 +5,24 @@
  */
 package edu.eci.cosw.postresYa.stub;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+
+import java.util.Set;
 
 /**
  *
  * @author 2095499
  */
 public interface Stub {
-    List<Postre> getPostres();
-    void addPostre(Postre postre);
+    Set<Postre> getPostres();
+    void addPostre(Postre postre) throws PostreException;
+    
+    public Postre getPostreByCode(String code) throws PostreException; 
+
+    public InputStream getPostrePicture(String code) throws PostreException;
+    
+    
 }
