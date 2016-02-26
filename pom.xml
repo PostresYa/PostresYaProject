@@ -59,7 +59,10 @@
 			</plugin>
 			
 			
-			 <!-- clean project (also local H2 database)-->
+
+
+
+						 <!-- clean project (also local H2 database)
 		            <plugin>
 		                <artifactId>maven-clean-plugin</artifactId>
 		                <version>2.6.1</version>
@@ -74,8 +77,8 @@
 		                </executions>
 		            </plugin>
 			
-			
-			<!--prueba-->
+			-->
+			<!--prueba
 			<plugin>
 		                <groupId>org.apache.maven.plugins</groupId>
 		                <artifactId>maven-war-plugin</artifactId>
@@ -83,9 +86,10 @@
 		                <configuration>
 		                    <failOnMissingWebXml>false</failOnMissingWebXml>
 		                </configuration>
-		            </plugin>
+		            </plugin>-->
+
 			<!-- The Jetty plugin allows us to easily test the development build by
-		            running jetty:run on the command line. -->
+		            running jetty:run on the command line. 
 		            <plugin>
 		                <groupId>org.eclipse.jetty</groupId>
 		                <artifactId>jetty-maven-plugin</artifactId>
@@ -97,12 +101,12 @@
 		                    </webApp>                    
 		                </configuration>
 		            </plugin>
+			-->
 			
 			
+			<!--plugin de prueba para pasar en heroku
 			
-			<!--plugin de prueba para pasar en heroku-->
-			
-			 <!-- Plugin configuration for Heroku compatibility. -->
+			  Plugin configuration for Heroku compatibility. 
 		            <plugin>
 		                <groupId>org.apache.maven.plugins</groupId>
 		                <artifactId>maven-dependency-plugin</artifactId>
@@ -130,10 +134,16 @@
 					
 			
 			
+			-->
 			
-			
+
+
+
+
+
 			
 		</plugins>
+
 	</build>
 	
 	<repositories>
