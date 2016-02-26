@@ -12,9 +12,11 @@ import java.util.logging.Logger;
 /**
  *
  * @author duvan
+ * 
  */
 public class PostreException extends Exception{
     public final static String postreException="Postre 404"; 
+
     public PostreException(String message){
         super(message);
     }

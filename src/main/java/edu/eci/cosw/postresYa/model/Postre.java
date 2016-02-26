@@ -31,40 +31,76 @@ public class Postre {
         this.name=name;
         this.price=price;
         this.description=description;
-        
-       
-        
+  
         
     }
     
+    
+    
+        
+     /*
+    *Busca el valor del código del postre
+    *@Return String code
+    */
     public String getCode() {
         return code;
     }
 
+     /*
+    *Cambia el valor del código del postre
+    *@Params String code
+    *@Return void
+    */
     public void setCode(String code) {
         this.code = code;
     }
-
+     /*
+    *Busca el valor del nombre del postre
+    *@Return String name
+    */
     public String getName() {
         return name;
     }
 
+       /*
+    *Cambia el valor del nombre del postre
+    *@Params String name
+    *@Return void
+    */
     public void setName(String name) {
         this.name = name;
     }
-
+     /*
+    *Busca el valor del precio del postre
+    *@Return int price
+    */
     public int getPrice() {
         return price;
     }
 
+       /*
+    *Cambia el valor del precio del postre
+    *@Params int price
+    *@Return void
+    */
     public void setPrice(int price) {
         this.price = price;
     }
-
+    
+     /*
+    *Busca la descripción del postre
+    *@Return String description
+    */
     public String getDescription() {
         return description;
     }
 
+    
+       /*
+    *Cambia la descripción del postre
+    *@Params String description
+    *@Return void
+    */
     public void setDescription(String description) {
         this.description = description;
     }

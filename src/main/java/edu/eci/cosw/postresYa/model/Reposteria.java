@@ -27,33 +27,73 @@ public class Reposteria {
         this.coverageRange=coverageRange;
         postres=new ArrayList<Postre>();
     }
+    
+    
+         /*
+    *Busca el nit de la repostería 
+    *@Return int nit
+    */ 
     public int getNit() {
         return nit;
     }
-
+    
+       /*
+    *Cambia el valor del nit de la repostería
+    *@Params int nit
+    *@Return void
+    */
     public void setNit(int nit) {
         this.nit = nit;
     }
 
+    /*
+    *Busca el nombre de la repostería
+    *@Return String name
+    */
     public String getName() {
         return name;
     }
 
+       /*
+    *Cambia el valor del nombre de la repostería
+    *@Params String name
+    *@Return void
+    */
     public void setName(String name) {
         this.name = name;
     }
 
+  
+           /*
+    *Busca el catálogo de postres de la repostería
+    *@Return List<Postres> postres
+    */ 
     public List<Postre> getPostres() {
         return postres;
     }
 
+       /*
+    *Agrega un nuevo postre al catálogo de la repostería
+    *@Params Postre postre
+    *@Return void
+    */
     public void addPostres(Postre postre) {
         postres.add(postre);
     }
+    
+           /*
+    *Busca el rango de cobertura de la repostería 
+    *@Return String coverageRange
+    */ 
     public String getCoverageRange() {
         return coverageRange;
     }
 
+       /*
+    *Cambia el valor del rango de cobertura de la repostería
+    *@Params  String coverageRange
+    *@Return void
+    */
     public void setCoverageRange(String coverageRange) {
         this.coverageRange = coverageRange;
     }

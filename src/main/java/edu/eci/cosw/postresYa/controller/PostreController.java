@@ -37,7 +37,10 @@ public class PostreController {
     public PostreController(){
 
     }
-    
+    /*
+    *busca la lista de postres en el stub
+    *@return Set<Postre>, en caso de que no tenga ningun postre devolvera un set vacio
+    */
     @RequestMapping(method = RequestMethod.GET)
     public Set<Postre> getPostre() {
         
@@ -46,18 +49,32 @@ public class PostreController {
     }
     
  
-    
+     /*
+    *Añade un postre nuevo (el código de este no esta utilizado) a la lista de postres del stub
+    *@Params Postre postre
+    *@return void
+    */
     @RequestMapping (method = RequestMethod.POST)
     public void postPostre(@RequestBody Postre postre) throws PostreException {
         stub.addPostre(postre);
     }
     
+     /*
+    *Cambia los datos de un postre ya existente en la lista de postres del stub
+    *@Params Postre postre
+    *@return void
+    */
      @RequestMapping (value="/change", method = RequestMethod.POST)
     public void changePostre(@RequestBody Postre postre) throws PostreException {
         stub.changePostre(postre);
     }
     
-        
+     /*
+    *Busca la imagen a un postre asociado por medio de un código dado, y la devuleve en una conexión abierta para hacer más rapido el programa
+    *en caso de que no la encuentre devuleve un HttpStatus.NOT_FOUND
+    *@Params String code
+    *@return ResponseEntity<InputStreamResource>
+    */    
     @RequestMapping(value="/{code}/picture", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> getPostrePicture(@PathVariable String code){
         
