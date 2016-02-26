@@ -89,7 +89,7 @@
 		            </plugin>-->
 
 			<!-- The Jetty plugin allows us to easily test the development build by
-		            running jetty:run on the command line. -->
+		            running jetty:run on the command line. 
 		            
 		            <plugin>
 		                <groupId>org.eclipse.jetty</groupId>
@@ -103,7 +103,7 @@
 		                </configuration>
 		            </plugin>
 			
-			
+			-->
 			
 			<!--plugin de prueba para pasar en heroku
 			
