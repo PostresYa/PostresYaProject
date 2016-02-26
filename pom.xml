@@ -106,7 +106,7 @@
 			
 			<!--plugin de prueba para pasar en heroku
 			
-			  Plugin configuration for Heroku compatibility. 
+			  Plugin configuration for Heroku compatibility. -->
 		            <plugin>
 		                <groupId>org.apache.maven.plugins</groupId>
 		                <artifactId>maven-dependency-plugin</artifactId>
@@ -134,12 +134,7 @@
 					
 			
 			
-			-->
 			
-
-
-
-
 
 			
 		</plugins>
