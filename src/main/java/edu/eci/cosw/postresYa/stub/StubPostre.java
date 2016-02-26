@@ -39,6 +39,11 @@ public class StubPostre implements Stub{
     private static LinkedHashMap<String, Postre> postresMap;
     private static LinkedHashMap<String, String> postresImages;
     
+    /**
+     * El constructor del StubPostre instancia un nuevo objeto postre
+     * y los almacena en memoria
+     * @throws PostreException 
+     */
     public StubPostre() throws PostreException {
         postres= new LinkedHashSet<>();
         postresMap= new LinkedHashMap<>();
@@ -49,19 +54,22 @@ public class StubPostre implements Stub{
         postresImages.put(prueba.getCode(),"src/main/resources/static/app/images/Postre1.png");
     }
     
-           /*
-    *Busca los postres registrados en el stub
-    *@Return Set<Postre> 
-    */ 
+    /**
+     * 
+     * @return un conjunto de postres
+     */
     @Override
     public Set<Postre> getPostres() {
         return postres;
     }
 
-               /*
-    *Añade un postre al stub, en caso de que no se pueda registrar se envia una excepción (PostreException)
-    *@Return Set<Postre> 
-    */ 
+  
+    
+    /**
+     * Añade un postre al stub, en caso de que no se pueda registrar se envía una excepción (PostreException)
+     * @param Postre postre 
+     * @throws PostreException 
+     */
     @Override
     public void addPostre(Postre postre) throws PostreException{
        
@@ -70,20 +78,26 @@ public class StubPostre implements Stub{
         postresImages.put(postre.getCode(),"src/main/resources/static/app/images/PostreNuevo.png");
     }
 
-           /*
-    *Busca un postre por medio del código asociado, en caso de que no lo encuentre envia una excepción (PostresException) 
-    *@Return Postre 
-    */ 
+    /**
+     * Busca un postre por medio del código asociado
+     * @param code
+     * @return
+     * @throws PostreException si el postre a consultar no es encontrado
+     */
     @Override
     public Postre getPostreByCode(String code) throws PostreException{
         
         return postresMap.get(code);
     }
 
-           /*
-    *Busca la imagen de un postre por medio del código asociado, en caso de que no lo encuentre envia una excepción (PostresException) 
-    *@Return InputStream 
-    */ 
+    
+    
+    /**Busca la imagen de un postre por medio del código asociado
+     * 
+     * @param code
+     * @return InputStream con la imagen del producto solicitado
+     * @throws PostreException si el postre no se encuentra
+     */
     @Override
     public InputStream getPostrePicture(String code) throws PostreException {
         
@@ -101,11 +115,13 @@ public class StubPostre implements Stub{
        
     }
     
-            /*
-    *Busca un postre asociado a un código, para modificar sus vamores, en caso de no encontrarlo envia una Excepción (PostreException)
-    *@Return void
-    */ 
+  
 
+    /**
+     * Busca un postre asociado a un código, para modificar sus valores
+     * @param postre
+     * @throws PostreException postre no encontrado
+     */
     @Override
     public void changePostre(Postre postre) throws PostreException {
         
@@ -126,10 +142,12 @@ public class StubPostre implements Stub{
         
     }
     
-                /*
-    *Cambia la asociación de los hash, con un postre dado
-    *@Return void
-    */ 
+    
+    
+    /**
+     * Cambia la asociación de los hash, con un postre dado
+     * @param postre 
+     */
     private void changeReference(Postre postre){
         postresMap.get(postre.getCode()).setName(postre.getName());
         postresMap.get(postre.getCode()).setDescription(postre.getDescription());
