@@ -6,7 +6,9 @@
 package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
 
 /**
  *
@@ -14,16 +16,17 @@ import java.util.List;
  */
 public class Pedido {
     
-  //  private static final String[] listEstados = {"en espera","preparandose","enviado"};
-  //  private List <Postre> postres = new ArrayList≤>();
+    
+    private static final String[] listEstados= {"en espera","preparandose","enviado"};
+    private List <Postre> postres = new ArrayList<>();
     private String fecha;
-    private String direccion; //Posiblemente un objeto
+    private String direccion; // Posibilidad de un objeto
     private int codigo;
     
     public Pedido(){
     
     }
-    /*
+    
     public Pedido(List <Postre> postres, String fecha, String direccion, int codigo){
         
         this.postres = postres;
@@ -32,8 +35,18 @@ public class Pedido {
         this.codigo = codigo;
         
     
-    }*/
+    }
     
+    
+    public static String[] getListEstados() {
+        return listEstados;
+    }
+    
+
+    public List<Postre> getPostres() {
+        return postres;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -57,5 +70,7 @@ public class Pedido {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+   
     
 }
+
