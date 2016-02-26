@@ -90,7 +90,10 @@
 
 			<!-- The Jetty plugin allows us to easily test the development build by
 		            running jetty:run on the command line. 
-		            --><plugin>
+			    <plugin-->
+
+		            
+		            <!--plugin>
 		                <groupId>org.eclipse.jetty</groupId>
 		                <artifactId>jetty-maven-plugin</artifactId>
 		                <version>9.2.3.v20140905</version>
@@ -100,13 +103,8 @@
 		                        <contextPath>/app</contextPath>
 		                    </webApp>                    
 		                </configuration>
-		            </plugin>
-			
-			
-			
-			<!--plugin de prueba para pasar en heroku
-			
-			  Plugin configuration for Heroku compatibility.--> 
+		            </plugin-->
+
 		            <plugin>
 		                <groupId>org.apache.maven.plugins</groupId>
 		                <artifactId>maven-dependency-plugin</artifactId>
@@ -131,17 +129,7 @@
 		
 		                </executions>
 		            </plugin>
-					
-			
-			
-			
-			
-
-
-
-
-
-			
+							
 		</plugins>
 
 	</build>
