@@ -17,59 +17,69 @@ import java.util.List;
 public class Pedido {
     
     
-    private static final String[] listEstados= {"en espera","preparandose","enviado"};
-    private List <Postre> postres = new ArrayList<>();
+    private List <Postre> postres;
     private Date fecha;
     private String direccion; // Posibilidad de un objeto
-    private int codigo;
+    private String codigo;
+    private String estado;
+    private int precio;
+
+    public int getPrecio() {
+        return precio;
+    }
     
     public Pedido(){
     
     }
     
-    public Pedido(List <Postre> postres, String direccion, int codigo){
+    public Pedido(List <Postre> postres, String direccion, String codigo, Date fecha){
         
         this.postres = postres;
-        this.fecha = new Date();
+        this.fecha = fecha;
         this.direccion = direccion;
-        this.codigo = codigo;
+        this.codigo=codigo;
+        this.estado="en espera";
+        this.precio=updatePrice(postres);
+        System.out.println(fecha.toString());
         
-    
+        
     }
     
-    
-    public static String[] getListEstados() {
-        return listEstados;
-    }
+     private int updatePrice(List<Postre> postres) {
+         int tempPrice=0;
+         for(Postre p:postres){
+             tempPrice+=p.getPrice();
+         }
+         return tempPrice;
+     
+     }
     
 
     public List<Postre> getPostres() {
         return postres;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getFecha() {
+        
+        return fecha.toLocaleString();
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
 
     public String getDireccion() {
         return direccion;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setEstado(){
+        this.estado="Enviado";
     }
+    public String getEstado(){
+        return estado;
+    }
+
+
    
     
 }

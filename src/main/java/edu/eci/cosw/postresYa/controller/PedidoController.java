@@ -5,11 +5,13 @@
  */
 package edu.eci.cosw.postresYa.controller;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.stubPedido.StubPed;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,22 +33,15 @@ public class PedidoController {
     }
     
     @RequestMapping(method = RequestMethod.GET)
-    public List<Pedido> getPedidos() {
+    public List<Pedido> getPedidos() throws PostreException{
         return pedido.getPedidos();
     }
-  
-    @RequestMapping(value="/postres", method = RequestMethod.GET)
-    public List<Postre> getPostresPedido(int codPedido) {
-        List<Pedido>aux =pedido.getPedidos();
-        
-        for(Pedido p : aux){
-            if(p.getCodigo() == codPedido){
-                List<Postre> postres = p.getPostres();
-                return postres;
-            }
-                
-        }
-        return null;
+    
+    @RequestMapping(value="/change", method=RequestMethod.POST)
+     public void changeStatePedido(@RequestBody String codigo) throws PostreException {
+         System.out.println(codigo);
+        pedido.changeStatePedido(codigo);
     }
+
     
 }

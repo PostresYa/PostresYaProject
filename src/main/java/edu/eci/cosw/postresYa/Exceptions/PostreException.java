@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  */
 public class PostreException extends Exception{
     public final static String postreException="Postre 404"; 
-
+    public final static String pedidoException="Pedido 404"; 
     public PostreException(String message){
         super(message);
     }

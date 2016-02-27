@@ -25,6 +25,11 @@ angular.module('services.module1', ['ngRoute','ngResource'])
     .factory('postresChange', function($resource) {
             
         return $resource('/postres/change');
+    })
+    
+    .factory('pedidosChange', function($resource) {
+            
+        return $resource('/pedidos/change');
     });
     
 

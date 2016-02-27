@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.stubPedido;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Pedido;
 import java.util.List;
 
@@ -14,5 +15,7 @@ import java.util.List;
  */
 public interface StubPed {
     
-    List <Pedido> getPedidos();
+    List <Pedido> getPedidos() throws PostreException;
+
+    public void changeStatePedido(String codigo) throws PostreException;
 }
