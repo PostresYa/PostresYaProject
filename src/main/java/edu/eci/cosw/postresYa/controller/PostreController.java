@@ -7,9 +7,7 @@ package edu.eci.cosw.postresYa.controller;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.stub.Stub;
-import java.io.IOException;
 
-import java.util.List;
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
@@ -34,13 +32,17 @@ public class PostreController {
     
     @Autowired
     Stub stub;
+    /**
+     * Constructor del controlador de postres
+     */
     public PostreController(){
 
     }
-    /*
-    *busca la lista de postres en el stub
-    *@return Set<Postre>, en caso de que no tenga ningun postre devolvera un set vacio
-    */
+   
+    /**
+     * busca la lista de postres en el stub
+     * @return un conjunto con los postres, en caso de que no tenga ningun postre devolvera un conjunto vacio
+     */
     @RequestMapping(method = RequestMethod.GET)
     public Set<Postre> getPostre() {
         
@@ -49,32 +51,36 @@ public class PostreController {
     }
     
  
-     /*
-    *Añade un postre nuevo (el código de este no esta utilizado) a la lista de postres del stub
-    *@Params Postre postre
-    *@return void
-    */
+   
+    
+    /**
+     * Añade un postre nuevo (el código de este no esta utilizado) a la lista de postres del stub
+     * @param postre
+     * @throws PostreException 
+     */
     @RequestMapping (method = RequestMethod.POST)
     public void postPostre(@RequestBody Postre postre) throws PostreException {
         stub.addPostre(postre);
     }
     
-     /*
-    *Cambia los datos de un postre ya existente en la lista de postres del stub
-    *@Params Postre postre
-    *@return void
-    */
+  
+    /**
+     * los datos de un postre ya existente en la lista de postres del stub
+     * @param postre que se va a cambiar
+     * @throws PostreException 
+     */
      @RequestMapping (value="/change", method = RequestMethod.POST)
     public void changePostre(@RequestBody Postre postre) throws PostreException {
         stub.changePostre(postre);
     }
     
-     /*
-    *Busca la imagen a un postre asociado por medio de un código dado, y la devuleve en una conexión abierta para hacer más rapido el programa
-    *en caso de que no la encuentre devuleve un HttpStatus.NOT_FOUND
-    *@Params String code
-    *@return ResponseEntity<InputStreamResource>
-    */    
+    
+    
+    /**
+     * Busca la imagen a un postre asociado por medio de un código dado
+     * @param code
+     * @return ResponseEntity 
+     */
     @RequestMapping(value="/{code}/picture", method = RequestMethod.GET)
     public ResponseEntity<InputStreamResource> getPostrePicture(@PathVariable String code){
         
