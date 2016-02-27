@@ -11,11 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UsersController {  
-     /*
-    *Busca si el usuario tiene autorización en la aplicación
-    *@Params Principal user
-    *@return Principal user
-    */
+    
+    
+    /**
+     * Busca si el usuario tiene autorización en la aplicación
+     * @param user
+     * @return 
+     */
     @RequestMapping("/app/user")
     public Principal user(Principal user) {
         return user;

@@ -10,7 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ * Define las excepciones que se pueden presentar en el API
+ * de PostresYa
  * @author duvan
  * 
  */
