@@ -6,6 +6,7 @@
 package edu.eci.cosw.postresYa.controller;
 
 import edu.eci.cosw.postresYa.model.Pedido;
+import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.stubPedido.StubPed;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class PedidoController {
     StubPed pedido;
     
     public PedidoController(){
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@s");
+        
     }
     
     @RequestMapping(method = RequestMethod.GET)
@@ -34,5 +35,18 @@ public class PedidoController {
         return pedido.getPedidos();
     }
   
+    @RequestMapping(value="/postres", method = RequestMethod.GET)
+    public List<Postre> getPostresPedido(int codPedido) {
+        List<Pedido>aux =pedido.getPedidos();
+        
+        for(Pedido p : aux){
+            if(p.getCodigo() == codPedido){
+                List<Postre> postres = p.getPostres();
+                return postres;
+            }
+                
+        }
+        return null;
+    }
     
 }

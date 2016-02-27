@@ -8,6 +8,7 @@ angular.module('myApp', [
   'myApp.viewRegistroPostres',
   'myApp.viewPostres',
   'myApp.viewLogin',
+  'myApp.viewPedidos',
   'services.module1',
   'myApp.version'
 ]).

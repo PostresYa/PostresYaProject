@@ -19,7 +19,7 @@ public class Pedido {
     
     private static final String[] listEstados= {"en espera","preparandose","enviado"};
     private List <Postre> postres = new ArrayList<>();
-    private String fecha;
+    private Date fecha;
     private String direccion; // Posibilidad de un objeto
     private int codigo;
     
@@ -27,10 +27,10 @@ public class Pedido {
     
     }
     
-    public Pedido(List <Postre> postres, String fecha, String direccion, int codigo){
+    public Pedido(List <Postre> postres, String direccion, int codigo){
         
         this.postres = postres;
-        this.fecha = fecha;
+        this.fecha = new Date();
         this.direccion = direccion;
         this.codigo = codigo;
         
@@ -47,11 +47,11 @@ public class Pedido {
         return postres;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

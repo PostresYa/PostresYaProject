@@ -1,0 +1,29 @@
+<p>Lista de los pedidos.</p>
+<p>
+  Showing of 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+</p>
+<table class="table table-striped table-hover">
+  <tbody>
+      
+      
+      <tr ng-repeat="todo in listado">
+       <td><b>POSTRES</b></td> 
+          <td><b>CODIGO</b></td>      
+          <td><b>FECHA</b></td>
+          <td><b>DIRECCION</b></td>   
+    </tr>
+    <tr ng-repeat="todo in listado">
+        <td> <button ng-click="postres()">Postres</button>{{todo.postres}}</td>
+      <td>{{todo.codigo}}</td>      
+      <td>{{todo.fecha}}</td>
+      <td>{{todo.direccion}}</td>
+ 
+           
+    </tr>
+    
+    <tr ng-repeat="todo1 in listado">
+           <td>{{todo1.pedido}}</td>
+       </tr>
+  </tbody>
+</table>

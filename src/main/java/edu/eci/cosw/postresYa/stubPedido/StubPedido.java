@@ -26,10 +26,11 @@ public class StubPedido implements StubPed{
     
     public StubPedido(){
         List <Postre> postres = new ArrayList<>();
-        Postre p = new Postre("2", "name", 0,"description");
+        Postre p1 = new Postre("1", "MORA", 0,"description");
+        Postre p = new Postre("2", "LECHE", 0,"description");
         postres.add(p);
-        Pedido aux = new Pedido(postres, "fecha", " direccion" , 1);
-        
+        postres.add(p1);
+        Pedido aux = new Pedido(postres, "direccion" , 1);
         pedidos.add(aux);
     }
     
