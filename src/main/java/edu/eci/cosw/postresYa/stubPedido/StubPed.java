@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author diegorodriguecruz
+ * @author Diego Alejandro Rodriguez Cruz
  */
 public interface StubPed {
     

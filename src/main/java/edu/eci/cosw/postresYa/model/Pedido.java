@@ -12,11 +12,13 @@ import java.util.List;
 
 /**
  *
- * @author diegorodriguecruz
+ * @author Diego Alejandro Rodriguez Cruz
  */
 public class Pedido {
     
-    
+    /**
+     * Declaracion de variables
+     */
     private List <Postre> postres;
     private Date fecha;
     private String direccion; // Posibilidad de un objeto
@@ -24,14 +26,20 @@ public class Pedido {
     private String estado;
     private int precio;
 
-    public int getPrecio() {
-        return precio;
-    }
-    
+    /**
+     * Constructor inicial de pedido
+     */
     public Pedido(){
     
     }
     
+    /**
+     * Constructor con parametro de un pedido
+     * @param postres // Lista de los postres que se ofrecen
+     * @param direccion //Direccion a la cual se solicito un postre
+     * @param codigo //Codigo del pedido para tener en cuenta las modificaciones que se necesiten
+     * @param fecha //Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
+     */
     public Pedido(List <Postre> postres, String direccion, String codigo, Date fecha){
         
         this.postres = postres;
@@ -44,7 +52,20 @@ public class Pedido {
         
         
     }
+        
+    /**
+     * Metodo que retorna el precio del postre
+     * @return 
+     */
+    public int getPrecio() {
+        return precio;
+    }
     
+    /**
+     * Actualiza el precio del postre solicitado
+     * @param postres
+     * @return 
+     */
      private int updatePrice(List<Postre> postres) {
          int tempPrice=0;
          for(Postre p:postres){
@@ -54,27 +75,50 @@ public class Pedido {
      
      }
     
-
+     /**
+      * Se obtiene la lista de postres solicitados
+      * @return 
+      */
     public List<Postre> getPostres() {
         return postres;
     }
 
+    /**
+     * Se obtiene la fecha de solicitud del pedido
+     * @return 
+     */
     public String getFecha() {
         
         return fecha.toLocaleString();
     }
 
-
+    /**
+     * Se obtiene la direccion a donde se requiere entregar el postre
+     * @return 
+     */
     public String getDireccion() {
         return direccion;
     }
 
+    /**
+     * Codigo de pedido, para realizar las modificaciones necesarias para este
+     * @return 
+     */
     public String getCodigo() {
         return codigo;
     }
+    
+    /**
+     * Maneja el estado del pedido
+     */
     public void setEstado(){
         this.estado="Enviado";
     }
+    
+    /**
+     * Obtiene el estado del pedido
+     * @return 
+     */
     public String getEstado(){
         return estado;
     }

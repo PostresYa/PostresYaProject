@@ -27,16 +27,29 @@ public class PedidoController {
     
     @Autowired
     StubPed pedido;
+    /**
+     * Constructor vacio para el controlador de pedido
+     */
     
     public PedidoController(){
         
     }
     
+    /**
+     * Metodo GET para obtener los pedidos
+     * @return Se entrega la lista de los valores realizados
+     * @throws PostreException 
+     */
     @RequestMapping(method = RequestMethod.GET)
     public List<Pedido> getPedidos() throws PostreException{
         return pedido.getPedidos();
     }
     
+    /**
+     * Metodo POST realizado para el cambio de estado de algun pedido
+     * @param codigo //Codigo del pedido al cual se le desea cambiar el estado
+     * @throws PostreException 
+     */
     @RequestMapping(value="/change", method=RequestMethod.POST)
      public void changeStatePedido(@RequestBody String codigo) throws PostreException {
          System.out.println(codigo);

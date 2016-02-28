@@ -33,8 +33,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StubPostre implements Stub{
    // private List<Postre> postres= new ArrayList<>();
-
-    
+   
     private static LinkedHashSet<Postre> postres;
     private static LinkedHashMap<String, Postre> postresMap;
     private static LinkedHashMap<String, String> postresImages;
@@ -62,9 +61,7 @@ public class StubPostre implements Stub{
     public Set<Postre> getPostres() {
         return postres;
     }
-
-  
-    
+   
     /**
      * Añade un postre al stub, en caso de que no se pueda registrar se envía una excepción (PostreException)
      * @param Postre postre 
@@ -89,9 +86,7 @@ public class StubPostre implements Stub{
         
         return postresMap.get(code);
     }
-
-    
-    
+   
     /**Busca la imagen de un postre por medio del código asociado
      * 
      * @param code
@@ -100,8 +95,7 @@ public class StubPostre implements Stub{
      */
     @Override
     public InputStream getPostrePicture(String code) throws PostreException {
-        
-        
+          
         try {
             return new BufferedInputStream(
                     new FileInputStream(postresImages.get(code)));
@@ -110,13 +104,10 @@ public class StubPostre implements Stub{
             
             throw new PostreException(PostreException.postreException);
            
-        }
+        }      
         
-       
     }
     
-  
-
     /**
      * Busca un postre asociado a un código, para modificar sus valores
      * @param postre

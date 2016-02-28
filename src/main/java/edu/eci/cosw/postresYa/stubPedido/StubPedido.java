@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author diegorodriguecruz
+ * @author Diego Alejandro Rodriguez Cruz
  */
 
 @Service
@@ -24,7 +24,10 @@ public class StubPedido implements StubPed{
     
     private List<Pedido> pedidos = new ArrayList<>();
 
-    
+    /**
+     * El constructor del StubPedido instancia un nuevo objeto pedido
+     * almacenando en memoria
+     */
     public StubPedido(){
         List <Postre> postres = new ArrayList<>();
         Postre p1 = new Postre("1", "MORA", 100,"description MORA");
@@ -41,6 +44,10 @@ public class StubPedido implements StubPed{
         pedidos.add(aux);
     }
     
+    /**
+     * Conjunto de pedidos
+     * @return pedidos
+     */
     @Override
     public List<Pedido> getPedidos() {
     
@@ -48,6 +55,11 @@ public class StubPedido implements StubPed{
         
     }
 
+    /**
+     * Cambia con base al codido del pedido el estado
+     * @param codigo
+     * @throws PostreException 
+     */
     @Override
     public void changeStatePedido(String codigo) throws PostreException {
        
