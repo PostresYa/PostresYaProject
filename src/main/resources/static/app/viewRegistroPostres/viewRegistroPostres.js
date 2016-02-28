@@ -32,7 +32,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                     }
                     if (codeExist){
                         var seguro = confirm("El codigo ya esta asociado, esta seguro de cambiar los valores?");
-                        if (seguro == true) {
+                        if (seguro) {
                             var newProduct={"code":$scope.code,"name":$scope.name,"price":$scope.price,"description":$scope.description};
                     
                             postresChange.save(newProduct,function(){
@@ -65,7 +65,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                     
        
             }else{
-                alert("error priority");
+                alert("error en el precio");
             }
  
             
