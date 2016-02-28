@@ -61,11 +61,13 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                     
                     
                     
-                }
+                }else{
+                alert("El precio debe ser mayor a 0");
+            }
                     
        
             }else{
-                alert("error en el precio");
+                alert("El precio debe ser numerico");
             }
  
             
