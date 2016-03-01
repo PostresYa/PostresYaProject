@@ -30,7 +30,7 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
         $scope.order('estado', true);   
         
         $scope.changeState=function($event,codigo,$index){
-            
+            alert("Legueeeee" + $index);
             if($scope.listado[$index].estado !="Enviado"){
                 var seguro = confirm("desea cambiar el estado del pedido a enviado?");
                 if (seguro) {
