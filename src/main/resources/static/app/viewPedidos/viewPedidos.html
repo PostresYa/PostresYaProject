@@ -22,23 +22,49 @@
           precio pedido
       </th>
       <th>
-          postres
+          Cambiar estado 
       </th>
      
+      <th>
+          Postres
+      </th>
     </tr> 
+    
+    
+    
+  <tr ng-repeat-start="todo in listado">
+      <td>{{todo.codigo}}</td>
+      <td>{{todo.fecha}}</td>      
+      <td>{{todo.direccion}}</td>
+      <td>{{todo.estado}}</td>
+      <td>{{todo.precio}}</td>
+  <td><button ng-click="changeState($event,todo.codigo,$index)">cambiar estado</button></td> 
+ 
+<!--  Item group inside each category -->
+  
+  <td ng-repeat="postres in todo.postres">
+     {{postres.code}}
+     {{postres.descripcion}}
+  </td>
+  
 
+<!--  Repeat end, closing category group -->
+<tr ng-repeat-end></tr>
+
+    <!--
     <tr ng-repeat="todo in listado">
         <td>{{todo.codigo}}</td>
       <td>{{todo.fecha}}</td>      
       <td>{{todo.direccion}}</td>
       <td>{{todo.estado}}</td>
-      <td>{{todo.precio}}</td>
+      <td>{{todo.precio}}</td> -->
       
-      <td><button ng-click="changeState($event,todo.codigo,$index)">cambiar estado</button></td>
+     
+
           
              
-           
-    </tr>
+</tr> 
+
     
     <!--tr ng-repeat="todo1 in listado">
            <td>{{todo1.pedido}}</td-->
