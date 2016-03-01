@@ -3,11 +3,10 @@
 		
     <form role="form" ng-submit="login()">
     
-    <div class="input-group" id="prueba" >
+    <div class="input-group"  >
     <ul>
         <ul>
-            <div class="input-group input-group-lg">
-                
+            <div class="input-group input-group-lg">                
                 <span class="input-group-addon" id="sizing-addon1"> <img src="images/icon_user.png"> </span>
                 <!--<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" >-->
                  <input type="text"  required="true" placeholder="Nombre de Usuario"
@@ -18,7 +17,7 @@
         <ul>
             <div class="input-group input-group-lg">
                 <span class="input-group-addon" id="sizing-addon1"> <img src="images/password.png"> </span>
-                <input type="password" placeholder="password"
+                <input type="password" placeholder="password" required="true"
                     class="form-control" id="password" name="password" ng-model="credentials.password" aria-describedby="sizing-addon1"/>
             </div>
         </ul>   
