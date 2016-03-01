@@ -1,50 +1,86 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+
+<html lang="en" ng-app="myApp" class="no-js"> 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Postres Ya</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!--link rel="stylesheet" href="/bower_components/html5-boilerplate/dist/css/normalize.css">
-  <link rel="stylesheet" href="/bower_components/html5-boilerplate/dist/css/main.css"-->
+ 
   <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-  <!--script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-  -->
+ 
+  
+  
+  <link rel="stylesheet" href="css/5grid/core.css" />
+<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style-desktop.css" />
+
+  
 </head>
 <body>
-    
-     <img src="images/Logo.png">
-    <ul class="menu" ng-controller="myApp.principal">
-       
-      <li><a href="#/viewLogin">Login</a></li>
-    <li><a href="#/viewRegistroPostres">Registrar un nuevo postre</a></li>
-    <li><a href="#/viewPostres">Postres</a></li>
-    <li><a href="#/viewPedidos">Lista de pedidos</a></li>
-    
-    <li><a ng-click="logout()">Logout</a></li>
-  </ul>
+<div >
+	<div id="header-wrapper">
+		<header id="header">
+			<div class="5grid-layout">
+				<div class="row">
+					<div class="12u" id="logo">  
+                                            <h1><a href="#" class="mobileUI-site-name">Postres ya</a></h1>
+					</div>
+				</div>
+			</div>
+			<div class="5grid-layout">
+				<div class="row">
+					<div class="12u" id="menu">
+						<div id="menu-wrapper">
+							<nav   class="mobileUI-site-nav ">
 
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+                                                            <ul ng-controller="myApp.principal">
+                                                                 <li >  
+                                                                    <a href="#/viewLogin" class="nav-link">Login</a>
+                                                                </li>
+                                                                <li c>               
+                                                                    <a href="#/viewRegistroPostres">Registrar un nuevo postre</a>          
+                                                                </li>
+                                                                <li >
+                                                                    <a href="#/viewPostres">Postres</a>
+                                                                </li>
+                                                                <li >
+                                                                    <a href="#/viewPedidos">Lista de pedidos</a>
+                                                                </li>
+                                                                <li >
+                                                                    <a ng-click="logout()">Logout</a>
+                                                                </li>
+                                                            </ul>
+                                                        </nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+	</div>
+	
+	
+</div>
 
-  <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
 
-  <!-- In production use:
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
-  -->
+  <div ng-view ></div>
+
+  <div id="copyright" class="5grid-layout"><section>
+		<p>&copy; Postres Ya | Authors: Duvan Barrera - Giovanny Sissa - Wilmer Cortez - Diego Rodriguez</p>
+	</section><span app-version></span></div>
+
+ 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <!--Dependencias de Angular material--> 
+  <!--Dependencias de Angular material-->
 
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 
@@ -64,3 +100,5 @@
   <script src="components/version/interpolate-filter.js"></script>
 </body>
 </html>
+
+

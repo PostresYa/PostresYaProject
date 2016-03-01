@@ -1,5 +1,5 @@
 /* app css stylesheet */
-
+/*
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -29,7 +29,7 @@
   padding: 0;
 }
 
-
+*/
 
 .sortorder:after {
   content: '\25b2';
@@ -38,3 +38,7 @@
   content: '\25bc';
 }
 
+div{
+   text-align: center;
+    color: black;
+}
