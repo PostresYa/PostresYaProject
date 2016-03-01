@@ -52,7 +52,7 @@ public class PedidoController {
      */
     @RequestMapping(value="/change", method=RequestMethod.POST)
      public void changeStatePedido(@RequestBody String codigo) throws PostreException {
-         System.out.println(codigo);
+       
         pedido.changeStatePedido(codigo);
     }
 

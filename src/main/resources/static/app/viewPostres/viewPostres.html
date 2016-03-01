@@ -3,15 +3,15 @@
   <tbody>
      <tr>
       <th>
-          <button ng-click="order('name')">Nombre</button>
+          <button ng-click="order('name')" class="btn btn-primary btn-large">Nombre</button>
           <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
       </th>
       <th>
-          <button ng-click="order('code')">Codigo</button>
+          <button ng-click="order('code')" class="btn btn-primary btn-large">Codigo</button>
           <span class="sortorder" ng-show="predicate === 'code'" ng-class="{reverse:reverse}"></span>
       </th>
         <th>
-          <button ng-click="order('price')">Precio</button>
+          <button ng-click="order('price')" class="btn btn-primary btn-large">Precio</button>
           <span class="sortorder" ng-show="predicate === 'price'" ng-class="{reverse:reverse}"></span>
       </th>
       <th>
@@ -33,6 +33,7 @@
       <td>{{todo.price}}</td>
       <td>{{todo.description}}</td>
       <td><image src="/postres/{{todo.code}}/picture" alt="" width="150" height="150"/></td>
+     
     </tr>
   </tbody>
 </table>

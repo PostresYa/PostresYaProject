@@ -1,6 +1,8 @@
-<form role="form" ng-submit="agregarPostre()()">
-<div class="input-group" >
+
     <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
+        
+        <form role="form" ng-submit="agregarPostre()">
+        <div class="input-group" >    
         <ul>
             <ul>
                 <input type="text"   ng-model = "name" placeholder="Nombre" required />            
@@ -19,17 +21,23 @@
             </ul>
             <br>
             <ul>
-                <button type="submit" class="button-style">Agregar postre</button>
+                <button type="submit" class="btn btn-primary btn-large">Agregar postre</button>
                 
             </ul>
         </ul>
-        <div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
-        <h1> Usted no esta autenticado</h1>
+        
     </div>
+    </form>
+ 
+    
+    </div>
+    <div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
+        <h1> Usted no esta autenticado</h1>
+        
     </div>
     
-</div>
-</form>    
+
+  
     
     
      

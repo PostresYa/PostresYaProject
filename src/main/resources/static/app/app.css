@@ -31,6 +31,7 @@
 
 */
 
+
 .sortorder:after {
   content: '\25b2';
 }
@@ -39,6 +40,11 @@
 }
 
 div{
-   text-align: center;
+     text-align: center;
     color: black;
+}
+
+textarea{
+    margin: 0px; width: 1153px; height: 116px;
+    resize:none;
 }

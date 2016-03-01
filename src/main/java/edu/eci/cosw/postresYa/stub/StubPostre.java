@@ -47,7 +47,7 @@ public class StubPostre implements Stub{
         postres= new LinkedHashSet<>();
         postresMap= new LinkedHashMap<>();
         postresImages= new LinkedHashMap<>();
-        Postre prueba=new Postre("p1", "prueba", 15000, "4 porciones, rico");
+        Postre prueba=new Postre("F1", "Fresas", 14500, "4 porciones, con galleta");
         postres.add(prueba);
         postresMap.put(prueba.getCode(), prueba);
         postresImages.put(prueba.getCode(),"src/main/resources/static/app/images/Postre1.png");

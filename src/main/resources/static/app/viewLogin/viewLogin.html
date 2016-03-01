@@ -1,5 +1,5 @@
+ <div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
 
-<div id="page-wrapper"  class="5grid-layout">
 		
     <form role="form" ng-submit="login()">
     
@@ -23,12 +23,22 @@
         </ul>   
         <br>
         <ul>
-             <button type="submit" class="button-style">Submit</button>
+             <button type="submit" class="btn btn-primary btn-large">Submit</button>
         </ul>
     </ul>
 </div>  
 </form>
 	</div>
+
+
+ <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
+   
+    
+                  
+                    <h1><a class="autenticacion">Ya esta autenticado</a></h1>
+                
+			
+    </div>
 
 <!--<p>This is the partial for view Login.</p>
 <p>

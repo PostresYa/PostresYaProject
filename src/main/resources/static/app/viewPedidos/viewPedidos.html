@@ -3,18 +3,18 @@
   <tbody>
       <tr>
       <th>
-          <button ng-click="order('codigo')"  >Codigo</button>
+          <button ng-click="order('codigo')" class="btn btn-primary btn-large"  >Codigo</button>
           <span class="sortorder" ng-show="predicate === 'codigo'" ng-class="{reverse:reverse}"></span>
       </th>
       <th>
-          <button ng-click="order('fecha')">Fecha</button>
+          <button ng-click="order('fecha')" class="btn btn-primary btn-large">Fecha</button>
           <span class="sortorder" ng-show="predicate === 'fecha'" ng-class="{reverse:reverse}"></span>
       </th>
         <th>
           Direccion
       </th>
       <th>
-          <button ng-click="order('estado')">Estado</button>
+          <button ng-click="order('estado')" class="btn btn-primary btn-large">Estado</button>
           <span class="sortorder" ng-show="predicate === 'estado'" ng-class="{reverse:reverse}"></span>
 
       </th>
@@ -38,16 +38,16 @@
       <td>{{todo.direccion}}</td>
       <td>{{todo.estado}}</td>
       <td>{{todo.precio}}</td>
-  <td><button ng-click="changeState($event,todo.codigo,$index)">cambiar estado</button></td> 
+  <td><button ng-click="changeState($event,todo.codigo,$index)" class="btn btn-primary btn-large">cambiar estado</button></td> 
  
 <!--  Item group inside each category -->
   
   <td ng-repeat="postres in todo.postres">
-     {{postres.code}}
-     {{postres.descripcion}}
+      <a ng-click="DetallesPostre($event,todo.postres,$index)" > Codigo : {{postres.code}}
+      </a>
   </td>
   
-
+  
 <!--  Repeat end, closing category group -->
 <tr ng-repeat-end></tr>
 

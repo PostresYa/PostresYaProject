@@ -29,39 +29,40 @@
 		<header id="header">
 			<div class="5grid-layout">
 				<div class="row">
-					<div class="12u" id="logo">  
-                                            <h1><a href="#" class="mobileUI-site-name">Postres ya</a></h1>
+					<div class="12u" id="logo">
+                                            <img src="images/Logo.png"> 
+                                            <h1><a  class="mobileUI-site-name">Postres ya</a></h1>
 					</div>
 				</div>
 			</div>
-			<div class="5grid-layout">
-				<div class="row">
-					<div class="12u" id="menu">
-						<div id="menu-wrapper">
-							<nav   class="mobileUI-site-nav ">
+        <div class="5grid-layout">
+                <div class="row">
+                        <div class="12u" id="menu">
+                                <div id="menu-wrapper">
+                                        <nav   class="mobileUI-site-nav ">
 
-                                                            <ul ng-controller="myApp.principal">
-                                                                 <li >  
-                                                                    <a href="#/viewLogin" class="nav-link">Login</a>
-                                                                </li>
-                                                                <li c>               
-                                                                    <a href="#/viewRegistroPostres">Registrar un nuevo postre</a>          
-                                                                </li>
-                                                                <li >
-                                                                    <a href="#/viewPostres">Postres</a>
-                                                                </li>
-                                                                <li >
-                                                                    <a href="#/viewPedidos">Lista de pedidos</a>
-                                                                </li>
-                                                                <li >
-                                                                    <a ng-click="logout()">Logout</a>
-                                                                </li>
-                                                            </ul>
-                                                        </nav>
-						</div>
-					</div>
-				</div>
-			</div>
+                                            <ul ng-controller="myApp.principal">
+                                                 <li >  
+                                                    <a href="#/viewLogin" class="nav-link">Login</a>
+                                                </li>
+                                                <li c>               
+                                                    <a href="#/viewRegistroPostres">Registrar un nuevo postre</a>          
+                                                </li>
+                                                <li >
+                                                    <a href="#/viewPostres">Postres</a>
+                                                </li>
+                                                <li >
+                                                    <a href="#/viewPedidos">Lista de pedidos</a>
+                                                </li>
+                                                <li >
+                                                    <a ng-click="logout()">Logout</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                </div>
+                        </div>
+                </div>
+        </div>
 		</header>
 	</div>
 	
@@ -74,7 +75,7 @@
 
   <div id="copyright" class="5grid-layout"><section>
 		<p>&copy; Postres Ya | Authors: Duvan Barrera - Giovanny Sissa - Wilmer Cortez - Diego Rodriguez</p>
-	</section><span app-version></span></div>
+	</section></div>
 
  
   <script src="bower_components/angular/angular.js"></script>

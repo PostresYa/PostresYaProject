@@ -30,17 +30,19 @@ public class StubPedido implements StubPed{
      */
     public StubPedido(){
         List <Postre> postres = new ArrayList<>();
-        Postre p1 = new Postre("1", "MORA", 100,"description MORA");
-        Postre p = new Postre("2", "LECHE", 20,"description leche");
+        Postre p1 = new Postre("postre1", "MORA", 9000,"con leche");
+        Postre p = new Postre("postre2", "LECHE", 15000,"asada");
         postres.add(p);
         postres.add(p1);
-        Date d=new Date("2016/03/20");
-        Pedido aux = new Pedido(postres, "direccion" , "pedido1", d);
+        Date d=new Date("2016/03/11");
+       
+        Pedido aux = new Pedido(postres, "Cll 8 #77-14" , "pedido1", d);
         pedidos.add(aux);
-        p = new Postre("p3", "pedido 2", 250,"description leche");
-        postres.add(p);
+        Postre p2 = new Postre("postre3", "Arequipe", 18000,"con fresas");
+        List <Postre> postres2 = new ArrayList<>();
+        postres2.add(p2);
         d=new Date("2016/03/10");
-        aux = new Pedido(postres, "direccion" , "pedisadfksdfhsdkj", d);
+        aux = new Pedido(postres2, "Calle 222 #25-32" , "pedido2", d);
         pedidos.add(aux);
     }
     

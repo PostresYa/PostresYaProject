@@ -9,14 +9,32 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
   });
 }])
 
-.controller('ViewPedidosCtrl', ['$scope','pedidos','pedidosChange' ,'$filter',function($scope, pedidos,pedidosChange ,$filter) {
+.controller('ViewPedidosCtrl', ['$scope','pedidos','pedidosChange' ,'$filter','$mdDialog',function($scope, pedidos,pedidosChange ,$filter,$mdDialog) {
         
         
         pedidos.get(function(data){
                         console.info("get pedido  ");
                         $scope.listado=data;
-                        console.info("asdfsad  "+ $scope.listado[0].fecha.toString());
+                       
                     });
+                    
+                    
+        $scope.DetallesPostre = function(ev,postres,$index) {
+            
+             //con show message
+              $mdDialog.show(
+                $mdDialog.alert()
+                  .parent(angular.element(document.querySelector('#popupContainer')))
+                  .clickOutsideToClose(true)
+                  .title('Detalles postre '+ postres[$index].code)
+                  .textContent("Nombre: "+ postres[$index].name+" , Precio: "+postres[$index].price + " , Descripcion: "+ postres[$index].description)
+                  .ariaLabel('Alert Dialog Demo')
+                  .ok('OK')
+                  .targetEvent(ev,postres)
+              );
+       
+          
+        }
          
        /*$scope.listado= pedidos.getListado();
 
@@ -30,7 +48,7 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
         $scope.order('estado', true);   
         
         $scope.changeState=function($event,codigo,$index){
-            alert("Legueeeee" + $index);
+            
             if($scope.listado[$index].estado !="Enviado"){
                 var seguro = confirm("desea cambiar el estado del pedido a enviado?");
                 if (seguro) {
