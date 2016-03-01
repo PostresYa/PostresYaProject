@@ -3820,6 +3820,7 @@ tbody.collapse.in {
   position: relative;
   display: table;
   border-collapse: separate;
+  
 }
 .input-group[class*="col-"] {
   float: none;

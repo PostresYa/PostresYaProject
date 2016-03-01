@@ -1,3 +1,4 @@
+
 <div id="page-wrapper"  class="5grid-layout">
 		
 		
@@ -17,3 +18,39 @@
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 	</div>
+
+<!--<p>This is the partial for view Login.</p>
+<p>
+  Showing of 'interpolate' filter:
+  {{ 'Current version is v%VERSION%.' | interpolate }}
+/p> -->
+
+<form role="form" ng-submit="login()">
+    
+    <div class="input-group" >
+    <ul>
+        <ul>
+            <div class="input-group input-group-lg">
+                
+                <span class="input-group-addon" id="sizing-addon1"> <img src="images/icon_user.png"> </span>
+                <!--<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" >-->
+                 <input type="text"  required="true" placeholder="Nombre de Usuario"
+                       class="form-control" id="username" name="username" ng-model="credentials.username" aria-describedby="sizing-addon1"/> 
+            </div>
+        </ul> 
+        <br>
+        <ul>
+            <div class="input-group input-group-lg">
+                <span class="input-group-addon" id="sizing-addon1"> <img src="images/password.png"> </span>
+                <input type="password" placeholder="password"
+                    class="form-control" id="password" name="password" ng-model="credentials.password" aria-describedby="sizing-addon1"/>
+            </div>
+        </ul>   
+        <br>
+        <ul>
+             <button type="submit" class="btn btn-primary">Submit</button>
+        </ul>
+    </ul>
+</div>  
+</form>
+
