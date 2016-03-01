@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
  
-  <!--link rel="stylesheet" href="app.css"-->
+  <link rel="stylesheet" href="app.css">
   <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.css">
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
  
@@ -38,17 +38,24 @@
 				<div class="row">
 					<div class="12u" id="menu">
 						<div id="menu-wrapper">
-							<nav class="mobileUI-site-nav">
+							<nav   class="mobileUI-site-nav ">
 
-                                                            <ul  class="menu" ng-controller="myApp.principal">
-
-
-                                                                <li><a href="#/viewLogin" >Login</a></li>
-                                                                <li><a href="#/viewRegistroPostres">Registrar un nuevo postre</a></li>
-                                                                <li><a href="#/viewPostres">Postres</a></li>
-                                                                <li><a href="#/viewPedidos">Lista de pedidos</a></li>
-
-                                                                <li><a  ng-click="logout()" >Logout</a></li>
+                                                            <ul ng-controller="myApp.principal">
+                                                                 <li >  
+                                                                    <a href="#/viewLogin" class="nav-link">Login</a>
+                                                                </li>
+                                                                <li c>               
+                                                                    <a href="#/viewRegistroPostres">Registrar un nuevo postre</a>          
+                                                                </li>
+                                                                <li >
+                                                                    <a href="#/viewPostres">Postres</a>
+                                                                </li>
+                                                                <li >
+                                                                    <a href="#/viewPedidos">Lista de pedidos</a>
+                                                                </li>
+                                                                <li >
+                                                                    <a ng-click="logout()">Logout</a>
+                                                                </li>
                                                             </ul>
                                                         </nav>
 						</div>

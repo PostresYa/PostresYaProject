@@ -56,6 +56,7 @@
 
 #menu ul {
 	text-align: center;
+        
 }
 
 #menu li {
@@ -73,6 +74,11 @@
 	font-family: 'Abel', sans-serif;
 	font-size: 13pt;
 	color: #FFFFFF;
+        
+}
+#menu a:hover{
+        color: #AC531B;
+     background-color: #FFFFFF;
 }
 
 #menu .current_page_item {
@@ -85,8 +91,7 @@
 	color: #FFFFFF;
 }
 
-#menu a:hover {
-}
+
 
 
 /* Page Wrapper */
