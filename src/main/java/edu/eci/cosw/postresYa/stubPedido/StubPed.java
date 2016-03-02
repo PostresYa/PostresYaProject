@@ -10,7 +10,7 @@ import edu.eci.cosw.postresYa.model.Pedido;
 import java.util.List;
 
 /**
- *
+ *Stub de pedidos de postres ya
  * @author Diego Alejandro Rodriguez Cruz
  */
 public interface StubPed {
