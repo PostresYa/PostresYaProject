@@ -37,7 +37,7 @@ public class StubPedido implements StubPed{
         //Postres de prueba
         Postre p1 = new Postre("postre1", "MORA", 9000,"con leche");
         Postre p = new Postre("postre2", "LECHE", 15000,"asada");
-        postres.add(new PostreCant(p, 1));
+        postres.add(new PostreCant(p1, 1));
         postres.add(new PostreCant(p, 3));
       
         
@@ -51,6 +51,7 @@ public class StubPedido implements StubPed{
        
         postres2.add(new PostreCant(p2, 2));
         d=new Date("2016/03/10");
+        //segundo pedido
         aux = new Pedido(postres2, "Calle 222 #25-32" , "pedido2", d);
        
         pedidos.add(aux);

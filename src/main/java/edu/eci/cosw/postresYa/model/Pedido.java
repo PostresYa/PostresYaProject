@@ -38,7 +38,7 @@ public class Pedido {
     
     /**
      * Constructor con parametro de un pedido
-     * @param postres // Lista de los postres que se ofrecen
+     * @param postres // Lista de los postres que se solicitdan y su cantidad
      * @param direccion //Direccion a la cual se solicito un postre
      * @param codigo //Codigo del pedido para tener en cuenta las modificaciones que se necesiten
      * @param fecha //Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
@@ -57,7 +57,7 @@ public class Pedido {
     }
         
     /**
-     * Metodo que retorna el precio del postre
+     * Metodo que retorna el precio del pedido
      * @return 
      */
     public int getPrecio() {
@@ -65,7 +65,7 @@ public class Pedido {
     }
     
     /**
-     * Actualiza el precio del postre solicitado
+     * Actualiza el precio del pedido solicitado, y añade la cantidad solicitada de cada postre
      * @param postres
      * @return 
      */
@@ -82,7 +82,7 @@ public class Pedido {
      }
     
      /**
-      * Se obtiene la lista de postres solicitados
+      * Se obtiene la lista de postres solicitados, con sus cantitades
       * @return 
       */
     public List<PostreCant> getPostres() {
