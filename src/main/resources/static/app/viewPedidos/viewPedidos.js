@@ -49,10 +49,10 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
         
         $scope.changeState=function($event,codigo,$index){
             
-            if($scope.listado[$index].estado !="Enviado"){
+            if($scope.listado[$index].estado !=="Enviado"){
                 var seguro = confirm("desea cambiar el estado del pedido a enviado?");
                 if (seguro) {
-                    var newCode= {"codigo":codigo}
+                    var newCode= {"codigo":codigo};
                     pedidosChange.save(codigo,function(){
                           console.info("Change   "+ newCode);
                           $scope.listado[$index].estado="Enviado";
@@ -64,7 +64,7 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
             }else{
                 alert("el pedido ya esta enviado");
             }
-        }
+        };
                 
         /* $scope.postres = function(){
              alert("postres pedidos");
