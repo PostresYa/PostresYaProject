@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import java.util.List;
 
 
@@ -19,7 +20,9 @@ public class Pedido {
     /**
      * Declaracion de variables
      */
-    private List <Postre> postres;
+    private List <PostreCant> postres;
+
+
     private Date fecha;
     private String direccion; // Posibilidad de un objeto
     private String codigo;
@@ -40,7 +43,7 @@ public class Pedido {
      * @param codigo //Codigo del pedido para tener en cuenta las modificaciones que se necesiten
      * @param fecha //Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
      */
-    public Pedido(List <Postre> postres, String direccion, String codigo, Date fecha){
+    public Pedido(List <PostreCant> postres, String direccion, String codigo, Date fecha){
         
         this.postres = postres;
         this.fecha = fecha;
@@ -48,7 +51,7 @@ public class Pedido {
         this.codigo=codigo;
         this.estado="en espera";
         this.precio=updatePrice(postres);
-        System.out.println(fecha.toString());
+      
         
         
     }
@@ -66,10 +69,13 @@ public class Pedido {
      * @param postres
      * @return 
      */
-     private int updatePrice(List<Postre> postres) {
+     private int updatePrice(List<PostreCant> postres) {
          int tempPrice=0;
-         for(Postre p:postres){
-             tempPrice+=p.getPrice();
+
+         for(PostreCant p:postres){
+
+//cantTemp=postresCant.get(p.getCode());
+             tempPrice+=(p.getPostre().getPrice())*p.getCant();
          }
          return tempPrice;
      
@@ -79,7 +85,7 @@ public class Pedido {
       * Se obtiene la lista de postres solicitados
       * @return 
       */
-    public List<Postre> getPostres() {
+    public List<PostreCant> getPostres() {
         return postres;
     }
 
@@ -91,6 +97,8 @@ public class Pedido {
         
         return fecha.toLocaleString();
     }
+    
+  
 
     /**
      * Se obtiene la direccion a donde se requiere entregar el postre
