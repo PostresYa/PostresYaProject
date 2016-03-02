@@ -1,4 +1,4 @@
-<img src="src/main/resource/static/app/images/Logo.png" align="right" />
+<img src="/src/main/resource/static/app/images/Logo.png" align="right" />
 
 # PostresYaProject
 
