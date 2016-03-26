@@ -1,0 +1,44 @@
+
+    <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
+        
+        <form role="form" ng-submit="agregarPostre()">
+        <div class="input-group" >    
+        <ul>
+            <ul>
+                <input type="text"   ng-model = "name" placeholder="Nombre" required />            
+            </ul>
+            <br>
+            <ul>
+                <input type="text"  ng-model = "code" placeholder="Codigo" required/>
+            </ul>
+            <br>
+            <ul>
+                <input type="number" ng-model = "price" type="number" placeholder="Precio" required="true" />
+            </ul>
+            <br>
+            <ul>
+                <textarea ng-model = "description" placeholder="Descripcion" required="true"></textarea>
+            </ul>
+            <br>
+            <ul>
+                <button type="submit" class="btn btn-primary btn-large">Agregar postre</button>
+                
+            </ul>
+        </ul>
+        
+    </div>
+    </form>
+ 
+    
+    </div>
+    <div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
+        <h1> Usted no esta autenticado</h1>
+        
+    </div>
+    
+
+  
+    
+    
+     
+           
