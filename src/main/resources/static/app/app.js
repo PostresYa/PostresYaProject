@@ -6,7 +6,11 @@ angular.module('myApp', [
   'ngMaterial',
   'ngResource',
   'myApp.viewRegistroPostres',
+<<<<<<< HEAD
   'myApp.viewRegistrarReposterias',
+=======
+  'myApp.viewRegistroReposterias',
+>>>>>>> c8fa3214a3936b65f5f4c884382bd8a7bfb93607
   'myApp.viewPostres',
   'myApp.viewLogin',
   'myApp.viewPedidos',

@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import java.util.List;
 
 
@@ -19,7 +20,9 @@ public class Pedido {
     /**
      * Declaracion de variables
      */
-    private List <Postre> postres;
+    private List <PostreCant> postres;
+
+
     private Date fecha;
     private String direccion; // Posibilidad de un objeto
     private String codigo;
@@ -35,12 +38,12 @@ public class Pedido {
     
     /**
      * Constructor con parametro de un pedido
-     * @param postres // Lista de los postres que se ofrecen
+     * @param postres // Lista de los postres que se solicitdan y su cantidad
      * @param direccion //Direccion a la cual se solicito un postre
      * @param codigo //Codigo del pedido para tener en cuenta las modificaciones que se necesiten
      * @param fecha //Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
      */
-    public Pedido(List <Postre> postres, String direccion, String codigo, Date fecha){
+    public Pedido(List <PostreCant> postres, String direccion, String codigo, Date fecha){
         
         this.postres = postres;
         this.fecha = fecha;
@@ -48,13 +51,13 @@ public class Pedido {
         this.codigo=codigo;
         this.estado="en espera";
         this.precio=updatePrice(postres);
-        System.out.println(fecha.toString());
+      
         
         
     }
         
     /**
-     * Metodo que retorna el precio del postre
+     * Metodo que retorna el precio del pedido
      * @return 
      */
     public int getPrecio() {
@@ -62,24 +65,27 @@ public class Pedido {
     }
     
     /**
-     * Actualiza el precio del postre solicitado
+     * Actualiza el precio del pedido solicitado, y añade la cantidad solicitada de cada postre
      * @param postres
      * @return 
      */
-     private int updatePrice(List<Postre> postres) {
+     private int updatePrice(List<PostreCant> postres) {
          int tempPrice=0;
-         for(Postre p:postres){
-             tempPrice+=p.getPrice();
+
+         for(PostreCant p:postres){
+
+//cantTemp=postresCant.get(p.getCode());
+             tempPrice+=(p.getPostre().getPrice())*p.getCant();
          }
          return tempPrice;
      
      }
     
      /**
-      * Se obtiene la lista de postres solicitados
+      * Se obtiene la lista de postres solicitados, con sus cantitades
       * @return 
       */
-    public List<Postre> getPostres() {
+    public List<PostreCant> getPostres() {
         return postres;
     }
 
@@ -91,6 +97,8 @@ public class Pedido {
         
         return fecha.toLocaleString();
     }
+    
+  
 
     /**
      * Se obtiene la direccion a donde se requiere entregar el postre

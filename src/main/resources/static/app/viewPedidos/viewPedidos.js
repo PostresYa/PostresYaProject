@@ -22,19 +22,18 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
         $scope.DetallesPostre = function(ev,postres,$index) {
             
              //con show message
+             //Indica los detalles del postre seleccionado en la lista de los pedidos
               $mdDialog.show(
                 $mdDialog.alert()
                   .parent(angular.element(document.querySelector('#popupContainer')))
                   .clickOutsideToClose(true)
-                  .title('Detalles postre '+ postres[$index].code)
-                  .textContent("Nombre: "+ postres[$index].name+" , Precio: "+postres[$index].price + " , Descripcion: "+ postres[$index].description)
+                  .title('Detalles postre '+ postres[$index].postre.code)
+                  .textContent("Nombre: "+ postres[$index].postre.name+" , Precio: "+postres[$index].postre.price + " , Descripcion: "+ postres[$index].postre.description + " , Cantidad: "+postres[$index].cant)
                   .ariaLabel('Alert Dialog Demo')
                   .ok('OK')
                   .targetEvent(ev,postres)
-              );
-       
-          
-        }
+              );        
+        };
          
        /*$scope.listado= pedidos.getListado();
 
@@ -62,7 +61,7 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
 
                 }
             }else{
-                alert("el pedido ya esta enviado");
+                alert("El pedido ya esta enviado");
             }
         };
                 
@@ -70,6 +69,5 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
              alert("postres pedidos");
              $scope.pos = pedidos.query();
         };*/
-
 
 }]);
