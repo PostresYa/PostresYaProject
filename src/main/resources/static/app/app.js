@@ -6,6 +6,7 @@ angular.module('myApp', [
   'ngMaterial',
   'ngResource',
   'myApp.viewRegistroPostres',
+  'myApp.viewRegistrarReposterias',
   'myApp.viewPostres',
   'myApp.viewLogin',
   'myApp.viewPedidos',
