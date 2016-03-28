@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.viewPedidos', ['ngRoute'])
+angular.module('myApp.viewPedidos', ['ngRoute','ngMaterial'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/viewPedidos', {
@@ -9,7 +9,7 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
   });
 }])
 
-.controller('ViewPedidosCtrl', ['$scope','pedidos','pedidosChange' ,'$filter','$mdDialog',function($scope, pedidos,pedidosChange ,$filter,$mdDialog) {
+.controller('ViewPedidosCtrl', ['$scope','pedidos','pedidosChange' ,'$rootScope','$filter','$mdDialog',function($scope, pedidos,pedidosChange ,$rootScope,$filter,$mdDialog) {
         
         
         pedidos.get(function(data){
@@ -19,11 +19,11 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
                     });
                     
                     
-        $scope.DetallesPostre = function(ev,postres,$index) {
+        $scope.DetallesPostre = function(ev,postres) {
             
              //con show message
              //Indica los detalles del postre seleccionado en la lista de los pedidos
-              $mdDialog.show(
+             /* $mdDialog.show(
                 $mdDialog.alert()
                   .parent(angular.element(document.querySelector('#popupContainer')))
                   .clickOutsideToClose(true)
@@ -32,8 +32,49 @@ angular.module('myApp.viewPedidos', ['ngRoute'])
                   .ariaLabel('Alert Dialog Demo')
                   .ok('OK')
                   .targetEvent(ev,postres)
-              );        
-        };
+              );*/
+      
+              $rootScope.detallespedido=postres;
+              
+              $mdDialog.show({
+              controller: DialogController,
+              templateUrl: 'viewPedidos/DetallesPedido.html',
+              parent: angular.element(document.body),
+              targetEvent: ev,
+              clickOutsideToClose:true
+              //fullscreen: useFullScreen
+            })
+            .then(function(answer) {
+              $scope.status = 'You said the information was "' + answer + '".';
+            }, function() {
+              $scope.status = 'You cancelled the dialog.';
+            });
+            $scope.$watch(function() {
+           //   return $mdMedia('xs') || $mdMedia('sm');
+            }, function(wantsFullScreen) {
+             // $scope.customFullscreen = (wantsFullScreen === true);
+            });
+          };
+         function DialogController($scope, $mdDialog) {
+            $scope.detallespedido=$rootScope.detallespedido;
+            $scope.hide = function() {
+              $mdDialog.hide();
+            };
+            $scope.cancel = function() {
+              
+                $mdDialog.cancel();
+              
+            };
+            $scope.answer = function(answer) {
+              $mdDialog.hide(answer);
+            };
+         }
+              
+      
+      
+      
+      
+      
          
        /*$scope.listado= pedidos.getListado();
 

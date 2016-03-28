@@ -19,6 +19,7 @@ angular.module('myApp.viewLogin', ['ngRoute'])
 
         $http.get('user', {headers: headers}).success(function (data) {
             if (data.name) {
+                 
                 $rootScope.authenticated = true;
             } else {
                 $rootScope.authenticated = false;

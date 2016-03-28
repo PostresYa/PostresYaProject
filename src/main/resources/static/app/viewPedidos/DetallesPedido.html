@@ -1,0 +1,65 @@
+
+
+<md-dialog aria-label="Detalles"  ng-cloak>
+  <form>
+      <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Detalles</h2>
+        <!--<span flex></span-->
+        <md-button class="md-icon-button" ng-click="cancel()">
+         <span class="glyphicon glyphicon-remove"></span>
+
+        </md-button>
+      </div>
+    </md-toolbar>
+     
+    <md-dialog-content>
+      <div class="md-dialog-content">
+          
+          <table class="table table-striped table-hover">
+          <tbody>
+            <tr>
+            <th>
+                Nombre
+            </th>
+            
+            <th>
+                Codigo
+            </th>
+            
+            <th>
+                Cantidad
+            </th>
+            
+            <th>
+                Precio
+            </th>
+            
+            <th>
+                Descripcion
+                
+            </th>
+            </tr>
+          
+            
+          <tr ng-repeat="prueba in detallespedido">
+            
+      <td>{{prueba.postre.name}}</td>
+      <td>{{prueba.postre.code}}</td>
+      <td>{{prueba.cant}}</td>
+      <td>{{prueba.postre.price}}</td>
+      <td>{{prueba.postre.description}}</td>
+      
+    </tr>
+          </tbody>
+          </table>
+          
+        
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+     
+    </md-dialog-actions>
+  </form>
+</md-dialog>
+

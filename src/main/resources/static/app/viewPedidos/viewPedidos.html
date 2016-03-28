@@ -39,16 +39,17 @@
       <td>{{todo.estado}}</td>
       <td>{{todo.precio}}</td>
   <td><button ng-click="changeState($event,todo.codigo,$index)" class="btn btn-primary btn-large">cambiar estado</button></td> 
+ <td><button ng-click="DetallesPostre($event,todo.postres)" class="btn btn-primary btn-large">  <span class="glyphicon glyphicon-hand-right"></span>  detalles</button></td> 
  
 <!--  Item group inside each category -->
   
-  <td ng-repeat="postres in todo.postres">
+  <!--td ng-repeat="postres in todo.postres">
 
      
       <a ng-click="DetallesPostre($event,todo.postres,$index)" > Codigo : {{postres.postre.code}}
 
       </a>
-  </td>
+  </td-->
   
   
 <!--  Repeat end, closing category group -->

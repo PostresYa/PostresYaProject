@@ -15,7 +15,7 @@ body{
 }
 
 #header-wrapper {
-	background: url(images/img07.png) no-repeat center top;
+	background: url(images/img07.png) repeat center top;
         size: auto;
 }
 

@@ -39,6 +39,7 @@ public class PostresYaMain {
 
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {
+                
                 builder.inMemoryAuthentication().withUser("reposteria").password("password").roles("USER");
                 
             }
@@ -85,6 +86,7 @@ public class PostresYaMain {
                 repository.setHeaderName("X-XSRF-TOKEN");
                 return repository;
             }
+         
 
 }
         

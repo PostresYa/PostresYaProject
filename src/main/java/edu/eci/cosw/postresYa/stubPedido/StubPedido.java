@@ -37,8 +37,10 @@ public class StubPedido implements StubPed{
         //Postres de prueba
         Postre p1 = new Postre("postre1", "MORA", 9000,"con leche");
         Postre p = new Postre("postre2", "LECHE", 15000,"asada");
+         Postre p3 = new Postre("postre4", "MARACUYA", 7000,"asada");
         postres.add(new PostreCant(p1, 1));
         postres.add(new PostreCant(p, 3));
+        postres.add(new PostreCant(p3, 2));
       
         
         Date d=new Date("2016/03/11");
