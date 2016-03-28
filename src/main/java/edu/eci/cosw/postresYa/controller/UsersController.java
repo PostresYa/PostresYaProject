@@ -20,6 +20,7 @@ public class UsersController {
      */
     @RequestMapping("/app/user")
     public Principal user(Principal user) {
+       
         return user;
     }           
 }

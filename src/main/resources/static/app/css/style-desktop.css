@@ -9,9 +9,14 @@
 /*********************************************************************************/
 
 /* Header */
+body{
+    height: 100%;
+    width: 100%;
+}
 
 #header-wrapper {
 	background: url(images/img07.png) no-repeat center top;
+        size: auto;
 }
 
 #header {

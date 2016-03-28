@@ -40,6 +40,7 @@ public class PostresYaMain {
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {
                 builder.inMemoryAuthentication().withUser("reposteria").password("password").roles("USER");
+                
             }
 
             @Override

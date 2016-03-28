@@ -42,9 +42,16 @@
 div{
      text-align: center;
     color: black;
+    size: auto;
+    height: auto;
+    width: auto;
+    
+}
+ul{
+    text-align: left;
 }
 
 textarea{
     margin: 0px; width: 1153px; height: 116px;
-    resize:none;
+    resize: none;
 }
