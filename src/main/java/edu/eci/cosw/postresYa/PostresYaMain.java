@@ -1,6 +1,8 @@
 package edu.eci.cosw.postresYa;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -12,10 +14,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
@@ -36,11 +44,28 @@ public class PostresYaMain {
         @EnableGlobalMethodSecurity(prePostEnabled = true)
         @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
         protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {
-                
-                builder.inMemoryAuthentication().withUser("reposteria").password("password").roles("USER");
+                builder.authenticationProvider(new AuthenticationProvider() {
+                    @Override
+                    public Authentication authenticate(Authentication a) throws AuthenticationException {
+                        
+                        System.out.println("sadadsasdas"+ a.getName()+"     "+a.getCredentials().toString());
+                        if ((a.getName().equals("reposteria") && a.getCredentials().toString().equals("password"))||a.getName().equals("reposteria2") && a.getCredentials().toString().equals("password2")){
+                             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+                        authorities.add(new SimpleGrantedAuthority("USER"));
+                        return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
+                        }
+                       return null;
+                        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                   
+                    }
+
+                    @Override
+                    public boolean supports(Class<?> type) {
+                        return type.equals(UsernamePasswordAuthenticationToken.class);
+                    }
+                });
                 
             }
 
