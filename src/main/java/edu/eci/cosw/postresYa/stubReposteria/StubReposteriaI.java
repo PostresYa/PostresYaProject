@@ -17,5 +17,4 @@ public interface StubReposteriaI {
     
     public List <Reposteria> getReposterias();
     public void modificarReposteria(int codigo);
-    public boolean login(String nit,String pass);
 }
