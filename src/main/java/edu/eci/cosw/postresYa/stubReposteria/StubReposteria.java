@@ -21,7 +21,7 @@ public class StubReposteria implements StubReposteriaI {
     List <Reposteria> reposterias = new ArrayList<>();
     
     public StubReposteria(){
-        Reposteria r1 = new Reposteria(1, "Reposteria 1", "Zona Norte"); 
+        Reposteria r1 = new Reposteria(1, "Reposteria 1", "Zona Norte","pass1"); 
         Postre p = new Postre ("1", "Tres leches", 5000,"vaso grande");
         r1.addPostres(p);
         reposterias.add(r1);
@@ -35,6 +35,11 @@ public class StubReposteria implements StubReposteriaI {
     @Override
     public void modificarReposteria(int codigo) {
         
+    }
+
+    @Override
+    public boolean login(String user, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

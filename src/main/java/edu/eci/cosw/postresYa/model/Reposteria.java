@@ -7,16 +7,30 @@ package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author duvan
  */
+
+//@Entity
+//@Table(name="Reposteria")
 public class Reposteria {
     private int nit;
     private String name;
     private List<Postre> postres;
     private String coverageRange; //no sabemos como tratar el rango
+    private String password;
+
+   
     
     /**
      * Constructor sin parametros de la reposteria
@@ -31,10 +45,11 @@ public class Reposteria {
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
      */
-    public Reposteria(int nit,String name,String coverageRange){
+    public Reposteria(int nit,String name,String coverageRange,String password){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
+        this.password=password;
         postres=new ArrayList<Postre>();
     }
     
@@ -42,6 +57,9 @@ public class Reposteria {
      * Busca el nit de la repostería 
      * @return int Nit de la reposteria
      */
+    
+    //@Id
+    //@Column(name="nit")
     public int getNit() {
         return nit;
     }
@@ -58,6 +76,8 @@ public class Reposteria {
      * Busca el nombre de la repostería
      * @return name
      */
+    
+    //@Column(name="nombre")
     public String getName() {
         return name;
     }
@@ -73,6 +93,14 @@ public class Reposteria {
      * Busca el catálogo de postres de la repostería
      * @return 
      */
+    
+    
+   /* @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumns(
+        {
+            @JoinColumn(name = "Reposteria_nit",referencedColumnName = "nit", nullable = false),
+        }
+    )*/
     public List<Postre> getPostres() {
         return postres;
     }
@@ -89,6 +117,8 @@ public class Reposteria {
      * Busca el rango de cobertura de la repostería
      * @return 
      */
+    
+    //@Column(name="rango_cobertura")
     public String getCoverageRange() {
         return coverageRange;
     }
@@ -101,5 +131,12 @@ public class Reposteria {
         this.coverageRange = coverageRange;
     }
  
-    
+    //@Column(name="password")
+     public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
