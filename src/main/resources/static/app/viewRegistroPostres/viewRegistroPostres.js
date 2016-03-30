@@ -9,7 +9,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
   });
 }])
 
-.controller('ViewRegistroPostresCtrl', ['$scope','postres','postresChange',function($scope,postres,postresChange) {
+.controller('ViewRegistroPostresCtrl', ['$scope','postres','postresChange',function($scope, postres,postresChange) {
 
         $scope.name="";
         $scope.price ="";

@@ -17,10 +17,7 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
         $scope.cobertura ="";
         
         $scope.agregarReposterias = function(){
-
-
-            
-           
+           alert("Evaluando con INVIMA");
             
         }
 
