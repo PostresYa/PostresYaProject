@@ -15,7 +15,7 @@ import org.springframework.data.repository.query.Param;
  *
  * @author duvan
  */
-public interface ReposteriaRepository extends JpaRepository<Reposteria, String> {
-    @Query("from Reposteria")
-    List<Reposteria> getAllReposterias();
+public interface ReposteriaRepository {//extends JpaRepository<Reposteria, String> {
+   // @Query("from Reposteria")
+    //List<Reposteria> getAllReposterias();
 }

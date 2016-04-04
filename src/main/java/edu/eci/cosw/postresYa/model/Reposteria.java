@@ -25,8 +25,8 @@ import org.hibernate.annotations.FetchMode;
  * @author duvan
  */
 
-@Entity
-@Table(name="Reposteria")
+//@Entity
+//@Table(name="Reposteria")
 public class Reposteria implements java.io.Serializable  {
     private String nit;
     private String name;
@@ -60,8 +60,8 @@ public class Reposteria implements java.io.Serializable  {
      * @return int Nit de la reposteria
      */
     
-    @Id
-    @Column(name = "nit", unique = true, nullable = false)
+    //@Id
+    //@Column(name = "nit", unique = true, nullable = false)
 	
     public String getNit() {
         return nit;
@@ -120,7 +120,7 @@ public class Reposteria implements java.io.Serializable  {
      * @return 
      */
     
-    @Column(name = "rango_cobertura",  nullable = false)
+    //@Column(name = "rango_cobertura",  nullable = false)
     public String getCoverageRange() {
         return coverageRange;
     }
@@ -133,10 +133,10 @@ public class Reposteria implements java.io.Serializable  {
         this.coverageRange = coverageRange;
     }
     
-    @OneToOne()
+   /* @OneToOne()
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name="Usuario_username",unique = true, nullable = false)
-    public Usuario getUsuario() {
+    */public Usuario getUsuario() {
         return usuario;
     }
 

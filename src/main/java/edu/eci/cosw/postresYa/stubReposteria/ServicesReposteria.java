@@ -25,9 +25,10 @@ public class ServicesReposteria implements StubReposteriaI{
     @Override
     public List<Reposteria> getReposterias() {
         
-      return reposteriaRepository.getAllReposterias();
-        
-    }
+     // return reposteriaRepository.getAllReposterias();
+       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    } 
+    
 
     @Override
     public void modificarReposteria(int codigo) {
