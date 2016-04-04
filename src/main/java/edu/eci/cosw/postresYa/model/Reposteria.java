@@ -7,13 +7,20 @@ package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author duvan
  */
-public class Reposteria {
-    private int nit;
+
+//@Entity
+//@Table(name="Reposteria")
+public class Reposteria implements java.io.Serializable  {
+    private String nit;
     private String name;
     private List<Postre> postres;
     private String coverageRange; //no sabemos como tratar el rango
@@ -31,7 +38,7 @@ public class Reposteria {
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
      */
-    public Reposteria(int nit,String name,String coverageRange){
+    public Reposteria(String nit,String name,String coverageRange){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
@@ -42,7 +49,11 @@ public class Reposteria {
      * Busca el nit de la repostería 
      * @return int Nit de la reposteria
      */
-    public int getNit() {
+    
+    //@Id
+    //@Column(name = "nit", unique = true, nullable = false)
+	
+    public String getNit() {
         return nit;
     }
     
@@ -50,7 +61,7 @@ public class Reposteria {
      * Cambia el valor del nit de la repostería
      * @param nit 
      */
-    public void setNit(int nit) {
+    public void setNit(String nit) {
         this.nit = nit;
     }
 
@@ -58,6 +69,9 @@ public class Reposteria {
      * Busca el nombre de la repostería
      * @return name
      */
+    
+    //@Column(name = "name", unique = true, nullable = false)
+
     public String getName() {
         return name;
     }
@@ -89,6 +103,8 @@ public class Reposteria {
      * Busca el rango de cobertura de la repostería
      * @return 
      */
+    
+    //@Column(name = "rango_cobertura", unique = true, nullable = false)
     public String getCoverageRange() {
         return coverageRange;
     }

@@ -35,10 +35,10 @@ public class ReposteriaController {
     }
     
     @RequestMapping(value="/nit", method = RequestMethod.GET)
-    public Reposteria getReposteria(int nit){
+    public Reposteria getReposteria(String nit){
         List <Reposteria> aux = reposteria.getReposterias();
         for(Reposteria a: aux){
-            if(a.getNit() == nit){
+            if(a.getNit().equals(nit)){
                 return a;
             }
         }

@@ -1,5 +1,7 @@
 package edu.eci.cosw.postresYa;
 
+import edu.eci.cosw.postresYa.model.Usuario;
+import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +11,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -32,6 +37,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
 @SpringBootApplication
+@EnableJpaRepositories("edu.eci.cosw.postresYa.repositories")
+@EntityScan("edu.eci.cosw.postresYa.model")
 public class PostresYaMain {
 
 	public static void main(String[] args) {
@@ -44,21 +51,25 @@ public class PostresYaMain {
         @EnableGlobalMethodSecurity(prePostEnabled = true)
         @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
         protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+            @Autowired
+            ReposteriaRepository r;
+            
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {
                 builder.authenticationProvider(new AuthenticationProvider() {
                     @Override
                     public Authentication authenticate(Authentication a) throws AuthenticationException {
                         
-                        System.out.println("sadadsasdas"+ a.getName()+"     "+a.getCredentials().toString());
-                        if ((a.getName().equals("reposteria") && a.getCredentials().toString().equals("password"))||a.getName().equals("reposteria2") && a.getCredentials().toString().equals("password2")){
-                             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                        authorities.add(new SimpleGrantedAuthority("USER"));
-                        return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
+                        Usuario usuario=r.Login(a.getName(), a.getCredentials().toString());
+                        if(usuario!=null){
+                            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+                            authorities.add(new SimpleGrantedAuthority("USER"));
+                            return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
+
                         }
+                       
                        return null;
-                        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-                   
+                        
                     }
 
                     @Override
