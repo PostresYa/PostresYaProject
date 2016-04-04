@@ -44,9 +44,7 @@ public class PostreController {
      * @return un conjunto con los postres, en caso de que no tenga ningun postre devolvera un conjunto vacio
      */
     @RequestMapping(method = RequestMethod.GET)
-    public Set<Postre> getPostre() {
-        
-
+    public Set<Postre> getPostre() {        
         return stub.getPostres();
     }
     
@@ -59,8 +57,7 @@ public class PostreController {
      * @throws PostreException 
      */
     @RequestMapping (method = RequestMethod.POST)
-    public void postPostre(@RequestBody Postre postre) throws PostreException {
-        
+    public void postPostre(@RequestBody Postre postre) throws PostreException {        
         stub.addPostre(postre);
     }
     

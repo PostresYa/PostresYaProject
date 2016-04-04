@@ -5,18 +5,20 @@
  */
 package edu.eci.cosw.postresYa.model;
 
-import java.awt.Image;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+
 
 /**
  *
  * @author duvan
  */
 
+@Entity
+@Table (name = "Postre")
 
 public class Postre implements java.io.Serializable{
   
@@ -36,6 +38,7 @@ public class Postre implements java.io.Serializable{
     
    /**
     * Constructor con parametros de postre
+     * @param id
     * @param code //Codigo de identificacion para el postre
     * @param name //Nombre para el postre
     * @param price //Precio del postre
@@ -54,6 +57,7 @@ public class Postre implements java.io.Serializable{
      * Busca el valor del código del postre
      * @return 
      */
+    @EmbeddedId
     public PostreId getId() {
         return id;
     }
@@ -70,6 +74,7 @@ public class Postre implements java.io.Serializable{
      * Busca el valor del nombre del postre
      * @return name
      */
+  @Column(name = "nombre" )
     public String getName() {
         return name;
     }
@@ -86,6 +91,7 @@ public class Postre implements java.io.Serializable{
      * Busca el valor del precio del postre
      * @return price int
      */
+    @Column(name = "precio")
     public int getPrice() {
         return price;
     }
@@ -102,6 +108,7 @@ public class Postre implements java.io.Serializable{
      * Busca la descripción del postre
      * @return descripcion String
      */
+    @Column(name = "descripcion")
     public String getDescription() {
         return description;
     }
