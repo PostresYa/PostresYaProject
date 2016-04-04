@@ -38,8 +38,15 @@ CREATE TABLE `coswgr5`.`Reposteria` (
     `nit` varchar(15)  NOT NULL,
     `nombre` varchar(20)  NOT NULL,
     `rango_cobertura` varchar(20)  NOT NULL,
-     `password` varchar(30)  NOT NULL,
+    `Usuario_username` varchar(30)  NOT NULL,
     CONSTRAINT `Reposteria_pk` PRIMARY KEY (`nit`)
+);
+
+-- Table Usuario
+CREATE TABLE `coswgr5`.`Usuario` (
+    `username` varchar(30)  NOT NULL,
+    `password` varchar(100)  NOT NULL,
+    CONSTRAINT `Usuario_pk` PRIMARY KEY (`username`)
 );
 
 
@@ -61,8 +68,13 @@ ALTER TABLE `coswgr5`.`Postre` ADD CONSTRAINT `Postre_Reposteria` FOREIGN KEY `P
     ON UPDATE CASCADE;
 
 
+-- Reference:  Reposteria_Usuario (table: Reposteria)
+
+ALTER TABLE `coswgr5`.`Reposteria` ADD CONSTRAINT `Reposteria_Usuario` FOREIGN KEY `Reposteria_Usuario` (`Usuario_username`)
+    REFERENCES `coswgr5`.`Usuario` (`username`);
 
 -- End of file.
 
+insert into `coswgr5`.Usuario values('r1','pass1');
 
-insert into `coswgr5`.Reposteria values('r1','reposteria','cobertura1','pass1');
+insert into `coswgr5`.Reposteria values('r1','reposteria','cobertura1','r1');

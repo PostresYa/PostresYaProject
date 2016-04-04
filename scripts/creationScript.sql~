@@ -63,3 +63,6 @@ ALTER TABLE `coswgr5`.`Postre` ADD CONSTRAINT `Postre_Reposteria` FOREIGN KEY `P
 
 
 -- End of file.
+
+
+insert into `coswgr5`.Reposteria values('r1','reposteria','cobertura1','pass1');
