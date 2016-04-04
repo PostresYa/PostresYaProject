@@ -21,8 +21,11 @@ angular.module('myApp.viewLogin', ['ngRoute'])
             if (data.name) {
                  
                 $rootScope.authenticated = true;
+                $rootScope.nit=credentials.username;
+              
             } else {
                 $rootScope.authenticated = false;
+                $rootScope.nit="";
             }
             callback && callback();
         }).error(function () {

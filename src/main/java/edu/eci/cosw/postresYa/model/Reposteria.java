@@ -6,25 +6,34 @@
 package edu.eci.cosw.postresYa.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 /**
  *
  * @author duvan
  */
 
-//@Entity
-//@Table(name="Reposteria")
+@Entity
+@Table(name="Reposteria")
 public class Reposteria implements java.io.Serializable  {
     private String nit;
     private String name;
-    private List<Postre> postres;
+    private Set<Postre> postres= new HashSet<>(0);
     private String coverageRange; //no sabemos como tratar el rango
-    
+    private Usuario usuario;
+
     /**
      * Constructor sin parametros de la reposteria
      */
@@ -38,11 +47,12 @@ public class Reposteria implements java.io.Serializable  {
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
      */
-    public Reposteria(String nit,String name,String coverageRange){
+    public Reposteria(String nit,String name,String coverageRange,Usuario usuario){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
-        postres=new ArrayList<Postre>();
+        //postres=new ArrayList<Postre>();
+        this.usuario=usuario;
     }
     
     /**
@@ -50,8 +60,8 @@ public class Reposteria implements java.io.Serializable  {
      * @return int Nit de la reposteria
      */
     
-    //@Id
-    //@Column(name = "nit", unique = true, nullable = false)
+    @Id
+    @Column(name = "nit", unique = true, nullable = false)
 	
     public String getNit() {
         return nit;
@@ -87,24 +97,30 @@ public class Reposteria implements java.io.Serializable  {
      * Busca el catálogo de postres de la repostería
      * @return 
      */
-    public List<Postre> getPostres() {
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name="Reposteria_nit")
+    public Set<Postre> getPostres() {
         return postres;
     }
+    public void setPostre(Set<Postre> postres) {
+        this.postres=postres;
+    }*/
 
     /**
      * Agrega un nuevo postre al catálogo de la repostería
      * @param postre 
      */
-    public void addPostres(Postre postre) {
+    /*public void addPostres(Postre postre) {
         postres.add(postre);
-    }
+    }*/
     
     /**
      * Busca el rango de cobertura de la repostería
      * @return 
      */
     
-    //@Column(name = "rango_cobertura", unique = true, nullable = false)
+    @Column(name = "rango_cobertura",  nullable = false)
     public String getCoverageRange() {
         return coverageRange;
     }
@@ -115,6 +131,17 @@ public class Reposteria implements java.io.Serializable  {
      */
     public void setCoverageRange(String coverageRange) {
         this.coverageRange = coverageRange;
+    }
+    
+    @OneToOne()
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name="Usuario_username",unique = true, nullable = false)
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
  
     

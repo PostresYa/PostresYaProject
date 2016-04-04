@@ -9,11 +9,14 @@ import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author duvan
  */
+
+//@Service
 public class ServicesReposteria implements StubReposteriaI{
 
     @Autowired
@@ -21,7 +24,9 @@ public class ServicesReposteria implements StubReposteriaI{
     
     @Override
     public List<Reposteria> getReposterias() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+      return reposteriaRepository.getAllReposterias();
+        
     }
 
     @Override

@@ -9,6 +9,7 @@ import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreCant;
+import edu.eci.cosw.postresYa.model.PostreId;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,9 +36,9 @@ public class StubPedido implements StubPed{
         
      
         //Postres de prueba
-        Postre p1 = new Postre("postre1", "MORA", 9000,"con leche");
-        Postre p = new Postre("postre2", "LECHE", 15000,"asada");
-         Postre p3 = new Postre("postre4", "MARACUYA", 7000,"asada");
+        Postre p1 = new Postre(new PostreId("postre1","r1"), "MORA", 9000,"con leche");
+        Postre p = new Postre(new PostreId("postre2","r1"), "LECHE", 15000,"asada");
+         Postre p3 = new Postre(new PostreId("postre4","r1"), "MARACUYA", 7000,"asada");
         postres.add(new PostreCant(p1, 1));
         postres.add(new PostreCant(p, 3));
         postres.add(new PostreCant(p3, 2));
@@ -48,7 +49,7 @@ public class StubPedido implements StubPed{
         //Adicion de los postres de prueba a la lista de los pedidos
         Pedido aux = new Pedido(postres, "Cll 8 #77-14" , "pedido1", d);
         pedidos.add(aux);
-        Postre p2 = new Postre("postre3", "Arequipe", 18000,"con fresas");
+        Postre p2 = new Postre(new PostreId("postre3","r1"), "Arequipe", 18000,"con fresas");
         List <PostreCant> postres2 = new ArrayList<>();
        
         postres2.add(new PostreCant(p2, 2));

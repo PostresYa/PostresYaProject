@@ -2,6 +2,7 @@ package edu.eci.cosw.postresYa;
 
 import edu.eci.cosw.postresYa.model.Usuario;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
+import edu.eci.cosw.postresYa.repositories.UserRepository;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +53,7 @@ public class PostresYaMain {
         @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
         protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             @Autowired
-            ReposteriaRepository r;
+            UserRepository r;
             
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {

@@ -7,8 +7,8 @@
           <span class="sortorder" ng-show="predicate === 'name'" ng-class="{reverse:reverse}"></span>
       </th>
       <th>
-          <button ng-click="order('code')" class="btn btn-primary btn-large">Codigo</button>
-          <span class="sortorder" ng-show="predicate === 'code'" ng-class="{reverse:reverse}"></span>
+          <button ng-click="order('id.code')" class="btn btn-primary btn-large">Codigo</button>
+          <span class="sortorder" ng-show="predicate === 'id.code'" ng-class="{reverse:reverse}"></span>
       </th>
         <th>
           <button ng-click="order('price')" class="btn btn-primary btn-large">Precio</button>
@@ -29,10 +29,10 @@
       
     <tr ng-repeat="todo in listadoPostres">
       <td>{{todo.name}}</td>
-      <td>{{todo.code}}</td>
+      <td>{{todo.id.code}}</td>
       <td>{{todo.price}}</td>
       <td>{{todo.description}}</td>
-      <td><image src="/postres/{{todo.code}}/picture" alt="" width="150" height="150"/></td>
+      <td><image src="/postres/{{todo.id.code}}/picture" alt="" width="150" height="150"/></td>
      
     </tr>
   </tbody>

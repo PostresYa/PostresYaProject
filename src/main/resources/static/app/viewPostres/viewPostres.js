@@ -26,7 +26,7 @@ angular.module('myApp.viewPostres', ['ngRoute'])
             $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
             $scope.listadoPostres = orderBy($scope.listadoPostres, predicate, $scope.reverse);
         };
-        $scope.order('code', true);
+        $scope.order('id.code', true);
                 
                 
                 

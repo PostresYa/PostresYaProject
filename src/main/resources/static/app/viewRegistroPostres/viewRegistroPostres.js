@@ -9,11 +9,11 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
   });
 }])
 
-.controller('ViewRegistroPostresCtrl', ['$scope','postres','postresChange',function($scope, postres,postresChange) {
+.controller('ViewRegistroPostresCtrl', ['$scope','$rootScope','postres','postresChange',function($scope,$rootScope, postres,postresChange) {
 
         $scope.name="";
         $scope.price ="";
-        $scope.code ="";
+        $scope.id ="";
         $scope.description ="";
         
         $scope.agregarPostre = function(){
@@ -25,21 +25,21 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                     var listadotemp=data;
                      var codeExist=false;
                     for(var pos=0; pos<listadotemp.length ;pos++){
-                        
-                         if(listadotemp[pos].code == $scope.code){
+                      
+                         if(listadotemp[pos].id.code == $scope.code){
                             codeExist=true;
                         }
                     }
                     if (codeExist){
                         var seguro = confirm("El codigo ya esta asociado, esta seguro de cambiar los valores?");
                         if (seguro) {
-                            var newProduct={"code":$scope.code,"name":$scope.name,"price":$scope.price,"description":$scope.description};
+                            var newProduct={id:{"code":$scope.code,"reposteriaNit":$rootScope.nit},"name":$scope.name,"price":$scope.price,"description":$scope.description};
                     
                             postresChange.save(newProduct,function(){
                                   console.info("Change   "+ newProduct);
                                   
                                   $scope.name="";
-                                  $scope.code="";
+                                  $scope.id="";
                                   $scope.price="";
                                   $scope.description="";
                             });
@@ -47,7 +47,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                             
                         } 
                     }else{
-                         var newProduct={"code":$scope.code,"name":$scope.name,"price":$scope.price,"description":$scope.description};
+                         var newProduct={id:{"code":$scope.code,"reposteriaNit":$rootScope.nit},"name":$scope.name,"price":$scope.price,"description":$scope.description};
                     
                          postres.save(newProduct,function(){
                                console.info("saved   "+ newProduct);

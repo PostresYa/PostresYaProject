@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.stub;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
+import edu.eci.cosw.postresYa.model.PostreId;
 import java.io.BufferedInputStream;
 
 import java.io.FileInputStream;
@@ -47,10 +48,11 @@ public class StubPostre implements Stub{
         postres= new LinkedHashSet<>();
         postresMap= new LinkedHashMap<>();
         postresImages= new LinkedHashMap<>();
-        Postre prueba=new Postre("F1", "Fresas", 14500, "4 porciones, con galleta");
+        Postre prueba=new Postre(new PostreId("F1","r1"), "Fresas", 14500, "4 porciones, con galleta");
         postres.add(prueba);
-        postresMap.put(prueba.getCode(), prueba);
-        postresImages.put(prueba.getCode(),"src/main/resources/static/app/images/Postre1.png");
+        postresMap.put(prueba.getId().getCode(), prueba);
+        
+        postresImages.put(prueba.getId().getCode(),"src/main/resources/static/app/images/Postre1.png");
     }
     
     /**
@@ -71,8 +73,8 @@ public class StubPostre implements Stub{
     public void addPostre(Postre postre) throws PostreException{
        
         postres.add(postre);
-        postresMap.put(postre.getCode(), postre);
-        postresImages.put(postre.getCode(),"src/main/resources/static/app/images/PostreNuevo.png");
+        postresMap.put(postre.getId().getCode(), postre);
+        postresImages.put(postre.getId().getCode(),"src/main/resources/static/app/images/PostreNuevo.png");
     }
 
     /**
@@ -121,7 +123,7 @@ public class StubPostre implements Stub{
         for(int i=0;i<postres.size();i++){
             if(iterator.hasNext()){
                 Postre postretemp=iterator.next();
-                if (postretemp.getCode().equals(postre.getCode())){
+                if (postretemp.getId().getCode().equals(postre.getId().getCode())){
                   postreDelete=postretemp;
                 }
             }
@@ -140,9 +142,9 @@ public class StubPostre implements Stub{
      * @param postre 
      */
     private void changeReference(Postre postre){
-        postresMap.get(postre.getCode()).setName(postre.getName());
-        postresMap.get(postre.getCode()).setDescription(postre.getDescription());
-        postresMap.get(postre.getCode()).setPrice(postre.getPrice());
+        postresMap.get(postre.getId().getCode()).setName(postre.getName());
+        postresMap.get(postre.getId().getCode()).setDescription(postre.getDescription());
+        postresMap.get(postre.getId().getCode()).setPrice(postre.getPrice());
         
     }
     

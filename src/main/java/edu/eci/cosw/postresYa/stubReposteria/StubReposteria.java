@@ -6,7 +6,9 @@
 package edu.eci.cosw.postresYa.stubReposteria;
 
 import edu.eci.cosw.postresYa.model.Postre;
+import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.model.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
@@ -21,11 +23,12 @@ public class StubReposteria implements StubReposteriaI {
     List <Reposteria> reposterias = new ArrayList<>();
     
     public StubReposteria(){
-        Reposteria r1 = new Reposteria("1", "Reposteria 1", "Zona Norte"); 
-        Postre p = new Postre ("1", "Tres leches", 5000,"vaso grande");
-        r1.addPostres(p);
+        Reposteria r1 = new Reposteria("1", "Reposteria 1", "Zona Norte",new Usuario("r1", "pass1")); 
+        Postre p = new Postre (new PostreId("1","r1"), "Tres leches", 5000,"vaso grande");
+       // r1.addPostres(p);
         reposterias.add(r1);
     }
+    
     
     @Override
     public List<Reposteria> getReposterias() {

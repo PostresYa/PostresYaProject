@@ -9,13 +9,18 @@ import java.awt.Image;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author duvan
  */
-public class Postre {
-    private String code;
+
+
+public class Postre implements java.io.Serializable{
+  
+    private PostreId id;
     private String name;
     private int price;
     private String description;
@@ -36,9 +41,9 @@ public class Postre {
     * @param price //Precio del postre
     * @param description //Descripcion y especificaciones del postre
     */
-    public Postre(String code,String name,int price,String description){
+    public Postre(PostreId id,String name,int price,String description){
         
-        this.code=code;
+        this.id=id;
         this.name=name;
         this.price=price;
         this.description=description;
@@ -49,16 +54,16 @@ public class Postre {
      * Busca el valor del código del postre
      * @return 
      */
-    public String getCode() {
-        return code;
+    public PostreId getId() {
+        return id;
     }
 
     /**
      * Cambia el valor del código del postre
      * @param code String
      */
-    public void setCode(String code) {
-        this.code = code;
+    public void setId(PostreId id) {
+        this.id=id;
     }
     
     /**

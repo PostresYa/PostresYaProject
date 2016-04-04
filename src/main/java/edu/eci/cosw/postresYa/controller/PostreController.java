@@ -60,6 +60,7 @@ public class PostreController {
      */
     @RequestMapping (method = RequestMethod.POST)
     public void postPostre(@RequestBody Postre postre) throws PostreException {
+        
         stub.addPostre(postre);
     }
     
