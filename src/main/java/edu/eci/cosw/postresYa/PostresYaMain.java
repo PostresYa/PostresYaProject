@@ -53,7 +53,7 @@ public class PostresYaMain {
         @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
         protected static class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             @Autowired
-            UserRepository r;
+            UserRepository userRepository;
             
             @Override
             protected void configure(AuthenticationManagerBuilder builder) throws Exception {
@@ -61,7 +61,7 @@ public class PostresYaMain {
                     @Override
                     public Authentication authenticate(Authentication a) throws AuthenticationException {
                         
-                        Usuario usuario=r.Login(a.getName(), a.getCredentials().toString());
+                        Usuario usuario=userRepository.Login(a.getName(), a.getCredentials().toString());
                         if(usuario!=null){
                             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
                             authorities.add(new SimpleGrantedAuthority("USER"));

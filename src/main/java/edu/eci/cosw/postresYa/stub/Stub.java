@@ -9,6 +9,7 @@ import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import java.util.Set;
 
@@ -17,7 +18,7 @@ import java.util.Set;
  * @author 2095499
  */
 public interface Stub {
-    Set<Postre> getPostres();
+    Set<Postre> getPostres(String nit);
     void addPostre(Postre postre) throws PostreException;
     void changePostre(Postre postre) throws PostreException;
     public Postre getPostreByCode(String code) throws PostreException; 

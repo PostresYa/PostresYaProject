@@ -33,7 +33,6 @@ public class PostreId implements java.io.Serializable{
         this.code = code;
     }
     @Column(name="Reposteria_nit",nullable = false,unique = true)
-    
     public String getReposteriaNit() {
         return reposteriaNit;
     }

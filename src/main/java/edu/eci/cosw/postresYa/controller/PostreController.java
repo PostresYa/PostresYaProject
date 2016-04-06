@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.controller;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.stub.Stub;
+import java.util.List;
 
 import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,9 @@ public class PostreController {
      * @return un conjunto con los postres, en caso de que no tenga ningun postre devolvera un conjunto vacio
      */
     @RequestMapping(method = RequestMethod.GET)
-    public Set<Postre> getPostre() {        
-        return stub.getPostres();
+    public Set<Postre> getPostre() {
+        
+        return stub.getPostres("r1");
     }
     
  

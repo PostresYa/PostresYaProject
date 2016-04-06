@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.stub;
 
+import com.mysql.jdbc.Blob;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreId;
@@ -20,10 +21,12 @@ import java.util.Iterator;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.List;
 
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.hibernate.type.BlobType;
 
 import org.springframework.stereotype.Service;
 
@@ -53,6 +56,7 @@ public class StubPostre implements Stub{
         postresMap.put(prueba.getId().getCode(), prueba);
         
         postresImages.put(prueba.getId().getCode(),"src/main/resources/static/app/images/Postre1.png");
+        postresImages.get("F1");
     }
     
     /**
@@ -60,7 +64,7 @@ public class StubPostre implements Stub{
      * @return un conjunto de postres
      */
     @Override
-    public Set<Postre> getPostres() {
+    public Set<Postre> getPostres(String nit) {
         return postres;
     }
    

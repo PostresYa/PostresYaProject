@@ -5,9 +5,12 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mysql.jdbc.Blob;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 
@@ -26,6 +29,8 @@ public class Postre implements java.io.Serializable{
     private String name;
     private int price;
     private String description;
+    
+    private Blob image;
    
 
 
@@ -50,6 +55,15 @@ public class Postre implements java.io.Serializable{
         this.name=name;
         this.price=price;
         this.description=description;
+        
+    }
+       public Postre(PostreId id,String name,int price,String description,Blob image){
+        
+        this.id=id;
+        this.name=name;
+        this.price=price;
+        this.description=description;
+        this.image=image;
         
     }
     
@@ -121,4 +135,14 @@ public class Postre implements java.io.Serializable{
         this.description = description;
     }
     
+    public void setImage(Blob nImage ){
+        this.image = nImage;
+    }
+                                
+    @JsonIgnore
+    @Lob
+    @Column(name = "imagen")
+    public Blob getImage(){
+        return  this.image;
+    }
 }
