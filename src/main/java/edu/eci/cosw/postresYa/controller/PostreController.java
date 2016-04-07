@@ -42,25 +42,34 @@ public class PostreController {
    
     /**
      * busca la lista de postres en el stub
+     * @param nit
      * @return un conjunto con los postres, en caso de que no tenga ningun postre devolvera un conjunto vacio
+     * @throws edu.eci.cosw.postresYa.Exceptions.PostreException
      */
-    @RequestMapping(method = RequestMethod.GET)
-    public Set<Postre> getPostre() {
+    @RequestMapping(value="/{nit}",method = RequestMethod.GET)
+    public List<Postre> getPostres(@PathVariable String nit) throws PostreException {
         
-        return stub.getPostres("r1");
+        return stub.getPostres(nit);
     }
     
  
+    @RequestMapping(value="/{nit}/{code}",method = RequestMethod.GET)
+    public Postre getPostre(@PathVariable String nit,@PathVariable String code) throws PostreException {
+       
+        return stub.getPostre(nit,code);
+    }
    
     
     /**
      * Añade un postre nuevo (el código de este no esta utilizado) a la lista de postres del stub
+     * @param nit
      * @param postre
      * @throws PostreException 
      */
-    @RequestMapping (method = RequestMethod.POST)
-    public void postPostre(@RequestBody Postre postre) throws PostreException {        
-        stub.addPostre(postre);
+    @RequestMapping (value="/{nit}",method = RequestMethod.POST)
+    public void postPostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException { 
+       
+        stub.addPostre(postre,nit);
     }
     
   
@@ -69,9 +78,10 @@ public class PostreController {
      * @param postre que se va a cambiar
      * @throws PostreException 
      */
-     @RequestMapping (value="/change", method = RequestMethod.POST)
-    public void changePostre(@RequestBody Postre postre) throws PostreException {
-        stub.changePostre(postre);
+     @RequestMapping (value="/{nit}/change", method = RequestMethod.POST)
+    public void changePostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException {
+         System.out.println("entreee");
+        stub.changePostre(postre,nit);
     }
     
     

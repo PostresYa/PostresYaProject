@@ -18,10 +18,11 @@ import java.util.Set;
  * @author 2095499
  */
 public interface Stub {
-    Set<Postre> getPostres(String nit);
-    void addPostre(Postre postre) throws PostreException;
-    void changePostre(Postre postre) throws PostreException;
-    public Postre getPostreByCode(String code) throws PostreException; 
+    List<Postre> getPostres(String nit) throws PostreException;
+    Postre getPostre(String nit,String code) throws PostreException;
+    void addPostre(Postre postre,String nit) throws PostreException;
+    void changePostre(Postre postre,String nit) throws PostreException;
+  
 
     public InputStream getPostrePicture(String code) throws PostreException;
     

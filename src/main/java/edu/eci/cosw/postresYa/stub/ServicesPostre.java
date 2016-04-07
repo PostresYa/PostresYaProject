@@ -25,45 +25,50 @@ import org.springframework.stereotype.Service;
  * @author duvan
  */
 
-//@Service
+@Service
 public class ServicesPostre implements Stub{
 
     @Autowired
     PostreRepository postreRepository;
     @Override
-    public Set<Postre> getPostres(String nit) {
-       
-        System.out.println(nit);
-       
-       // return postreRepository.findAll();
-throw new UnsupportedOperationException(nit);
+    public List<Postre> getPostres(String nit) throws PostreException {
+        return postreRepository.getPostresReposteria(nit);
     }
 
     @Override
-    public void addPostre(Postre postre) throws PostreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public void addPostre(Postre postre,String nit) throws PostreException {
+        postre.getId().setReposteriaNit(nit);
+        postreRepository.save(postre);
+        
+           }
 
     @Override
-    public void changePostre(Postre postre) throws PostreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void changePostre(Postre postre,String nit) throws PostreException {
+        postre.getId().setReposteriaNit(nit);
+        postreRepository.save(postre);
+     
     }
 
-    @Override
-    public Postre getPostreByCode(String code) throws PostreException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+   
     @Override
     public InputStream getPostrePicture(String code) throws PostreException {
         try {
-            return new FileInputStream("src/main/resources/static/app/images/PostreNuevo.png");
+            return new FileInputStream("src/main/resources/static/app/images/Postre1.png");
         } catch (FileNotFoundException ex) {
             return null;
             //Logger.getLogger(ServicesPostre.class.getName()).log(Level.SEVERE, null, ex);
         }
         
 
+    }
+
+    @Override
+    public Postre getPostre(String nit, String code) throws PostreException {
+       Postre p=postreRepository.findOne(new PostreId(code,nit));
+        if(p==null){
+            p=new Postre();
+        }
+        return p;
     }
     
 }

@@ -34,7 +34,7 @@ import org.springframework.stereotype.Service;
  *
  * @author 2095499
  */
-@Service
+//@Service
 public class StubPostre implements Stub{
    // private List<Postre> postres= new ArrayList<>();
    
@@ -64,8 +64,9 @@ public class StubPostre implements Stub{
      * @return un conjunto de postres
      */
     @Override
-    public Set<Postre> getPostres(String nit) {
-        return postres;
+    public List<Postre> getPostres(String nit) throws PostreException{
+        //return postres;
+        return null;
     }
    
     /**
@@ -74,24 +75,13 @@ public class StubPostre implements Stub{
      * @throws PostreException 
      */
     @Override
-    public void addPostre(Postre postre) throws PostreException{
+    public void addPostre(Postre postre,String nit) throws PostreException{
        
         postres.add(postre);
         postresMap.put(postre.getId().getCode(), postre);
         postresImages.put(postre.getId().getCode(),"src/main/resources/static/app/images/PostreNuevo.png");
     }
 
-    /**
-     * Busca un postre por medio del código asociado
-     * @param code
-     * @return
-     * @throws PostreException si el postre a consultar no es encontrado
-     */
-    @Override
-    public Postre getPostreByCode(String code) throws PostreException{
-        
-        return postresMap.get(code);
-    }
    
     /**Busca la imagen de un postre por medio del código asociado
      * 
@@ -120,7 +110,7 @@ public class StubPostre implements Stub{
      * @throws PostreException postre no encontrado
      */
     @Override
-    public void changePostre(Postre postre) throws PostreException {
+    public void changePostre(Postre postre,String nit) throws PostreException {
         
         Postre postreDelete=null;
         Iterator<Postre> iterator= postres.iterator();
@@ -150,6 +140,11 @@ public class StubPostre implements Stub{
         postresMap.get(postre.getId().getCode()).setDescription(postre.getDescription());
         postresMap.get(postre.getId().getCode()).setPrice(postre.getPrice());
         
+    }
+
+    @Override
+    public Postre getPostre(String nit, String code) throws PostreException {
+         return postresMap.get(code);
     }
     
 }

@@ -4,7 +4,7 @@ angular.module('services.module1', ['ngRoute','ngResource'])
 
     .factory('postres', function($resource) {
             
-        return $resource('/postres',{},{ get: { method: 'GET', isArray: true
+        return $resource('/postres/:nit',{},{ get: { method: 'GET', isArray: true
 } });
     })
     
@@ -15,6 +15,10 @@ angular.module('services.module1', ['ngRoute','ngResource'])
         } });
     })
     
+     .factory('postre', function($resource) {
+            
+        return $resource('/postres/:nit/:code');
+    })
     
     /*.factory('pedidosPostres', function($resource) {
             
@@ -24,7 +28,7 @@ angular.module('services.module1', ['ngRoute','ngResource'])
     
     .factory('postresChange', function($resource) {
             
-        return $resource('/postres/change');
+        return $resource('/postres/:nit/change');
     })
     
     .factory('pedidosChange', function($resource) {

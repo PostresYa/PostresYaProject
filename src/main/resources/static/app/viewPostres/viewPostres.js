@@ -9,12 +9,12 @@ angular.module('myApp.viewPostres', ['ngRoute'])
   });
 }])
 
-.controller('ViewPostresCtrl', ['$scope','postres','$filter',function($scope,postres,$filter) {
+.controller('ViewPostresCtrl', ['$scope','postres','$filter','$rootScope',function($scope,postres,$filter,$rootScope) {
         
        
                 
-                
-                  postres.get(function(data){
+                  console.log($rootScope.nit);  
+                  postres.get({nit:$rootScope.nit},function(data){
                         console.info("get postre  ");
                         $scope.listadoPostres=data;
                     });
