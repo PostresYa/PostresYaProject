@@ -56,7 +56,7 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                     }else*/
                         var newReposteria={"nit":$scope.nit,"name":$scope.name, "coverageRange":$scope.cobertura, usuario:{"username":$scope.usuario,"passwword":$scope.password}};
                          alert(newReposteria.name);
-                         reposterias.ssave(newReposteria,function(){
+                         reposterias.save(newReposteria,function(){
                                console.info("saved   "+ newReposteria);
                                   $scope.nit="";
                                   $scope.name="";
