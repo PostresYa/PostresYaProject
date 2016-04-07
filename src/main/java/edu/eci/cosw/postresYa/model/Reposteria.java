@@ -14,6 +14,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -25,12 +26,12 @@ import org.hibernate.annotations.FetchMode;
  * @author duvan
  */
 
-//@Entity
-//@Table(name="Reposteria")
+@Entity
+@Table(name="Reposteria")
 public class Reposteria implements java.io.Serializable  {
     private String nit;
     private String name;
-    private Set<Postre> postres= new HashSet<>(0);
+    private List<Postre> postres= new ArrayList<Postre>();
     private String coverageRange; //no sabemos como tratar el rango
     private Usuario usuario;
 
@@ -47,11 +48,12 @@ public class Reposteria implements java.io.Serializable  {
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
      */
-    public Reposteria(String nit,String name,String coverageRange,Usuario usuario){
+    public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
         //postres=new ArrayList<Postre>();
+        this.postres=postres;
         this.usuario=usuario;
     }
     
@@ -60,8 +62,8 @@ public class Reposteria implements java.io.Serializable  {
      * @return int Nit de la reposteria
      */
     
-    //@Id
-    //@Column(name = "nit", unique = true, nullable = false)
+    @Id
+    @Column(name = "nit", unique = true, nullable = false)
 	
     public String getNit() {
         return nit;
@@ -80,7 +82,7 @@ public class Reposteria implements java.io.Serializable  {
      * @return name
      */
     
-    //@Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", unique = true, nullable = false)
 
     public String getName() {
         return name;
@@ -97,30 +99,23 @@ public class Reposteria implements java.io.Serializable  {
      * Busca el catálogo de postres de la repostería
      * @return 
      */
-    /*@OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name="Reposteria_nit")
-    public Set<Postre> getPostres() {
+    public List<Postre> getPostres() {
         return postres;
     }
-    public void setPostre(Set<Postre> postres) {
+    public void setPostres(List<Postre> postres) {
         this.postres=postres;
-    }*/
+    }
 
-    /**
-     * Agrega un nuevo postre al catálogo de la repostería
-     * @param postre 
-     */
-    /*public void addPostres(Postre postre) {
-        postres.add(postre);
-    }*/
     
     /**
      * Busca el rango de cobertura de la repostería
      * @return 
      */
     
-    //@Column(name = "rango_cobertura",  nullable = false)
+    @Column(name = "rango_cobertura",  nullable = false)
     public String getCoverageRange() {
         return coverageRange;
     }
@@ -133,10 +128,10 @@ public class Reposteria implements java.io.Serializable  {
         this.coverageRange = coverageRange;
     }
     
-   /* @OneToOne()
+    @ManyToOne()
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name="Usuario_username",unique = true, nullable = false)
-    */public Usuario getUsuario() {
+    public Usuario getUsuario() {
         return usuario;
     }
 

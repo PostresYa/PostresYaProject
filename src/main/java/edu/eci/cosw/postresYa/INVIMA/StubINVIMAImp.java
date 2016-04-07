@@ -30,7 +30,7 @@ public class StubINVIMAImp implements StubINVIMA{
    
     @Override
     public StatusRegistroInvima validarINVIMA(String nit) {
-        System.out.println(nitINVALIDOS.size());
+      
         StatusRegistroInvima status=new StatusRegistroInvima(true);
         for(String nitInvalido:nitINVALIDOS){
             if(nitInvalido.equals(nit)){

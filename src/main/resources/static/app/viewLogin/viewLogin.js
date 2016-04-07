@@ -36,11 +36,12 @@ angular.module('myApp.viewLogin', ['ngRoute'])
     };
 
     authenticate();
+     $rootScope.authenticated = false;
     $scope.credentials = {};
     $scope.login = function () {
         authenticate($scope.credentials, function () {                        
             if ($rootScope.authenticated) {
-                $location.path("/view1");
+                $location.path("/viewLogin");
                 $scope.error = false;
             } else {
                 $location.path("/viewLogin");
@@ -49,4 +50,5 @@ angular.module('myApp.viewLogin', ['ngRoute'])
             }
         });
     };
+ 
 }]);

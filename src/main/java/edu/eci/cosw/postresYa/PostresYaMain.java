@@ -20,6 +20,7 @@ import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -61,16 +62,20 @@ public class PostresYaMain {
                     @Override
                     public Authentication authenticate(Authentication a) throws AuthenticationException {
                         
-                        Usuario usuario=userRepository.Login(a.getName(), a.getCredentials().toString());
-                        if(usuario!=null){
-                            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                            authorities.add(new SimpleGrantedAuthority("USER"));
-                            return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
+                        if (a.getName().equals("validarINVIMA")){
+                            return new UsernamePasswordAuthenticationToken(a.getName(),"",null);
+                           
+                        }else{
+                            Usuario usuario=userRepository.Login(a.getName(), a.getCredentials().toString());
+                            if(usuario!=null){
+                                List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+                                authorities.add(new SimpleGrantedAuthority("USER"));
+                                return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
 
+                            }
+
+                           return null;
                         }
-                       
-                       return null;
-                        
                     }
 
                     @Override
@@ -87,7 +92,7 @@ public class PostresYaMain {
                         .httpBasic()
                         .and()
                         .authorizeRequests()
-                        .antMatchers("/app/**","/logout","/login").permitAll()
+                        .antMatchers("/app/**","/logout","/login","/reposterias/registroINVIMA/**").permitAll()
                         .anyRequest().authenticated().and()
                         .logout().logoutSuccessUrl("/")
                         .and().csrf()

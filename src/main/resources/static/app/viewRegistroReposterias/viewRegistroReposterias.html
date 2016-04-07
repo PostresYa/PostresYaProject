@@ -1,31 +1,26 @@
- <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
-        
+
+<div   id="page-wrapper"  class="5grid-layout">
+  
     
      <div class="invima">
-     <input type="text" ng-model = "nit" placeholder="NIT" required />            
+     <input type="text" ng-model = "nit" placeholder="NIT" disable="false" id="nitReposteria" required />            
+     <br> <input type="text" ng-model = "Validarnit" placeholder="confirmar NIT" disable="false" id="nitReposteriaV" required />            
+ 
      </div>     
       <br>
      <button ng-click="validarINVIMA()" class="btn btn-primary btn-large"  >validar con el invima</button>
-     
-     <div class="formulario" ng-show="validada">
+     <br>
+     <div class="input-group" ng-show="validada">
 
             <ul>
                 <input type="text"  ng-model = "name" placeholder="Nombre" required/>
             </ul>
-            <br>
-            <ul>
-                <input type="text" ng-model = "catalogo" type="number" placeholder="Catalogo" required="true" />
-            </ul>
+            
             <br>
             <ul>
                 <textarea type="text" ng-model = "cobertura" placeholder="Cobertura" required="true"></textarea>
             </ul>
-            <br>
-            
-            <ul>
-                <input type="text" ng-model = "usuario" placeholder="Usuario" required="true"></textarea>
-            </ul>
-            
+
             <br>
             <ul>
                 <input type="text" ng-model = "password" placeholder="Password" required="true"></textarea>
@@ -38,14 +33,8 @@
 
      </div>
 
-
- </div> 
-<div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
-        <h1> Usted no esta autenticado</h1>
-        
-    </div>
   
     
-    
+</div>
      
            

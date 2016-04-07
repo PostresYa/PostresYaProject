@@ -23,7 +23,7 @@ public class StubReposteria implements StubReposteriaI {
     List <Reposteria> reposterias = new ArrayList<>();
     
     public StubReposteria(){
-        Reposteria r1 = new Reposteria("1", "Reposteria 1", "Zona Norte",new Usuario("r1", "pass1")); 
+        Reposteria r1 = new Reposteria("1", "Reposteria 1", "Zona Norte",new ArrayList<Postre>(),new Usuario("r1", "pass1")); 
         Postre p = new Postre (new PostreId("1","r1"), "Tres leches", 5000,"vaso grande");
        // r1.addPostres(p);
         reposterias.add(r1);
