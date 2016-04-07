@@ -5,16 +5,21 @@
  */
 package edu.eci.cosw.postresYa.controller;
 
+import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
+import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.model.StatusRegistroInvima;
 import edu.eci.cosw.postresYa.stubReposteria.StubReposteriaI;
 import java.util.List;
+import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- *
  * @author Wilmer Orlando Cortez Conde
  */
 
@@ -25,8 +30,17 @@ public class ReposteriaController {
     @Autowired
     StubReposteriaI reposteria;
     
+    @Autowired
+    StubINVIMA stubINVIMA;
     public ReposteriaController(){
         
+    }
+    
+    @RequestMapping(value="/registroinvima/{nit}",method = RequestMethod.GET)
+    public StatusRegistroInvima validarINVIMA(@PathVariable String nit){
+       
+        
+        return  stubINVIMA.validarINVIMA(nit);
     }
     
     @RequestMapping(method = RequestMethod.GET)

@@ -30,13 +30,20 @@ angular.module('services.module1', ['ngRoute','ngResource'])
             
         return $resource('/postres/:nit/change');
     })
+    .factory('reposterias', function($resource) {
+            
+         return $resource('/reposterias',{},{ get: { method: 'GET', isArray: true
+} });
+       
+    })
+    
+    .factory('reposteriasINVIMA', function($resource) {
+            
+        return $resource('/reposterias/registroinvima/:nit');
+    })
     
     .factory('pedidosChange', function($resource) {
             
         return $resource('/pedidos/change');
     });
     
-
-    
-    
-

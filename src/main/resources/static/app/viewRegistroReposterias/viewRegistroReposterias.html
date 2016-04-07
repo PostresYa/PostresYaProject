@@ -1,13 +1,14 @@
-
-    <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
+ <div  ng-show="authenticated" id="page-wrapper"  class="5grid-layout">
         
-        <form role="form" ng-submit="agregarReposterias()">
-        <div class="input-group" >    
-        <ul>
-            <ul>
-                <input type="number"   ng-model = "nit" placeholder="NIT" required />            
-            </ul>
-            <br>
+    
+     <div class="invima">
+     <input type="text" ng-model = "nit" placeholder="NIT" required />            
+     </div>     
+      <br>
+     <button ng-click="validarINVIMA()" class="btn btn-primary btn-large"  >validar con el invima</button>
+     
+     <div class="formulario" ng-show="validada">
+
             <ul>
                 <input type="text"  ng-model = "name" placeholder="Nombre" required/>
             </ul>
@@ -20,25 +21,29 @@
                 <textarea type="text" ng-model = "cobertura" placeholder="Cobertura" required="true"></textarea>
             </ul>
             <br>
+            
             <ul>
-                <button type="submit" class="btn btn-primary btn-large">Agregar reposteria</button>
+                <input type="text" ng-model = "usuario" placeholder="Usuario" required="true"></textarea>
+            </ul>
+            
+            <br>
+            <ul>
+                <input type="text" ng-model = "password" placeholder="Password" required="true"></textarea>
+            </ul>
+            <ul>
+                <button ng-click="agregarReposteria()" type="submit" class="btn btn-primary btn-large">Agregar reposteria</button>
                 
             </ul>
-        </ul>
-      </div>
-      </form>
- 
+            
 
- 
-    
-    </div>
-    
+     </div>
+
+
+ </div> 
 <div  ng-show="!authenticated" id="page-wrapper"  class="5grid-layout">
         <h1> Usted no esta autenticado</h1>
         
     </div>
-    
-
   
     
     
