@@ -27,7 +27,7 @@ public class Usuario implements java.io.Serializable {
         this.password=password;
     }
     @Id
-    @Column(name = "username", unique = true, nullable = false)
+    @Column(name = "username", nullable = false)
     public String getUsername() {
         return username;
     }
@@ -35,7 +35,7 @@ public class Usuario implements java.io.Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    @Column(name="password")
+    @Column(name="password", nullable = false)
     public String getPassword() {
         return password;
     }

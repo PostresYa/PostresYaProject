@@ -92,7 +92,7 @@ public class PostresYaMain {
                         .httpBasic()
                         .and()
                         .authorizeRequests()
-                        .antMatchers("/app/**","/logout","/login","/reposterias/registroINVIMA/**").permitAll()
+                        .antMatchers("/app/**","/logout","/login","/reposterias/registroINVIMA/**","/reposterias/**").permitAll()
                         .anyRequest().authenticated().and()
                         .logout().logoutSuccessUrl("/")
                         .and().csrf()

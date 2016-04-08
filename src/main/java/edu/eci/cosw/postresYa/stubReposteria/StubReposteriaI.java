@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.stubReposteria;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import java.util.List;
 
@@ -14,7 +15,8 @@ import java.util.List;
  */
 public interface StubReposteriaI {
     
-    
-    public List <Reposteria> getReposterias();
-    public void modificarReposteria(int codigo);
+
+    Reposteria getReposteriaByNit(String nit) throws PostreException;
+    void saveReposteria(Reposteria reposteria) throws PostreException;
+    List<Reposteria> getAllReposterias() throws PostreException;
 }

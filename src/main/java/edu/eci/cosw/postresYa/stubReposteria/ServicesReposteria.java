@@ -5,8 +5,12 @@
  */
 package edu.eci.cosw.postresYa.stubReposteria;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.model.Usuario;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,23 +20,28 @@ import org.springframework.stereotype.Service;
  * @author duvan
  */
 
-//@Service
+@Service
 public class ServicesReposteria implements StubReposteriaI{
 
     @Autowired
     ReposteriaRepository reposteriaRepository;
     
+  
     @Override
-    public List<Reposteria> getReposterias() {
-        
-     // return reposteriaRepository.getAllReposterias();
-       throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    } 
-    
+    public Reposteria getReposteriaByNit(String nit) throws PostreException{
+         return reposteriaRepository.findOne(nit);
+    }
 
     @Override
-    public void modificarReposteria(int codigo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void saveReposteria(Reposteria reposteria) throws PostreException {
+ 
+       
+        reposteriaRepository.save(reposteria);
     }
+
+    @Override
+    public List<Reposteria> getAllReposterias() throws PostreException {
+       return reposteriaRepository.findAll();
+          }
     
 }

@@ -37,6 +37,12 @@ angular.module('services.module1', ['ngRoute','ngResource'])
        
     })
     
+    .factory('reposteriasValidacion', function($resource) {
+            
+         return $resource('/reposterias/:nit');
+       
+    })
+    
     .factory('reposteriasINVIMA', function($resource) {
             
         return $resource('/reposterias/registroinvima/:nit');

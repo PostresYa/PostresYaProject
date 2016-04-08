@@ -11,11 +11,14 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+
+
+
 /**
  *
  * @author duvan
  */
-public interface ReposteriaRepository {//extends JpaRepository<Reposteria, String> {
-   // @Query("from Reposteria")
-    //List<Reposteria> getAllReposterias();
+public interface ReposteriaRepository extends JpaRepository<Reposteria, String> {
+    
 }

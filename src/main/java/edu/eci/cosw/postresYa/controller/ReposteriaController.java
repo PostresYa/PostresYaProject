@@ -5,12 +5,16 @@
  */
 package edu.eci.cosw.postresYa.controller;
 
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.StatusRegistroInvima;
 import edu.eci.cosw.postresYa.stubReposteria.StubReposteriaI;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,14 +32,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReposteriaController {
     
     @Autowired
-    StubReposteriaI reposteria;
+    StubReposteriaI stubReposteria;
     
     @Autowired
     StubINVIMA stubINVIMA;
     public ReposteriaController(){
         
     }
-    
+     
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Reposteria> getAllReposterias() {
+       
+        
+        try {
+            return  stubReposteria.getAllReposterias();
+        } catch (PostreException ex) {
+            return new ArrayList<Reposteria>();
+        }
+    }
     @RequestMapping(value="/registroinvima/{nit}",method = RequestMethod.GET)
     public StatusRegistroInvima validarINVIMA(@PathVariable String nit){
        
@@ -43,19 +57,32 @@ public class ReposteriaController {
         return  stubINVIMA.validarINVIMA(nit);
     }
     
-    @RequestMapping(method = RequestMethod.GET)
+  /*  @RequestMapping(method = RequestMethod.GET)
     public List<Reposteria> getTodasReposterias(){
         return reposteria.getReposterias();
+    }*/
+    
+    @RequestMapping(value="/{nit}", method = RequestMethod.GET)
+    public Reposteria getReposteria(@PathVariable String nit){
+      
+        try {
+            return stubReposteria.getReposteriaByNit(nit);
+        } catch (PostreException ex) {
+           // Logger.getLogger(ReposteriaController.class.getName()).log(Level.SEVERE, null, ex);
+            return new Reposteria();
+        }
     }
     
-    @RequestMapping(value="/nit", method = RequestMethod.GET)
-    public Reposteria getReposteria(String nit){
-        List <Reposteria> aux = reposteria.getReposterias();
-        for(Reposteria a: aux){
-            if(a.getNit().equals(nit)){
-                return a;
-            }
+    @RequestMapping(method = RequestMethod.POST)
+    public void saveReposteria(@RequestBody Reposteria reposteria){
+        System.out.println("enmtro"+ reposteria.getNit()+"   "+ reposteria.getUsuario().getPassword());
+        try {
+            stubReposteria.saveReposteria(reposteria);
+        } catch (PostreException ex) {
+            Logger.getLogger(ReposteriaController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
     }
+   
+     
+     
 }

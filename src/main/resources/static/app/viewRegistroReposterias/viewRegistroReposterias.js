@@ -9,11 +9,13 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
   });
 }])
 
-.controller('ViewRegistroReposteriasCtrl', ['$scope','reposteriasINVIMA', 'reposterias','$http',function($scope,reposteriasINVIMA, reposterias,$http) {
+.controller('ViewRegistroReposteriasCtrl', ['$scope','reposteriasINVIMA', 'reposterias','$http','reposteriasValidacion','$rootScope',function($scope,reposteriasINVIMA, reposterias,$http,reposteriasValidacion,$rootScope) {
+        $rootScope.authenticated=false;
 
         $scope.nit="";
         $scope.name ="";
-        $scope.cobertura ="";
+         $scope.CoverageRange="";
+      
         $scope.password="";
         $scope.validarNit="";
         $scope.validada=false;
@@ -23,7 +25,7 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
         $scope.validarINVIMA=function(){
            
             console.log("VALIDNADO INFORMACION CON EL INVIMA");
-      
+            
             console.log($scope.nit);
             if ($scope.nit==$scope.Validarnit){
                 reposteriasINVIMA.get({nit:$scope.nit},function(data){
@@ -41,8 +43,12 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                  }       
 
                   });
+                   $rootScope.authenticated=false;
+                $rootScope.nit="";
                 
             }else{
+                $rootScope.authenticated=false;
+                $rootScope.nit="";
                 alert("el nit no coincide");
             }
              
@@ -50,10 +56,31 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
         };
         
         $scope.agregarReposteria=function(){
-            alert("SE AGREGARA UNA NUEVA REPOSTERIA");
-            reposterias.get(function(data){
-                  
-                        var newReposteria={"nit":$scope.nit,"name":$scope.name, "coverageRange":$scope.cobertura, usuario:{"username":$scope.usuario,"passwword":$scope.password}};
+            console.log("entro");
+            reposteriasValidacion.get({nit:$scope.nit},function(data){
+                
+                if(data.nit!=null){
+                        $rootScope.authenticated=false;
+                        $rootScope.nit="";
+                    alert("el nit ya esta registrado en la pagina");
+                }else{
+                    var newUser={"username":$scope.nit,"password":$scope.password};
+                    var newReposteria={"nit":$scope.nit,"name":$scope.name,"postres":[], "coverageRange":$scope.CoverageRange, "usuario":newUser};
+                    console.log(newReposteria);    
+                        
+                        
+                         reposterias.save(newReposteria,function(){
+                               console.info("saved   "+ newReposteria);
+                                  $scope.nit="";
+                                  $scope.name="";
+                                  $scope.CoverageRange="";
+                                  $rootScope.authenticated=false;
+                                  $rootScope.nit="";
+                                 // $scope.description="";
+                         });
+                }
+                        
+                       /* var newReposteria={"nit":$scope.nit,"name":$scope.name, "coverageRange":$scope.cobertura, usuario:{"username":$scope.usuario,"passwword":$scope.password}};
                          alert(newReposteria.name);
                          reposterias.save(newReposteria,function(){
                                console.info("saved   "+ newReposteria);
@@ -61,7 +88,7 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                                   $scope.name="";
                                   $scope.cobertura="";
                                  // $scope.description="";
-                         });
+                         });*/
                     //}
                 });
         };

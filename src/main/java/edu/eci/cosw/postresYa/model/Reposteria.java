@@ -5,10 +5,10 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+
+
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
 import javax.persistence.Table;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -31,7 +31,7 @@ import org.hibernate.annotations.FetchMode;
 public class Reposteria implements java.io.Serializable  {
     private String nit;
     private String name;
-    private List<Postre> postres= new ArrayList<Postre>();
+   private List<Postre> postres= new ArrayList<Postre>();
     private String coverageRange; //no sabemos como tratar el rango
     private Usuario usuario;
 
@@ -47,6 +47,7 @@ public class Reposteria implements java.io.Serializable  {
      * @param nit //NIT de identificacion de la reposteria
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
+
      */
     public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario){
         this.nit=nit;
@@ -56,15 +57,14 @@ public class Reposteria implements java.io.Serializable  {
         this.postres=postres;
         this.usuario=usuario;
     }
-    
+ 
     /**
      * Busca el nit de la repostería 
      * @return int Nit de la reposteria
      */
     
     @Id
-    @Column(name = "nit", unique = true, nullable = false)
-	
+    @Column(name = "nit", nullable = false)
     public String getNit() {
         return nit;
     }
@@ -82,7 +82,7 @@ public class Reposteria implements java.io.Serializable  {
      * @return name
      */
     
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "nombre", nullable = false)
 
     public String getName() {
         return name;
@@ -128,9 +128,10 @@ public class Reposteria implements java.io.Serializable  {
         this.coverageRange = coverageRange;
     }
     
+    
     @ManyToOne()
     @Fetch(FetchMode.JOIN)
-    @JoinColumn(name="Usuario_username",unique = true, nullable = false)
+    @JoinColumn(name = "Usuario_username", nullable = false)
     public Usuario getUsuario() {
         return usuario;
     }

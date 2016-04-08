@@ -11,7 +11,7 @@ CREATE TABLE `coswgr5`.`Pedido` (
     `estado` char(10)  NOT NULL,
     `fecha_aprobacion` date  NOT NULL,
     CONSTRAINT `Pedido_pk` PRIMARY KEY (`id_pedido`)
-);
+)ENGINE=InnoDB;
 
 -- Table PedidoPostreCantidad
 CREATE TABLE `coswgr5`.`PedidoPostreCantidad` (
@@ -20,7 +20,7 @@ CREATE TABLE `coswgr5`.`PedidoPostreCantidad` (
     `cantidad` int  NOT NULL,
     `Pedido_id_pedido` int  NOT NULL,
     CONSTRAINT `PedidoPostreCantidad_pk` PRIMARY KEY (`Postre_codigo_postre`,`Postre_Reposteria_nit`,`Pedido_id_pedido`)
-);
+)ENGINE=InnoDB;
 
 -- Table Postre
 CREATE TABLE `coswgr5`.`Postre` (
@@ -31,8 +31,13 @@ CREATE TABLE `coswgr5`.`Postre` (
     `descripcion` varchar(30)  NOT NULL,
     `imagen` blob  NULL,
     CONSTRAINT `Postre_pk` PRIMARY KEY (`codigo_postre`,`Reposteria_nit`)
-);
-
+)ENGINE=InnoDB;
+-- Table Usuario
+CREATE TABLE `coswgr5`.`Usuario` (
+    `username` varchar(30)  NOT NULL,
+    `password` varchar(100)  NOT NULL,
+    CONSTRAINT `Usuario_pk` PRIMARY KEY (`username`)
+)ENGINE=InnoDB;
 -- Table Reposteria
 CREATE TABLE `coswgr5`.`Reposteria` (
     `nit` varchar(15)  NOT NULL,
@@ -40,14 +45,9 @@ CREATE TABLE `coswgr5`.`Reposteria` (
     `rango_cobertura` varchar(20)  NOT NULL,
     `Usuario_username` varchar(30)  NOT NULL,
     CONSTRAINT `Reposteria_pk` PRIMARY KEY (`nit`)
-);
+)ENGINE=InnoDB;
 
--- Table Usuario
-CREATE TABLE `coswgr5`.`Usuario` (
-    `username` varchar(30)  NOT NULL,
-    `password` varchar(100)  NOT NULL,
-    CONSTRAINT `Usuario_pk` PRIMARY KEY (`username`)
-);
+
 
 
 

@@ -14,6 +14,6 @@ import org.springframework.data.repository.query.Param;
  * @author duvan
  */
 public interface PostreRepository extends JpaRepository<Postre, PostreId> {
-    @Query("from Postre p where p.id.reposteriaNit = :nit")
+    @Query("from Postre as p where p.id.reposteriaNit = :nit")
     List<Postre> getPostresReposteria(@Param(value = "nit")String nit);
 }

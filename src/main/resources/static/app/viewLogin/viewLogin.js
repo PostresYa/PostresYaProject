@@ -10,7 +10,8 @@ angular.module('myApp.viewLogin', ['ngRoute'])
 }])
 
 .controller('ViewLoginCtrl', ['$scope','$rootScope','$http','$location', function($scope, $rootScope, $http, $location) {
-            
+    $scope.credentials = {};  
+        
     var authenticate = function (credentials, callback) {
 
     var headers = credentials ? {authorization: "Basic "
@@ -34,10 +35,10 @@ angular.module('myApp.viewLogin', ['ngRoute'])
         });
 
     };
-
+    
     authenticate();
-     $rootScope.authenticated = false;
-    $scope.credentials = {};
+
+       
     $scope.login = function () {
         authenticate($scope.credentials, function () {                        
             if ($rootScope.authenticated) {
