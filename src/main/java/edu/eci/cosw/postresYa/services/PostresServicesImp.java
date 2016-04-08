@@ -3,33 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.eci.cosw.postresYa.stub;
+package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreId;
+import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
+import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
+import edu.eci.cosw.postresYa.repositories.UserRepository;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
  *
- * @author duvan
+ * @author 2096844
  */
 
 @Service
-public class ServicesPostre implements Stub{
-
+public class PostresServicesImp implements PostresYaServices{
+     
     @Autowired
     PostreRepository postreRepository;
+    
+    @Autowired
+    ReposteriaRepository reposteriaRepository;
+        
+    @Autowired
+    UserRepository userRepository;
+    
     @Override
     public List<Postre> getPostres(String nit) throws PostreException {
         return postreRepository.getPostresReposteria(nit);
@@ -70,5 +76,26 @@ public class ServicesPostre implements Stub{
         }
         return p;
     }
+    
+    
+  
+    
+  
+    @Override
+    public Reposteria getReposteriaByNit(String nit) throws PostreException{
+         return reposteriaRepository.findOne(nit);
+    }
+
+    @Override
+    public void saveReposteria(Reposteria reposteria) throws PostreException {
+ 
+        userRepository.save(reposteria.getUsuario());
+        reposteriaRepository.save(reposteria);
+    }
+
+    @Override
+    public List<Reposteria> getAllReposterias() throws PostreException {
+       return reposteriaRepository.findAll();
+          }
     
 }

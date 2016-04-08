@@ -6,6 +6,7 @@
 package edu.eci.cosw.postresYa.controller;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
+import edu.eci.cosw.postresYa.services.PostresYaServices;
 import edu.eci.cosw.postresYa.stub.Stub;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class PostreController {
     
     
     @Autowired
-    Stub stub;
+    PostresYaServices stub;
     /**
      * Constructor del controlador de postres
      */

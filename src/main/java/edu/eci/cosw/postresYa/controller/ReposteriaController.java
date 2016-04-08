@@ -10,6 +10,7 @@ import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.StatusRegistroInvima;
+import edu.eci.cosw.postresYa.services.PostresYaServices;
 import edu.eci.cosw.postresYa.stubReposteria.StubReposteriaI;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ReposteriaController {
     
     @Autowired
-    StubReposteriaI stubReposteria;
+    PostresYaServices stubReposteria;
     
     @Autowired
     StubINVIMA stubINVIMA;
