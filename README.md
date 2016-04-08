@@ -1,4 +1,4 @@
-<img src="/src/main/resources/static/app/images/Logo.png" align="right" />
+![]("/src/main/resources/static/app/images/Logo.png")
 ##Escuela Colombiana de Ingeniería
 ##Construcción de Software - COSW
 ## PostresYaProject
@@ -28,9 +28,7 @@ El proyecto PostresYa fue creado por:
 
 Este proyecto estara basado en el siguiente diagrama de clases,para satisface las historias de usuario
 
-<img src="/src/main/resources/static/app/images/DiagramaDeClases.PNG" align="center" />
-
-
+![]("/src/main/resources/static/app/images/DiagramaDeClases.PNG")
 ###Tabla de contenido
 1.Inicio de sesión
 2.Registro de una repostería
