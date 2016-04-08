@@ -8,19 +8,19 @@
 Muchas personas amantes de los postres, no pueden acceder a ellos por falta de tiempo, se busca ayudarlos a adquirirlos sin que ellos tengan que moverse de su ubicación; también se pretende que las reposterías amplíen su negocio por medio de Postres ya, las cuales tendrán un rango de domicilios, en el cual estas consideran que no sufren pérdidas.
 
 En el siguiente proyecto, se trabajaran las siguientes historias de usuario:
-   *Historia de usuario registrar postre
-   *Historia de usuario consultar pedidos
-   *Historia de usuario registrar repostería
+   *Historia de usuario registrar postre.
+   *Historia de usuario consultar pedidos.
+   *Historia de usuario registrar repostería.
 
 
 ###Integrantes
 
 El proyecto PostresYa fue creado por:
 
- -Duván Barrera
- -Giovanny Sissa
- -Wilmer Cortez
- -Diego Rodriguez
+ -Duván Barrera.
+ -Giovanny Sissa.
+ -Wilmer Cortez.
+ -Diego Rodriguez.
 
 
 ###Descripción del proyecto
@@ -30,11 +30,11 @@ Este proyecto estara basado en el siguiente diagrama de clases,para satisface la
 
 ![]("/src/main/resources/static/app/images/DiagramaDeClases.PNG")
 ###Tabla de contenido
-1.Inicio de sesión
-2.Registro de una repostería
-3.Registro de un postre
-4.Consulta de postres
-5.Consulta de estado de los pedidos
+1.Inicio de sesión.
+2.Registro de una repostería.
+3.Registro de un postre.
+4.Consulta de postres.
+5.Consulta de estado de los pedidos.
 
 ###Inicio de sesión
 
