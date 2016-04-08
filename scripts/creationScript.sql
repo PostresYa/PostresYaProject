@@ -2,14 +2,14 @@
 -- Last modification date: 2016-03-30 02:04:12.631
 
 
-
-
 -- tables
 -- Table Pedido
 CREATE TABLE `coswgr5`.`Pedido` (
-    `id_pedido` int  NOT NULL,
+    `id_pedido` int  NOT NULL AUTO_INCREMENT,
     `estado` char(10)  NOT NULL,
     `fecha_aprobacion` date  NOT NULL,
+    `direccion` varchar(20)  NOT NULL,
+    `precio` int  NOT NULL,
     CONSTRAINT `Pedido_pk` PRIMARY KEY (`id_pedido`)
 )ENGINE=InnoDB;
 
