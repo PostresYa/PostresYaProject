@@ -32,14 +32,11 @@ public class PostresYaTest {
       
         
         
-        @Autowired
-        ServicesReposteria servicesReposteria;
         
+        /*
         @Autowired
         ReposteriaRepository repositoryReposteria;
         
-        @Autowired
-        ServicesPostre servicesPostre;
         
         @Autowired
         PostreRepository repositoryPostre;
@@ -49,12 +46,12 @@ public class PostresYaTest {
       
         @Test
         public void testGet() throws PostreException{
-            /*Usuario u= new Usuario("duvan", "123");
+            Usuario u= new Usuario("duvan", "123");
             userRepository.save(u);
              Postre p= new Postre(new PostreId("p1", "r1"), "name1", 10000, "descirpcion1");
             List<Postre> postres= new ArrayList<Postre>();
             postres.add(p);
-              */      
+                  
              
            // Reposteria r= new Reposteria("r1", "marica", "asd", postres, u);
             //repositoryReposteria.save(r);
@@ -62,12 +59,12 @@ public class PostresYaTest {
                     
             
            
-          /*  repositoryPostre.save(p);
+           repositoryPostre.save(p);
             Postre comparacion= servicesPostre.getPostre(p.getId().getCode(), p.getId().getReposteriaNit());
             Assert.assertEquals(comparacion.getId().getCode(),repositoryPostre.findOne(new PostreId(p.getId().getCode(), p.getId().getReposteriaNit())).getId().getCode());
-              */      
+                 
             
-          /*  Paciente p = new Paciente(new PacienteId(2095499, "cc"), "Duvan", new Date());
+            Paciente p = new Paciente(new PacienteId(2095499, "cc"), "Duvan", new Date());
             Set<Consulta> consultas = new HashSet<>();
             consultas.add(new Consulta(new Date(), "resumen prueba"));
             p.setConsultas(consultas);
@@ -77,9 +74,9 @@ public class PostresYaTest {
             boolean test = p.getId().equals(comparacion.getId());
             pr.delete(pr.getOne(new PacienteId(2095499,"cc")));
             Assert.assertTrue(test);
-*/
+
           
           
-        }
+        }*/
 
 }
