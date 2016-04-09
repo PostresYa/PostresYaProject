@@ -8,8 +8,6 @@ import edu.eci.cosw.postresYa.model.Usuario;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
-import edu.eci.cosw.postresYa.stub.ServicesPostre;
-import edu.eci.cosw.postresYa.stubReposteria.ServicesReposteria;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
