@@ -26,13 +26,14 @@
       </th>
      
     </tr> 
-      
+     
+    
     <tr ng-repeat="todo in listadoPostres">
       <td>{{todo.name}}</td>
       <td>{{todo.id.code}}</td>
       <td>{{todo.price}}</td>
       <td>{{todo.description}}</td>
-      <td><image src="/postres/{{todo.id.code}}/picture" alt="" width="150" height="150"/></td>
+      <td><image src="/postres/{{todo.id.reposteriaNit}}/{{todo.id.code}}/picture" alt="" width="150" height="150"/></td>
      
     </tr>
   </tbody>

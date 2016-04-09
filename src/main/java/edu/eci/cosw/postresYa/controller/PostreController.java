@@ -8,20 +8,29 @@ import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
 import edu.eci.cosw.postresYa.stub.Stub;
+import java.sql.SQLException;
+import java.util.Iterator;
 import java.util.List;
 
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sql.rowset.serial.SerialBlob;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 /**
  *
@@ -81,7 +90,7 @@ public class PostreController {
      */
      @RequestMapping (value="/{nit}/change", method = RequestMethod.POST)
     public void changePostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException {
-         System.out.println("entreee");
+         
         stub.changePostre(postre,nit);
     }
     
@@ -92,16 +101,53 @@ public class PostreController {
      * @param code
      * @return ResponseEntity 
      */
-    @RequestMapping(value="/{code}/picture", method = RequestMethod.GET)
-    public ResponseEntity<InputStreamResource> getPostrePicture(@PathVariable String code){
-        
-      
-        try{
-        return ResponseEntity.ok().contentType(MediaType.parseMediaType("image/jpg")).body(new InputStreamResource(stub.getPostrePicture(code)));
-        }catch(Exception e){
-            
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }    
+    @RequestMapping(value="{nit}/{code}/picture", method = RequestMethod.GET)
+    public ResponseEntity<InputStreamResource> getPostrePicture(@PathVariable String nit,@PathVariable String code){
+        System.out.println(nit+"---------------------------------------"+code);
+         try {            
+            return ResponseEntity.ok()
+                    .contentType(MediaType.parseMediaType("image/png"))
+                    .body(new InputStreamResource(stub.getPostre(nit, code).getImage().getBinaryStream()));
+        } catch (PostreException ex) {
+            Logger.getLogger(PostreController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PostreController.class.getName()).log(Level.SEVERE, null, ex);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+       
+         
+    }
+    
+    @RequestMapping(
+    value = "/uploadImage",
+    method = RequestMethod.POST
+    )
+    public ResponseEntity uploadFile(MultipartHttpServletRequest request,@RequestParam(name = "codigo") String codigo,@RequestParam(name = "nit") String nit) {
+        System.out.println("-------------"+nit+"-----------"+codigo);
+        try {
+            Iterator<String> itr = request.getFileNames();
+
+                while (itr.hasNext()) {
+                    String uploadedFile = itr.next();
+                    MultipartFile file = request.getFile(uploadedFile);
+                   
+                    Postre p=stub.getPostre(nit,codigo);
+                    System.out.println("postre-----"+p.getName());
+                    p.setImage(new SerialBlob(StreamUtils.copyToByteArray(file.getInputStream())));
+                    System.out.println("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");                          
+
+                    //-->> GUARDAR EL DESPACHO A TRAVÉS DEL SERVICIO CREADO
+                    stub.changePostre(p, nit);
+
+            }
+        }
+        catch (Exception e) {
+            return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return new ResponseEntity<>("{}", HttpStatus.OK);
     }
     
     

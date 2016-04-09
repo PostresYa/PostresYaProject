@@ -6,7 +6,7 @@
 package edu.eci.cosw.postresYa.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mysql.jdbc.Blob;
+import java.sql.Blob;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -140,7 +140,7 @@ public class Postre implements java.io.Serializable{
     }
                                 
     @JsonIgnore
-    @Lob
+  
     @Column(name = "imagen")
     public Blob getImage(){
         return  this.image;
