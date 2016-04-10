@@ -78,7 +78,7 @@ public class PostreController {
      */
     @RequestMapping (value="/{nit}",method = RequestMethod.POST)
     public void postPostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException { 
-       
+        System.out.println(nit+"-----postre------"+postre.getName());
         stub.addPostre(postre,nit);
     }
     

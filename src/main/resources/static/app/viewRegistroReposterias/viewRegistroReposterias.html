@@ -3,8 +3,8 @@
   
     
      <div class="invima">
-     <input type="text" ng-model = "nit" placeholder="NIT" disable="false" id="nitReposteria" required />            
-     <br> <input type="text" ng-model = "Validarnit" placeholder="confirmar NIT" disable="false" id="nitReposteriaV" required />            
+         <input type="text" ng-model = "nit" placeholder="NIT" disable="false" id="nitReposteria" required maxlength="15" />            
+         <br> <input type="text" ng-model = "Validarnit" placeholder="confirmar NIT" disable="false" id="nitReposteriaV" required maxlength="15" />            
  
      </div>     
       <br>
@@ -13,17 +13,17 @@
      <div class="input-group" ng-show="validada">
 
             <ul>
-                <input type="text"  ng-model = "name" placeholder="Nombre" required/>
+                <input type="text"  ng-model = "name" placeholder="Nombre" required maxlength="20"/>
             </ul>
             
             <br>
             <ul>
-                <textarea type="text"  ng-model = "CoverageRange" placeholder="rango de cobertura" required></textarea>
+                <textarea type="text"  ng-model = "CoverageRange" placeholder="rango de cobertura" required maxlength="20"></textarea>
             </ul>
 
             <br>
             <ul>
-                <input type="text" ng-model = "password" placeholder="Password" required="true">
+                <input type="text" ng-model = "password" placeholder="Password" required="true" maxlength="20">
             </ul>
             <ul>
                 <button ng-click="agregarReposteria()" type="submit" class="btn btn-primary btn-large">Agregar reposteria</button>

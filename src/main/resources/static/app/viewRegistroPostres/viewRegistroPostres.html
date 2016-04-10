@@ -5,11 +5,11 @@
         <div class="input-group" >    
         <ul>
             <ul>
-                <input type="text"   ng-model = "name" placeholder="Nombre" required />            
+                <input type="text"   ng-model = "name" placeholder="Nombre" required="true" maxlength="20" />            
             </ul>
             <br>
             <ul>
-                <input type="text"  ng-model = "code" placeholder="Codigo" required/>
+                <input type="text"  ng-model = "code" placeholder="Codigo" required maxlength="10"/>
             </ul>
             <br>
             <ul>
@@ -17,7 +17,7 @@
             </ul>
             <br>
             <ul>
-                <textarea ng-model = "description" placeholder="Descripcion" required="true"></textarea>
+                <textarea ng-model = "description" placeholder="Descripcion" required="true" maxlength="80"></textarea>
             </ul>
             <br>
             <ul>

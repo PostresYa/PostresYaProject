@@ -47,6 +47,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
         $scope.price ="";
         $scope.id ="";
         $scope.description ="";
+        $scope.myFile="";
         
         $scope.agregarPostre = function(){
 

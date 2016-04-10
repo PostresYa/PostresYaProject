@@ -28,14 +28,14 @@ CREATE TABLE `coswgr5`.`Postre` (
     `Reposteria_nit` varchar(15)  NOT NULL,
     `nombre` varchar(20)  NOT NULL,
     `precio` int  NOT NULL,
-    `descripcion` varchar(30)  NOT NULL,
+    `descripcion` varchar(80)  NOT NULL,
     `imagen` blob  NULL,
     CONSTRAINT `Postre_pk` PRIMARY KEY (`codigo_postre`,`Reposteria_nit`)
 )ENGINE=InnoDB;
 -- Table Usuario
 CREATE TABLE `coswgr5`.`Usuario` (
     `username` varchar(30)  NOT NULL,
-    `password` varchar(100)  NOT NULL,
+    `password` varchar(20)  NOT NULL,
     CONSTRAINT `Usuario_pk` PRIMARY KEY (`username`)
 )ENGINE=InnoDB;
 -- Table Reposteria
