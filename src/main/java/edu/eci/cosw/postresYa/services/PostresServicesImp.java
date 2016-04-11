@@ -55,18 +55,7 @@ public class PostresServicesImp implements PostresYaServices{
      
     }
 
-   
-    @Override
-    public InputStream getPostrePicture(String code) throws PostreException {
-        try {
-            return new FileInputStream("src/main/resources/static/app/images/Postre1.png");
-        } catch (FileNotFoundException ex) {
-            return null;
-            //Logger.getLogger(ServicesPostre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
 
-    }
 
     @Override
     public Postre getPostre(String nit, String code) throws PostreException {

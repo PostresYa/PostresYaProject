@@ -20,12 +20,7 @@ public interface PostresYaServices {
     Postre getPostre(String nit,String code) throws PostreException;
     void addPostre(Postre postre,String nit) throws PostreException;
     void changePostre(Postre postre,String nit) throws PostreException;
-  
-
-    public InputStream getPostrePicture(String code) throws PostreException;
-    
-    
-    
+     
       Reposteria getReposteriaByNit(String nit) throws PostreException;
     void saveReposteria(Reposteria reposteria) throws PostreException;
     List<Reposteria> getAllReposterias() throws PostreException;

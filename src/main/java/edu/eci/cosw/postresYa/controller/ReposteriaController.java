@@ -76,7 +76,7 @@ public class ReposteriaController {
     
     @RequestMapping(method = RequestMethod.POST)
     public void saveReposteria(@RequestBody Reposteria reposteria){
-        System.out.println("enmtro"+ reposteria.getNit()+"   "+ reposteria.getUsuario().getPassword());
+        //System.out.println("entro"+ reposteria.getNit()+"   "+ reposteria.getUsuario().getPassword());
         try {
             stubReposteria.saveReposteria(reposteria);
         } catch (PostreException ex) {
