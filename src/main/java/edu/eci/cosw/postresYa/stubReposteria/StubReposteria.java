@@ -6,13 +6,12 @@
 package edu.eci.cosw.postresYa.stubReposteria;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
-import edu.eci.cosw.postresYa.model.Postre;
-import edu.eci.cosw.postresYa.model.PostreId;
+
 import edu.eci.cosw.postresYa.model.Reposteria;
-import edu.eci.cosw.postresYa.model.Usuario;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.springframework.stereotype.Service;
+
 
 /**
  *

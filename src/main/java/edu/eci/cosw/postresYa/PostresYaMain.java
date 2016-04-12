@@ -1,7 +1,6 @@
 package edu.eci.cosw.postresYa;
 
 import edu.eci.cosw.postresYa.model.Usuario;
-import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

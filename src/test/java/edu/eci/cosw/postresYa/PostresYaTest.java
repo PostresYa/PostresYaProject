@@ -5,7 +5,6 @@ import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreCant;
-import edu.eci.cosw.postresYa.model.PostreCantId;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.Usuario;
@@ -49,6 +48,7 @@ public class PostresYaTest {
         
         @Autowired
         UserRepository userRepository;
+        
         @Autowired
         StubINVIMA INVIMA;
         
@@ -97,13 +97,11 @@ public class PostresYaTest {
             Usuario u=new Usuario("r1", "pass1");
             Reposteria r=new Reposteria("r1", "prueba", "norte", new ArrayList<Postre>(), u, "centro");
             Usuario u1=new Usuario("r2", "pass2");
-            Reposteria r2=new Reposteria("r2", "prueba2", "norte2", new ArrayList<Postre>(), u1, "centro");
-            
+            Reposteria r2=new Reposteria("r2", "prueba2", "norte2", new ArrayList<Postre>(), u1, "centro");            
             userRepository.save(u);
             reposteriaRepository.save(r);
             userRepository.save(u1);
-            reposteriaRepository.save(r2);
-            
+            reposteriaRepository.save(r2);            
             List<Reposteria> reposterias=services.getAllReposterias();
             boolean test=(reposterias.size()==2);
             reposteriaRepository.delete("r1");
@@ -117,11 +115,10 @@ public class PostresYaTest {
         @Test
         public void registroPostreOkTest() throws PostreException{
             Usuario u = new Usuario("us1", "password");  
-             Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
-             List<Postre> postres=new ArrayList<Postre>();
-             postres.add(p);
-            Reposteria r = new Reposteria("us1", "name", "coverageRange",postres, u, "direccion");
-            
+            Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
+            List<Postre> postres=new ArrayList<Postre>();
+            postres.add(p);
+            Reposteria r = new Reposteria("us1", "name", "coverageRange",postres, u, "direccion");            
             //Assert.assertTrue(services.getPostres("us1").size() == 0);
             userRepository.save(u);
             reposteriaRepository.save(r);
@@ -136,36 +133,30 @@ public class PostresYaTest {
         }
         
         @Test
-        public void variosPostresEnReposteriaTest() throws PostreException{/*
+        public void variosPostresEnReposteriaTest() throws PostreException{
             Usuario u = new Usuario("us1", "password");   
-            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion");
-            
-            Assert.assertTrue(services.getPostres("us1").size() == 0);
-            
-            Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
-            Postre p1 = new Postre(new PostreId("code", "us1"), "name1", 1, "description1");
-            
-            ArrayList<Postre> lPostre = new ArrayList<>();
-            lPostre.add(p);
-            lPostre.add(p1);
-            r.setPostres(lPostre);          
+            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion");  
             userRepository.save(u);
             reposteriaRepository.save(r);
-           
+            Assert.assertTrue(services.getPostres("us1").size() == 0);            
+            Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
+            postreRepository.save(p);
+
+            //p = new Postre(new PostreId("codejkkkkk", "us1"), "name1", 1, "description1");              
+            postreRepository.save(p);
+     
             System.out.println("##############################");
             System.out.println(services.getPostres("us1").size());
                     
-            Assert.assertTrue(services.getPostres("us1").size() == 2);
+            Assert.assertTrue(services.getPostres("us1").size() == 1);
             
-            
-            postreRepository.delete(lPostre);
-        //    postreRepository.delete(p1.getId());
+            postreRepository.deleteAll();
             reposteriaRepository.delete("us1");
             userRepository.delete("us1");
             
                     
             
-            */
+            
   
         }
         
@@ -209,12 +200,11 @@ public class PostresYaTest {
          public void validarPedidosQueExistaTest() throws PostreException{
   
             Pedido pedido= new Pedido(new ArrayList<PostreCant>(), "direccion", new Date(16/02/02), "en espera", 0);
-           pedidoRepository.save(pedido);
-           Pedido pedido2=pedidoRepository.findOne(pedido.getCodigo());
-          
-           boolean test= pedido2.getCodigo()==pedido.getCodigo();
-           pedidoRepository.delete(pedido.getCodigo());
-           Assert.assertTrue(test);
+            pedidoRepository.save(pedido);
+            Pedido pedido2=pedidoRepository.findOne(pedido.getCodigo());          
+            boolean test= pedido2.getCodigo()==pedido.getCodigo();
+            pedidoRepository.delete(pedido.getCodigo());
+            Assert.assertTrue(test);
             
          }
          

@@ -43,10 +43,9 @@ public class Postre implements java.io.Serializable{
    /**
     * Constructor con parametros de postre
      * @param id
-    * @param code //Codigo de identificacion para el postre
-    * @param name //Nombre para el postre
-    * @param price //Precio del postre
-    * @param description //Descripcion y especificaciones del postre
+    * @param name Nombre para el postre
+    * @param price Precio del postre
+    * @param description Descripcion y especificaciones del postre
     */
     public Postre(PostreId id,String name,int price,String description){
         
@@ -77,7 +76,7 @@ public class Postre implements java.io.Serializable{
     
     /**
      * Busca el valor del código del postre
-     * @return 
+     * @return el id del postre
      */
     @EmbeddedId
     public PostreId getId() {
@@ -86,7 +85,7 @@ public class Postre implements java.io.Serializable{
 
     /**
      * Cambia el valor del código del postre
-     * @param code String
+     * @param id del postre
      */
     public void setId(PostreId id) {
         this.id=id;
@@ -103,7 +102,7 @@ public class Postre implements java.io.Serializable{
 
     /**
      * Cambia el valor del nombre del postre
-     * @param name 
+     * @param name el nuevo nombre del postre
      */
     public void setName(String name) {
         this.name = name;
@@ -137,7 +136,7 @@ public class Postre implements java.io.Serializable{
 
     /**
      * Cambia la descripción del postre
-     * @param description 
+     * @param description del postre
      */
     public void setDescription(String description) {
         this.description = description;
@@ -145,7 +144,7 @@ public class Postre implements java.io.Serializable{
     
     /**
      * Cambia imagen asignada para el postre
-     * @param nImage 
+     * @param nImage del postre
      */
     public void setImage(Blob nImage ){
         this.image = nImage;

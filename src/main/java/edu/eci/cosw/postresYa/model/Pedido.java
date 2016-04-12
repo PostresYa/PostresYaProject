@@ -50,9 +50,9 @@ import org.hibernate.annotations.FetchMode;
     
     /**
      * Constructor con parametro de un pedido
-     * @param postres // Lista de los postres que se solicitdan y su cantidad
-     * @param direccion //Direccion a la cual se solicito un postre
-     * @param fecha //Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
+     * @param postres  Lista de los postres que se solicitdan y su cantidad
+     * @param direccion Direccion a la cual se solicito un postre
+     * @param fecha Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
      */
     public Pedido(List <PostreCant> postres, String direccion, Date fecha,String estado,int precio){
         
@@ -68,14 +68,17 @@ import org.hibernate.annotations.FetchMode;
         
     /**
      * Metodo que retorna el precio del pedido
-     * @return 
+     * @return el precio del pedido
      */
       @Column(name = "precio" )
     public int getPrecio() {
         return precio;
     }
     
-    
+    /**
+     * Cambia el precio del pedido
+     * @param precio nuevo precio del pedido
+     */
     public void setPrecio(int precio){
         this.precio=precio;
     }
@@ -83,7 +86,7 @@ import org.hibernate.annotations.FetchMode;
     
      /**
       * Se obtiene la lista de postres solicitados, con sus cantitades
-      * @return 
+      * @return los postres que estan en el pedido
       */
     @OneToMany(cascade = CascadeType.ALL)
     @Fetch(FetchMode.JOIN)
@@ -98,7 +101,7 @@ import org.hibernate.annotations.FetchMode;
 
     /**
      * Se obtiene la fecha de solicitud del pedido
-     * @return 
+     * @return fecha de aprobacion del pedido
      */
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "fecha_aprobacion" )
@@ -113,20 +116,24 @@ import org.hibernate.annotations.FetchMode;
 
     /**
      * Se obtiene la direccion a donde se requiere entregar el postre
-     * @return 
+     * @return la direccion de la entrega del pedido
      */
         @Column(name = "direccion" )
     public String getDireccion() {
         return direccion;
     }
     
+    /**
+     * 
+     * @param dir  la direccion de entrega del pedido
+     */
     public void setDireccion(String dir){
         this.direccion=dir;
     }
 
     /**
      * Codigo de pedido, para realizar las modificaciones necesarias para este
-     * @return 
+     * @return el id del pedido
      */
     @Id 
     @GeneratedValue
@@ -137,7 +144,7 @@ import org.hibernate.annotations.FetchMode;
     
     /**
      * 
-     * @param cod 
+     * @param cod  el id del pedido
      */
     public void setCodigo(int cod){
         this.codigo=cod;
@@ -145,16 +152,17 @@ import org.hibernate.annotations.FetchMode;
     
     /**
      * Maneja el estado del pedido
+     * @param estado que se le va a poner al pedido
      */
-    public void setEstado(String a){
+    public void setEstado(String estado){
 
-        this.estado=a;
+        this.estado=estado;
     }
     
 
     /**
      * Obtiene el estado del pedido
-     * @return 
+     * @return String con el estado del pedido
      */
     
     @Column(name="estado")

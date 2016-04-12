@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.controller;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
@@ -48,9 +49,9 @@ public class PostreController {
    
     /**
      * busca la lista de postres en el stub
-     * @param nit
+     * @param nit nit
      * @return un conjunto con los postres, en caso de que no tenga ningun postre devolvera un conjunto vacio
-     * @throws edu.eci.cosw.postresYa.Exceptions.PostreException
+     * @throws  PostreException postreException
      */
     @RequestMapping(value="/{nit}",method = RequestMethod.GET)
     public List<Postre> getPostres(@PathVariable String nit) throws PostreException {
@@ -60,10 +61,10 @@ public class PostreController {
     
     /**
      * busca en la lista de postres en el stub con su codigo correspondiente de producto
-     * @param nit
-     * @param code
+     * @param nit nit   
+     * @param code code
      * @return un conjunto de postres con base a un codigo de postres
-     * @throws edu.eci.cosw.postresYa.Exceptions.PostreException 
+     * @throws PostreException postreException
      */
     @RequestMapping(value="/{nit}/{code}",method = RequestMethod.GET)
     public Postre getPostre(@PathVariable String nit,@PathVariable String code) throws PostreException {
@@ -74,9 +75,9 @@ public class PostreController {
     
     /**
      * Añade un postre nuevo (el código de este no esta utilizado) a la lista de postres del stub
-     * @param nit
-     * @param postre
-     * @throws PostreException 
+     * @param nit nit
+     * @param postre postre
+     * @throws PostreException  postreException
      */
     @RequestMapping (value="/{nit}",method = RequestMethod.POST)
     public void postPostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException { 
@@ -87,8 +88,9 @@ public class PostreController {
   
     /**
      * los datos de un postre ya existente en la lista de postres del stub
+     * @param nit nit
      * @param postre que se va a cambiar
-     * @throws PostreException 
+     * @throws PostreException postreException
      */
      @RequestMapping (value="/{nit}/change", method = RequestMethod.POST)
     public void changePostre(@PathVariable String nit,@RequestBody Postre postre) throws PostreException {
@@ -100,7 +102,8 @@ public class PostreController {
     
     /**
      * Busca la imagen a un postre asociado por medio de un código dado
-     * @param code
+     * @param nit nit
+     * @param code code
      * @return ResponseEntity 
      */
     @RequestMapping(value="{nit}/{code}/picture", method = RequestMethod.GET)
@@ -110,13 +113,10 @@ public class PostreController {
             return ResponseEntity.ok()
                     .contentType(MediaType.parseMediaType("image/png"))
                     .body(new InputStreamResource(stub.getPostre(nit, code).getImage().getBinaryStream()));
-        } catch (PostreException ex) {
+        } catch (PostreException | SQLException ex) {
             Logger.getLogger(PostreController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(PostreController.class.getName()).log(Level.SEVERE, null, ex);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
        
          
@@ -147,7 +147,7 @@ public class PostreController {
 
             }
         }
-        catch (Exception e) {
+        catch (PostreException | IOException | SQLException e) {
             return new ResponseEntity<>("{}", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 

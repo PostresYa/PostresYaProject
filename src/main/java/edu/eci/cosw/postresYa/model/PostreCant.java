@@ -36,8 +36,9 @@ public class PostreCant {
      
     /**
      * Crea un postre solicitado con su cantidad
-     * @param postre
-     * @param cant 
+     * @param postreCantId id del postre
+     * @param postre solicitado
+     * @param cant la cantidad solicitada
      */ 
     public PostreCant(PostreCantId postreCantId,Postre postre,int cant){
         this.postre=postre;
@@ -87,7 +88,7 @@ public class PostreCant {
     
     /**
      * cambia el postre
-     * @param postre 
+     * @param postre el postre solicitado
      */
     public void setPostre(Postre postre) {
         this.postre = postre;
@@ -95,7 +96,7 @@ public class PostreCant {
 
     /**
      * Asigna la cantidad de postre
-     * @param cant 
+     * @param cant la nueva cantidad solicitada
      */
     public void setCant(int cant) {
         this.cant = cant;

@@ -29,7 +29,7 @@ public class StubINVIMAImp implements StubINVIMA{
     
     /**
      * Estado del registro invima, valida si se realizo la validacion correctamente
-     * @param nit
+     * @param nit nit de la reposteria
      * @return status true/false
      */
     @Override

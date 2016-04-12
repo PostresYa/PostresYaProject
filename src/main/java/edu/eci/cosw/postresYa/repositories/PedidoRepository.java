@@ -5,10 +5,8 @@
  */
 package edu.eci.cosw.postresYa.repositories;
 
-import edu.eci.cosw.postresYa.controller.PedidoController;
+
 import edu.eci.cosw.postresYa.model.Pedido;
-import edu.eci.cosw.postresYa.model.PostreCant;
-import edu.eci.cosw.postresYa.model.PostreCantId;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

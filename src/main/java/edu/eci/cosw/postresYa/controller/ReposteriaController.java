@@ -49,13 +49,13 @@ public class ReposteriaController {
         try {
             return  stubReposteria.getAllReposterias();
         } catch (PostreException ex) {
-            return new ArrayList<Reposteria>();
+            return new ArrayList<>();
         }
     }
     
     /**
      * Obtiene la respuesta de la solicitud enviada por el invima
-     * @param nit
+     * @param nit nit 
      * @return retorna la informacion del registro invima con base al nit de la reposteria
      */
     @RequestMapping(value="/registroinvima/{nit}",method = RequestMethod.GET)

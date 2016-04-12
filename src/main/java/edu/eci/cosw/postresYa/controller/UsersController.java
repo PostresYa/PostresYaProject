@@ -15,8 +15,8 @@ public class UsersController {
     
     /**
      * Busca si el usuario tiene autorización en la aplicación
-     * @param user
-     * @return 
+     * @param user usuario
+     * @return user usuario 
      */
     @RequestMapping("/app/user")
     public Principal user(Principal user) {

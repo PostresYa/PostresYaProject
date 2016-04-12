@@ -7,11 +7,10 @@ package edu.eci.cosw.postresYa.stub;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.util.List;
 
-import java.util.Set;
 
 /**
  *

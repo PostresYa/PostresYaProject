@@ -35,7 +35,7 @@ public class StubPostre implements Stub{
     /**
      * El constructor del StubPostre instancia un nuevo objeto postre
      * y los almacena en memoria
-     * @throws PostreException 
+     * @throws PostreException  postreException
      */
     public StubPostre() throws PostreException {
         postres= new LinkedHashSet<>();
@@ -51,7 +51,9 @@ public class StubPostre implements Stub{
     
     /**
      * 
+     * @param nit nit
      * @return un conjunto de postres
+     * @throws PostreException postreException
      */
     @Override
     public List<Postre> getPostres(String nit) throws PostreException{
@@ -60,9 +62,10 @@ public class StubPostre implements Stub{
     }
    
     /**
-     * Añade un postre al stub, en caso de que no se pueda registrar se envía una excepción (PostreException)
-     * @param Postre postre 
-     * @throws PostreException 
+     * Añade un postre al stub, en caso de que no se pueda registrar se envía una excepción (PostreException) 
+     * @param postre postre
+     * @param nit nit 
+     * @throws PostreException postreException
      */
     @Override
     public void addPostre(Postre postre,String nit) throws PostreException{
@@ -75,7 +78,7 @@ public class StubPostre implements Stub{
    
     /**Busca la imagen de un postre por medio del código asociado
      * 
-     * @param code
+     * @param code codigo
      * @return InputStream con la imagen del producto solicitado
      * @throws PostreException si el postre no se encuentra
      */
@@ -96,7 +99,8 @@ public class StubPostre implements Stub{
     
     /**
      * Busca un postre asociado a un código, para modificar sus valores
-     * @param postre
+     * @param postre postre
+     * @param nit nit 
      * @throws PostreException postre no encontrado
      */
     @Override
@@ -123,7 +127,7 @@ public class StubPostre implements Stub{
     
     /**
      * Cambia la asociación de los hash, con un postre dado
-     * @param postre 
+     * @param postre postre
      */
     private void changeReference(Postre postre){
         postresMap.get(postre.getId().getCode()).setName(postre.getName());
@@ -132,6 +136,13 @@ public class StubPostre implements Stub{
         
     }
 
+    /**
+     * 
+     * @param nit nit
+     * @param code code 
+     * @return postre 
+     * @throws PostreException postreException
+     */
     @Override
     public Postre getPostre(String nit, String code) throws PostreException {
          return postresMap.get(code);

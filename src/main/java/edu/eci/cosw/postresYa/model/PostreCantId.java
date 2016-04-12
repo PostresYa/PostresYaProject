@@ -45,7 +45,7 @@ public class PostreCantId implements java.io.Serializable {
 
     /**
      * cambia el codigo del postre
-     * @param codigoPostre 
+     * @param codigoPostre es el codigo del postre
      */
     public void setCodigoPostre(String codigoPostre) {
         this.codigoPostre = codigoPostre;
@@ -53,7 +53,7 @@ public class PostreCantId implements java.io.Serializable {
     
     /**
      * obtiene el nit de la reposteria
-     * @return 
+     * @return el nit de la reposteria
      */
     @Column(name="Postre_Reposteria_nit",nullable = false)
     public String getReposteriaNit() {
@@ -62,7 +62,7 @@ public class PostreCantId implements java.io.Serializable {
 
     /**
      * asigna el nit a la reposteria
-     * @param reposteriaNit 
+     * @param reposteriaNit de la reposteria
      */
     public void setReposteriaNit(String reposteriaNit) {
         this.reposteriaNit = reposteriaNit;
@@ -70,7 +70,7 @@ public class PostreCantId implements java.io.Serializable {
     
     /**
      * obtiene el id asociado al postre
-     * @return 
+     * @return id del pedido
      */
      @Column(name="Pedido_id_pedido",nullable = false)
     public int getIdPedido() {
@@ -79,7 +79,7 @@ public class PostreCantId implements java.io.Serializable {
 
     /**
      * cambia el id del pedido
-     * @param idPedido 
+     * @param idPedido id del pedido
      */
     public void setIdPedido(int idPedido) {
         this.idPedido = idPedido;
