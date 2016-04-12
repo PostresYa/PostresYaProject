@@ -82,6 +82,7 @@ public class PostresServicesImp implements PostresYaServices{
     * @throws PostreException 
     */
     @Override
+    
     public InputStream getPostrePicture(String code) throws PostreException {
         try {
             return new FileInputStream("src/main/resources/static/app/images/Postre1.png");
