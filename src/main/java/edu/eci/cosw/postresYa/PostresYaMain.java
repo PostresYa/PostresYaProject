@@ -38,6 +38,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 import org.springframework.web.filter.OncePerRequestFilter;
 import org.springframework.web.util.WebUtils;
 
+
 @SpringBootApplication
 @EnableJpaRepositories("edu.eci.cosw.postresYa.repositories")
 @EntityScan("edu.eci.cosw.postresYa.model")
@@ -48,7 +49,9 @@ public class PostresYaMain {
 	}
         
         
-         
+        /**
+         * 
+         */ 
         @Configuration
         @EnableGlobalMethodSecurity(prePostEnabled = true)
         @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
@@ -85,7 +88,11 @@ public class PostresYaMain {
                 });
                 
             }
-
+            /**
+             * 
+             * @param http
+             * @throws Exception 
+             */
             @Override
             protected void configure(HttpSecurity http) throws Exception {
                 http
@@ -99,7 +106,11 @@ public class PostresYaMain {
                         .csrfTokenRepository(csrfTokenRepository()).and()
                         .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
             }
-
+            
+            /**
+             * 
+             * @return OncePerRequestFilter
+             */
             private Filter csrfHeaderFilter() {
                 return new OncePerRequestFilter() {
                     @Override
@@ -122,7 +133,10 @@ public class PostresYaMain {
                     }
                 };
             }
-
+            /**
+             * 
+             * @return respository 
+             */
             private CsrfTokenRepository csrfTokenRepository() {
                 HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
                 repository.setHeaderName("X-XSRF-TOKEN");

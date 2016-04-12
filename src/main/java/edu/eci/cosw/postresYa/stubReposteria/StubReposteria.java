@@ -31,17 +31,32 @@ public class StubReposteria implements StubReposteriaI {
     }
     
  
-
+    /**
+     * obtiene reposteria por el nit
+     * @param nit
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public Reposteria getReposteriaByNit(String nit) throws PostreException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * guarda la reposteria
+     * @param reposteris
+     * @throws PostreException 
+     */
     @Override
     public void saveReposteria(Reposteria reposteris) throws PostreException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     * obtiene todas las reposterias
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public List<Reposteria> getAllReposterias() throws PostreException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

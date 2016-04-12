@@ -64,20 +64,35 @@ public class PostreCant {
         return cant;
     }
     
+    /**
+     * retorna la cantidad de postres
+     * @return cantidad de postres
+     */
     @EmbeddedId
      public PostreCantId getPostreCantId() {
         return postreCantId;
     }
 
+     /**
+      * cambia la cantidad de postre
+      * @param postreCantId 
+      */
     public void setPostreCantId(PostreCantId postreCantId) {
         this.postreCantId = postreCantId;
     }
     
-    
+    /**
+     * cambia el postre
+     * @param postre 
+     */
     public void setPostre(Postre postre) {
         this.postre = postre;
     }
 
+    /**
+     * Asigna la cantidad de postre
+     * @param cant 
+     */
     public void setCant(int cant) {
         this.cant = cant;
     }

@@ -105,6 +105,11 @@ public class Reposteria implements java.io.Serializable  {
     public List<Postre> getPostres() {
         return postres;
     }
+    
+    /**
+     * Asigna un postre en la lista de postres
+     * @param postres 
+     */
     public void setPostres(List<Postre> postres) {
         this.postres=postres;
     }
@@ -128,7 +133,10 @@ public class Reposteria implements java.io.Serializable  {
         this.coverageRange = coverageRange;
     }
     
-    
+    /**
+     * obtiene el usuario
+     * @return 
+     */
     @ManyToOne()
     @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "Usuario_username", nullable = false)
@@ -136,6 +144,10 @@ public class Reposteria implements java.io.Serializable  {
         return usuario;
     }
 
+    /**
+     * asigna un usuario a los usuarios ya creados
+     * @param usuario 
+     */
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }

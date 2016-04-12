@@ -113,7 +113,7 @@ public class Pedido {
 
     /**
      * Codigo de pedido, para realizar las modificaciones necesarias para este
-     * @return 
+     * @return obtiene codigo del pedido
      */
     public String getCodigo() {
         return codigo;
@@ -128,7 +128,7 @@ public class Pedido {
     
     /**
      * Obtiene el estado del pedido
-     * @return 
+     * @return estado del pedido
      */
     public String getEstado(){
         return estado;

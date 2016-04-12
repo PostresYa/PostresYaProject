@@ -36,18 +36,37 @@ public class PostresServicesImp implements PostresYaServices{
     @Autowired
     UserRepository userRepository;
     
+    /**
+     * obtiene postres con base al nit
+     * @param nit
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public List<Postre> getPostres(String nit) throws PostreException {
         return postreRepository.getPostresReposteria(nit);
     }
 
+    /**
+     * agrega un postres
+     * @param postre
+     * @param nit
+     * @throws PostreException 
+     */
     @Override
     public void addPostre(Postre postre,String nit) throws PostreException {
+        
         postre.getId().setReposteriaNit(nit);
         postreRepository.save(postre);
         
-           }
+    }
 
+    /**
+     * cambia un postre
+     * @param postre
+     * @param nit
+     * @throws PostreException 
+     */
     @Override
     public void changePostre(Postre postre,String nit) throws PostreException {
         postre.getId().setReposteriaNit(nit);
@@ -55,7 +74,12 @@ public class PostresServicesImp implements PostresYaServices{
      
     }
 
-   
+   /**
+    * obiene la imagen de un postre
+    * @param code
+    * @return
+    * @throws PostreException 
+    */
     @Override
     public InputStream getPostrePicture(String code) throws PostreException {
         try {
@@ -68,6 +92,13 @@ public class PostresServicesImp implements PostresYaServices{
 
     }
 
+    /**
+     * obtiene postre
+     * @param nit
+     * @param code
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public Postre getPostre(String nit, String code) throws PostreException {
        Postre p=postreRepository.findOne(new PostreId(code,nit));
@@ -77,15 +108,22 @@ public class PostresServicesImp implements PostresYaServices{
         return p;
     }
     
-    
-  
-    
-  
+    /**
+     * obtiene reposteria por nit
+     * @param nit
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public Reposteria getReposteriaByNit(String nit) throws PostreException{
          return reposteriaRepository.findOne(nit);
     }
 
+    /**
+     * guarda la reposteria creada
+     * @param reposteria
+     * @throws PostreException 
+     */
     @Override
     public void saveReposteria(Reposteria reposteria) throws PostreException {
  
@@ -93,6 +131,11 @@ public class PostresServicesImp implements PostresYaServices{
         reposteriaRepository.save(reposteria);
     }
 
+    /**
+     * obtiene todas las reposterias
+     * @return
+     * @throws PostreException 
+     */
     @Override
     public List<Reposteria> getAllReposterias() throws PostreException {
        return reposteriaRepository.findAll();

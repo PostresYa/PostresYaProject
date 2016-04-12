@@ -12,16 +12,33 @@ package edu.eci.cosw.postresYa.model;
 public class StatusRegistroInvima {
     private boolean registrado;
 
+    /**
+     * consulta el estado del registro INVIMA
+     * @return 
+     */
     public boolean isRegistrado() {
         return registrado;
     }
 
+    /**
+     * cambia el estado del registro INVIMA
+     * @param registrado 
+     */
     public void setRegistrado(boolean registrado) {
         this.registrado=registrado;
     }
+    
+    /**
+     * Constructor vacio de registro INVIMA
+     */
     public StatusRegistroInvima(){
        
     }
+    
+    /**
+     * Estado del registro invima
+     * @param registrado 
+     */
     public StatusRegistroInvima(boolean registrado){
         this.registrado=registrado;
     }
