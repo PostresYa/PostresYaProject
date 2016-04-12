@@ -11,7 +11,7 @@ angular.module('services.module1', ['ngRoute','ngResource'])
     
      .factory('pedidos', function($resource) {
             
-        return $resource('/pedidos',{},{ get: { method: 'GET', isArray: true
+        return $resource('/pedidos/:nit',{},{ get: { method: 'GET', isArray: true
         } });
     })
     

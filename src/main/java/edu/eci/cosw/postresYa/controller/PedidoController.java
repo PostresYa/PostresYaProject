@@ -7,9 +7,12 @@ package edu.eci.cosw.postresYa.controller;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Pedido;
+import edu.eci.cosw.postresYa.services.PostresServicesImp;
+import edu.eci.cosw.postresYa.services.PostresYaServices;
 import edu.eci.cosw.postresYa.stubPedido.StubPed;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class PedidoController {
     
     @Autowired
-    StubPed pedido;
+    PostresYaServices pedido;
     /**
      * Constructor vacio para el controlador de pedido
      */
@@ -39,9 +42,9 @@ public class PedidoController {
      * @return Se entrega la lista de los valores realizados
      * @throws PostreException 
      */
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Pedido> getPedidos() throws PostreException{
-        return pedido.getPedidos();
+    @RequestMapping(value="/{nit}",method = RequestMethod.GET)
+    public List<Pedido> getPedidos(@PathVariable String nit) throws PostreException{
+        return pedido.getPedidosByNit(nit);
     }
     
     /**
@@ -50,9 +53,9 @@ public class PedidoController {
      * @throws PostreException 
      */
     @RequestMapping(value="/change", method=RequestMethod.POST)
-     public void changeStatePedido(@RequestBody String codigo) throws PostreException {
-       
-        pedido.changeStatePedido(codigo);
+     public void changeStatePedido(@RequestBody int codigo) throws PostreException {
+       pedido.cambiarEstadoPedido(codigo);
+       // pedido.changeStatePedido(codigo);
     }
 
     

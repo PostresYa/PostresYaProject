@@ -12,7 +12,7 @@ angular.module('myApp.viewPedidos', ['ngRoute','ngMaterial'])
 .controller('ViewPedidosCtrl', ['$scope','pedidos','pedidosChange' ,'$rootScope','$filter','$mdDialog',function($scope, pedidos,pedidosChange ,$rootScope,$filter,$mdDialog) {
         
         
-        pedidos.get(function(data){
+        pedidos.get({nit:$rootScope.nit},function(data){
                         console.info("get pedido  ");
                         $scope.listado=data;
                        

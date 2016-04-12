@@ -46,7 +46,7 @@ public class StubPedido implements StubPed{
         Date d=new Date("2016/03/11");
        
         //Adicion de los postres de prueba a la lista de los pedidos
-        Pedido aux = new Pedido(postres, "Cll 8 #77-14" , "pedido1", d);
+        Pedido aux = new Pedido(postres, "Cll 8 #77-14" , d,"en espera",68000);
         pedidos.add(aux);
         Postre p2 = new Postre(new PostreId("postre3","r1"), "Arequipe", 18000,"con fresas");
         List <PostreCant> postres2 = new ArrayList<>();
@@ -54,7 +54,7 @@ public class StubPedido implements StubPed{
         postres2.add(new PostreCant(new PostreCantId("postre3", "r1", 1),p2, 2));
         d=new Date("2016/03/10");
         //segundo pedido
-        aux = new Pedido(postres2, "Calle 222 #25-32" , "pedido2", d);
+        aux = new Pedido(postres2, "Calle 222 #25-32" , d,"en espera",36000);
        
         pedidos.add(aux);
         
@@ -77,12 +77,12 @@ public class StubPedido implements StubPed{
      * @throws PostreException 
      */
     @Override
-    public void changeStatePedido(String codigo) throws PostreException {
+    public void changeStatePedido(int codigo) throws PostreException {
        
         int pos=-1; 
         for (int i=0;i<pedidos.size();i++){
                 
-             if (pedidos.get(i).getCodigo().equals(codigo)){
+             if (pedidos.get(i).getCodigo() == codigo){
                
                  pos=i;
              }
@@ -90,7 +90,7 @@ public class StubPedido implements StubPed{
         if (pos==-1){
              throw new PostreException(PostreException.pedidoException);
         }else{
-            pedidos.get(pos).setEstado();
+            pedidos.get(pos).setEstado("Enviado");
         }
     }
     

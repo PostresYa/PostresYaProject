@@ -34,7 +34,7 @@
     
   <tr ng-repeat-start="todo in listado">
       <td>{{todo.codigo}}</td>
-      <td>{{todo.fecha}}</td>      
+      <td>{{todo.fecha | date:'medium'}}</td>      
       <td>{{todo.direccion}}</td>
       <td>{{todo.estado}}</td>
       <td>{{todo.precio}}</td>

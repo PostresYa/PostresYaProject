@@ -10,6 +10,9 @@
     <mapping class="edu.eci.cosw.postresYa.model.Postre"/>
     <mapping class="edu.eci.cosw.postresYa.model.Reposteria"/>
     <mapping class="edu.eci.cosw.postresYa.model.Usuario"/>
+    <mapping class="edu.eci.cosw.postresYa.model.Pedido"/>
+    <mapping class="edu.eci.cosw.postresYa.model.PostreCant"/>
+    
 
   </session-factory>
 </hibernate-configuration>

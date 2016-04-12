@@ -6,9 +6,11 @@
 package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.repositories.PedidoRepository;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
@@ -35,6 +37,9 @@ public class PostresServicesImp implements PostresYaServices{
         
     @Autowired
     UserRepository userRepository;
+    
+    @Autowired
+    PedidoRepository pedidoRepository;
     
     /**
      * obtiene postres con base al nit
@@ -74,24 +79,6 @@ public class PostresServicesImp implements PostresYaServices{
      
     }
 
-
-   /**
-    * obiene la imagen de un postre
-    * @param code
-    * @return
-    * @throws PostreException 
-    */
-    @Override
-    
-    public InputStream getPostrePicture(String code) throws PostreException {
-        try {
-            return new FileInputStream("src/main/resources/static/app/images/Postre1.png");
-        } catch (FileNotFoundException ex) {
-            return null;
-            //Logger.getLogger(ServicesPostre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     /**
      * obtiene postre
@@ -141,5 +128,21 @@ public class PostresServicesImp implements PostresYaServices{
     public List<Reposteria> getAllReposterias() throws PostreException {
        return reposteriaRepository.findAll();
           }
+
+    @Override
+    public List<Pedido> getPedidosByNit(String nit) throws PostreException {
+        return pedidoRepository.getPedidosByNit(nit);
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    }
+
+
+
+    @Override
+    public void cambiarEstadoPedido(int code) throws PostreException {
+        Pedido p = pedidoRepository.findOne(code);
+        p.setEstado("Enviado");
+        pedidoRepository.save(p);
+    }
     
 }

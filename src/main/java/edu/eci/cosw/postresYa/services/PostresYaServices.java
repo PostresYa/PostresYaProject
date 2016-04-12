@@ -6,6 +6,7 @@
 package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import java.io.InputStream;
@@ -24,5 +25,7 @@ public interface PostresYaServices {
       Reposteria getReposteriaByNit(String nit) throws PostreException;
     void saveReposteria(Reposteria reposteria) throws PostreException;
     List<Reposteria> getAllReposterias() throws PostreException;
-      InputStream getPostrePicture(String code) throws PostreException;
+    
+     List<Pedido> getPedidosByNit(String nit) throws PostreException;
+     void cambiarEstadoPedido(int code) throws PostreException;
 }

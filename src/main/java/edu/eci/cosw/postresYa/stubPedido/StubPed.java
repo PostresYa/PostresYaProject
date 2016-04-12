@@ -17,5 +17,5 @@ public interface StubPed {
     
     List <Pedido> getPedidos() throws PostreException;
 
-    public void changeStatePedido(String codigo) throws PostreException;
+    public void changeStatePedido(int codigo) throws PostreException;
 }
