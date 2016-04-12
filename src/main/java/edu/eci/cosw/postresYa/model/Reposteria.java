@@ -34,6 +34,7 @@ public class Reposteria implements java.io.Serializable  {
    private List<Postre> postres= new ArrayList<Postre>();
     private String coverageRange; //no sabemos como tratar el rango
     private Usuario usuario;
+    private String direccion;
 
     /**
      * Constructor sin parametros de la reposteria
@@ -47,15 +48,17 @@ public class Reposteria implements java.io.Serializable  {
      * @param nit //NIT de identificacion de la reposteria
      * @param name // Nombre de la reposteria
      * @param coverageRange // Rando de cobertura de la reposteria
+     * @param postres
 
      */
-    public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario){
+    public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario,String direccion){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
         //postres=new ArrayList<Postre>();
         this.postres=postres;
         this.usuario=usuario;
+        this.direccion=direccion;
     }
  
     /**
@@ -152,5 +155,13 @@ public class Reposteria implements java.io.Serializable  {
         this.usuario = usuario;
     }
  
+    @Column(name = "direccion",  nullable = false)
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
     
 }

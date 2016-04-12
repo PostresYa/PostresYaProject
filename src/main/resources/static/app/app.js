@@ -26,9 +26,11 @@ $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
                
                 $http.post('/logout', {}).success(function () {
                     $rootScope.authenticated = false;
+                    $rootScope.nit="";
                     $location.path("/viewLogin");
                 }).error(function (data) {
                     $rootScope.authenticated = false;
+                    $rootScope.nit="";
                 });
             };
 

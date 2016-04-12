@@ -1,16 +1,16 @@
 
 <div   id="page-wrapper"  class="5grid-layout">
   
-    
-     <div class="invima">
-         <input type="text" ng-model = "nit" placeholder="NIT" disable="false" id="nitReposteria" required maxlength="15" />            
+    <div>
+     <div class="input-group input-group-lg">
+         <input type="text" ng-model = "nitR" placeholder="NIT" disable="false" id="nitReposteria" required maxlength="15" />            
          <br> <input type="text" ng-model = "Validarnit" placeholder="confirmar NIT" disable="false" id="nitReposteriaV" required maxlength="15" />            
  
      </div>     
       <br>
      <button ng-click="validarINVIMA()" class="btn btn-primary btn-large"  >validar con el invima</button>
      <br>
-     <div class="input-group" ng-show="validada">
+     <div  ng-show="validada" div class="input-group input-group-lg">
 
             <ul>
                 <input type="text"  ng-model = "name" placeholder="Nombre" required maxlength="20"/>
@@ -23,7 +23,11 @@
 
             <br>
             <ul>
-                <input type="text" ng-model = "password" placeholder="Password" required="true" maxlength="20">
+                <input type="text" ng-model = "direccion" placeholder="Direccion" required="true" maxlength="50">
+            </ul>
+            <br>
+            <ul>
+                <input type="password" ng-model = "password" placeholder="Password" required="true" maxlength="20">
             </ul>
             <ul>
                 <button ng-click="agregarReposteria()" type="submit" class="btn btn-primary btn-large">Agregar reposteria</button>
@@ -34,7 +38,7 @@
      </div>
 
   
-    
+    </div>
 </div>
      
            

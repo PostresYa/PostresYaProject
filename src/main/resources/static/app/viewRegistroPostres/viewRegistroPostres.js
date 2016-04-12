@@ -77,6 +77,7 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                                        $scope.price="";
                                        $scope.description="";
                                        $scope.myFile="";
+                                           alert("postre actualizado");
                                   
                         
                             });
@@ -101,6 +102,8 @@ angular.module('myApp.viewRegistroPostres', ['ngRoute'])
                                $scope.price="";
                                $scope.description="";
                                $scope.myFile="";
+                                alert("postre guardado");
+
                          });
                     }
                     });
