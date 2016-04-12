@@ -43,6 +43,8 @@ angular.module('myApp.viewLogin', ['ngRoute'])
         authenticate($scope.credentials, function () {                        
             if ($rootScope.authenticated) {
                 $location.path("/viewLogin");
+                $scope.credentials.username="";
+                $scope.credentials.password="";
                 $scope.error = false;
             } else {
                 $location.path("/viewLogin");
