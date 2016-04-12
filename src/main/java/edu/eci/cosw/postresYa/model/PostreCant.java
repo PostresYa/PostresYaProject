@@ -30,6 +30,10 @@ public class PostreCant {
      private int cant;
      
      
+     public PostreCant(){
+         
+     }
+     
     /**
      * Crea un postre solicitado con su cantidad
      * @param postre

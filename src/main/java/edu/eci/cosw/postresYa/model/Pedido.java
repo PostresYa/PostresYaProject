@@ -17,7 +17,7 @@ import org.springframework.boot.orm.jpa.EntityScan;
  * @author Diego Alejandro Rodriguez Cruz
  */
 //@Entity
-//@Table(name = "PEDIDOS")
+//@Table(name = "Pedido")
 public class Pedido {
     
     /**
