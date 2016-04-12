@@ -24,4 +24,5 @@ public interface PostresYaServices {
       Reposteria getReposteriaByNit(String nit) throws PostreException;
     void saveReposteria(Reposteria reposteria) throws PostreException;
     List<Reposteria> getAllReposterias() throws PostreException;
+      InputStream getPostrePicture(String code) throws PostreException;
 }
