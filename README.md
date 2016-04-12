@@ -81,11 +81,11 @@ Una vez autenticado en la aplicación ingrese a la vista -REGISTRAR UN NUEVO POS
   
 ###Consulta de postres
 
-Una vez autenticado en la aplicación ingrese a la vista -POSTRES-, allí se mostraran todos los postres que tiene registrados la       repostería y podrá ordenarlos por nombre, código o precio.
+Una vez autenticado en la aplicación ingrese a la vista -POSTRES-, allí se mostraran todos los postres que tiene registrados la       repostería y podrá ordenarlos por nombre, código o precio (la repostería con más postres registrados es r1 con contraseña pass1).
   
 ###Consulta del estado de los pedidos
 
-Una vez autenticado en la aplicación ingrese a la vista -LISTA DE PEDIDOS-, allí se mostraran los pedidos que tiene la repostería y podrá ordenarlos por código, fecha o estado; cada pedido tendrá dos botones:
+Una vez autenticado en la aplicación ingrese a la vista -LISTA DE PEDIDOS-, allí se mostraran los pedidos que tiene la repostería (la repostería r1 con contraseña pass1 tiene pedidos) y podrá ordenarlos por código, fecha o estado; cada pedido tendrá dos botones:
    * -cambiar estado-, con el cual podrá cambiar el estado del pedido de en espera ha enviado, si ya se encuentra enviado le             recordara que no puede cambiar el estado.
    * -detalles-, con el cual podrá observar el detalle de todos los postres que pertenecen al pedido en particular.
 
