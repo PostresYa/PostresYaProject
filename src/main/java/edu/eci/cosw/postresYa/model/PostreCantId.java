@@ -14,11 +14,9 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class PostreCantId implements java.io.Serializable {
-    private String codigoPostre;
-
-    
+    private String codigoPostre;    
     private String reposteriaNit;
-    private int idPedido;
+    private int idPedido;   
     
     public PostreCantId(){
         

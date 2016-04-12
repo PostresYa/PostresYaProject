@@ -7,7 +7,6 @@ package edu.eci.cosw.postresYa.controller;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Pedido;
-import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.stubPedido.StubPed;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
