@@ -2,15 +2,20 @@ package edu.eci.cosw.postresYa;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
+import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
+import edu.eci.cosw.postresYa.model.PostreCant;
+import edu.eci.cosw.postresYa.model.PostreCantId;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.Usuario;
+import edu.eci.cosw.postresYa.repositories.PedidoRepository;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Assert;
@@ -38,6 +43,9 @@ public class PostresYaTest {
         
         @Autowired
         PostreRepository postreRepository;
+        
+        @Autowired
+        PedidoRepository pedidoRepository;
         
         @Autowired
         UserRepository userRepository;
@@ -188,6 +196,48 @@ public class PostresYaTest {
             userRepository.delete("us1");
             
         }*/
+        
+        //pruebas consultar pedidos
+        
+        @Test
+        public void pedidosNoExistenteTest() throws PostreException{
+            List<Pedido> pedido= services.getPedidosByNit("r1");
+            Assert.assertEquals(pedido.size(), 0);
+        }
+        
+        @Test
+         public void validarPedidosQueExistaTest() throws PostreException{
+             List<PostreCant> postreCant = new ArrayList<>();
+             PostreCantId pid = new PostreCantId("p1", "r1", 1);
+             postreCant.add(new PostreCant(pid, new Postre(), 1));
+             //Pedido pedido= new Pedido(postreCant, "direccion", new Date(16/02/02), "en espera", 0);
+         //  pedidoRepository.save(pedido);
+           //List<Pedido> pedidos= services.
+            /// postreRepository.save(p);
+           // r.setPostres(postres);
+            //reposteriaRepository.save(r);
+           
+            //postreRepository.save(p);
+            /* List<PostreCant> postreCant = new ArrayList<>();
+            PostreCantId pid = new PostreCantId("p1", "r1", 1);
+            postreCant.add(new PostreCant(pid, p, 1));
+            Pedido pedido =new Pedido(postreCant, "cl 18 No. 13-15", new Date (16/02/02), "en espera", 15000);
+            *///pedidoRepository.save(pedido);
+     
+            //List<Pedido> pedidos= services.getPedidosByNit("r1");
+            boolean test= false;
+            /*pedidoRepository.delete(pedido.getCodigo());
+            postreRepository.delete(p.getId());
+            reposteriaRepository.delete("r1");
+            userRepository.delete("r1");
+           */
+            //Assert.assertTrue(test);
+            
+         }
+         
+          
+  
+         
 
 }
 
