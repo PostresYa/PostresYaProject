@@ -57,6 +57,15 @@ public class Postre implements java.io.Serializable{
         this.description=description;
         
     }
+    
+    /**
+     * Constructor de postre postre con valores iniciales e imagenes de los postres
+     * @param id
+     * @param name
+     * @param price
+     * @param description
+     * @param image 
+     */
        public Postre(PostreId id,String name,int price,String description,Blob image){
         
         this.id=id;
@@ -135,12 +144,19 @@ public class Postre implements java.io.Serializable{
         this.description = description;
     }
     
+    /**
+     * Cambia imagen asignada para el postre
+     * @param nImage 
+     */
     public void setImage(Blob nImage ){
         this.image = nImage;
     }
-                                
+            
+    /**
+     * 
+     * @return imagen del postre
+     */
     @JsonIgnore
-  
     @Column(name = "imagen")
     public Blob getImage(){
         return  this.image;

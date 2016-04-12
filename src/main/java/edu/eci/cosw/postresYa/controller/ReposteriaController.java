@@ -41,6 +41,10 @@ public class ReposteriaController {
         
     }
      
+    /**
+     * devolvera un conjunto de lista de reposterias correspondientes a las solicitadas
+     * @return lista de reposterias
+     */
     @RequestMapping(method = RequestMethod.GET)
     public List<Reposteria> getAllReposterias() {
        
@@ -51,6 +55,12 @@ public class ReposteriaController {
             return new ArrayList<Reposteria>();
         }
     }
+    
+    /**
+     * Obtiene la respuesta de la solicitud enviada por el invima
+     * @param nit
+     * @return retorna la informacion del registro invima con base al nit de la reposteria
+     */
     @RequestMapping(value="/registroinvima/{nit}",method = RequestMethod.GET)
     public StatusRegistroInvima validarINVIMA(@PathVariable String nit){
        

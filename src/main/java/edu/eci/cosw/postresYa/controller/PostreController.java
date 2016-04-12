@@ -11,7 +11,6 @@ import edu.eci.cosw.postresYa.stub.Stub;
 import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
-
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +22,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,7 +60,13 @@ public class PostreController {
         return stub.getPostres(nit);
     }
     
- 
+    /**
+     * busca en la lista de postres en el stub con su codigo correspondiente de producto
+     * @param nit
+     * @param code
+     * @return un conjunto de postres con base a un codigo de postres
+     * @throws edu.eci.cosw.postresYa.Exceptions.PostreException 
+     */
     @RequestMapping(value="/{nit}/{code}",method = RequestMethod.GET)
     public Postre getPostre(@PathVariable String nit,@PathVariable String code) throws PostreException {
        
@@ -124,6 +128,8 @@ public class PostreController {
     value = "/uploadImage",
     method = RequestMethod.POST
     )
+    
+    
     public ResponseEntity uploadFile(MultipartHttpServletRequest request,@RequestParam(name = "codigo") String codigo,@RequestParam(name = "nit") String nit) {
         System.out.println("-------------"+nit+"-----------"+codigo);
         try {

@@ -5,13 +5,12 @@ import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.Usuario;
+import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.junit.Assert;
 
@@ -35,6 +34,9 @@ public class PostresYaTest {
         
         @Autowired
         ReposteriaRepository reposteriaRepository;
+        
+        @Autowired
+        PostreRepository postreRepository;
         
         @Autowired
         UserRepository userRepository;
@@ -102,6 +104,8 @@ public class PostresYaTest {
             Assert.assertTrue(test);
         }
         
+      // Pruebas registro de postres
+        //@Test
         
 
 }
