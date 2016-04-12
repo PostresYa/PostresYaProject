@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 package edu.eci.cosw.postresYa.stub;
-
-import com.mysql.jdbc.Blob;
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreId;
@@ -13,22 +11,14 @@ import java.io.BufferedInputStream;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 
-import java.net.MalformedURLException;
 import java.util.Iterator;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.hibernate.type.BlobType;
-
-import org.springframework.stereotype.Service;
 
 /**
  *

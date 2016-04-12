@@ -10,7 +10,6 @@ import java.sql.Blob;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
 import javax.persistence.Table;
 
 
