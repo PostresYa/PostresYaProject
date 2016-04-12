@@ -12,7 +12,7 @@ En el siguiente proyecto, se trabajaran las siguientes historias de usuario:
    * Historia de usuario consultar pedidos.
    * Historia de usuario registrar repostería.
 
-Los detalles de las historias de usuario se pueden encontrar en la siguiente dirección [direccion](https://trello.com/b/2FGYQ5aB/cosw-2016-1-postres-ya)
+Los detalles de las historias de usuario se pueden encontrar en la siguiente dirección de  [trello](https://trello.com/b/2FGYQ5aB/cosw-2016-1-postres-ya)
 
 
 ###Integrantes
