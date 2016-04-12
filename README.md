@@ -12,6 +12,8 @@ En el siguiente proyecto, se trabajaran las siguientes historias de usuario:
    * Historia de usuario consultar pedidos.
    * Historia de usuario registrar repostería.
 
+Los detalles de las historias de usuario se pueden encontrar en la siguiente dirección [direccion](https://trello.com/b/2FGYQ5aB/cosw-2016-1-postres-ya)
+
 
 ###Integrantes
 
@@ -39,7 +41,7 @@ Este proyecto estara basado en el siguiente diagrama de clases,para satisface la
 ###Inicio de sesión
 
 Para iniciar sesión como una repostería ingrese a esta [dirección](http://projectpostresya.herokuapp.com/app/index.html#/viewLogin),
-una vez allí ingrese los datos de usuario( nit y password) y oprima el botón Submit.
+una vez allí ingrese los datos de usuario( nit y password) y oprima el botón Submit, para poder hacer pruebas se puede ingresar con r1 y pass1.
 
 ###Registro de una repostería
 
@@ -47,13 +49,6 @@ Si desea registrarse en la página web ingrese al link de inicio de sesión, y o
 
 Los nit que se simulan en el INVIMA como invalidos son
 
-	| Nit invalidos |  
-|:-----:| 
-| nit1 	| 
-| nit2 	| 
-| nit3 	|
-| nit4 	| 
-  
 <table >
   <tbody>
      <tr>
@@ -64,10 +59,20 @@ Los nit que se simulan en el INVIMA como invalidos son
     <tr>
       <td>nit1</td>
     </tr>
+    <tr>
+      <td>nit2</td>
+    </tr>
+    <tr>
+      <td>nit3</td>
+    </tr>
+    <tr>
+      <td>nit4</td>
+    </tr>
+    <tr>
+      <td>nit5</td>
+    </tr>
   </tbody>
 </table>
-  
-  
   
   
 ###Registro de un postre
