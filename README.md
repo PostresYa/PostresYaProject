@@ -48,11 +48,11 @@ Si desea registrarse en la página web ingrese al link de inicio de sesión, y o
 Los nit que se simulan en el INVIMA como invalidos son
 
 	| Nit invalidos |  
-|-----| 
-| nit1| 
-| nit2| 
-| nit3|
-| nit4| 
+|----- 	| 
+| nit1 	| 
+| nit2 	| 
+| nit3 	|
+| nit4 	| 
   
 ###Registro de un postre
 
