@@ -44,6 +44,15 @@ una vez allí ingrese los datos de usuario( nit y password) y oprima el botón S
 ###Registro de una repostería
 
 Si desea registrarse en la página web ingrese al link de inicio de sesión, y oprima el botón Regístrese, allí encontrara una          validación con el INVIMA para saber si tiene el registro de sanidad vigente, de tenerlo vigente se habilitaran los demás campos       necesarios para completar el registro, de no tenerlo no podrá registrarse en postresYa.
+
+Los nit que se simulan en el INVIMA como invalidos son
+
+	| Nit invalidos |  
+|-----| 
+| nit1| 
+| nit2| 
+| nit3|
+| nit4| 
   
 ###Registro de un postre
 
