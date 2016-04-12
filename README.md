@@ -54,6 +54,22 @@ Los nit que se simulan en el INVIMA como invalidos son
 | nit3 	|
 | nit4 	| 
   
+<table >
+  <tbody>
+     <tr>
+      <th>
+        Nit invalido
+      </th>
+    </tr> 
+    <tr>
+      <td>nit1</td>
+    </tr>
+  </tbody>
+</table>
+  
+  
+  
+  
 ###Registro de un postre
 
 Una vez autenticado en la aplicación ingrese a la vista -REGISTRAR UN NUEVO POSTRE-, e ingrese los datos necesarios para añadir un nuevo postre, en caso de que el código del postre ya este registrado, se podrá elegir si se actualiza la información del postre o se cancela la operación.
