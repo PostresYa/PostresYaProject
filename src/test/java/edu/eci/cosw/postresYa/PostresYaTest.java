@@ -116,7 +116,7 @@ public class PostresYaTest {
       // Pruebas registro de postres
         @Test
         public void registroPostreOkTest() throws PostreException{
-           /* Usuario u = new Usuario("us1", "password");  
+            Usuario u = new Usuario("us1", "password");  
              Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
              List<Postre> postres=new ArrayList<Postre>();
              postres.add(p);
@@ -125,12 +125,12 @@ public class PostresYaTest {
             //Assert.assertTrue(services.getPostres("us1").size() == 0);
             userRepository.save(u);
             reposteriaRepository.save(r);
-            /*postreRepository.save(p);                    
+            postreRepository.save(p);                    
             Assert.assertTrue(services.getPostres("us1").size() == 1);
             postreRepository.delete(p.getId());
             reposteriaRepository.delete("us1");
             userRepository.delete("us1");
-            */
+            
           
           
         }
@@ -169,19 +169,19 @@ public class PostresYaTest {
   
         }
         
-     /*   @Test
+        @Test
         public void sinPostresGuardadosTest() throws PostreException{
             Usuario u = new Usuario("us1", "password");   
             Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion");
             userRepository.save(u);
             reposteriaRepository.save(r);
-            Assert.assertFalse(services.getPostres("us1").size() == 0);
+            Assert.assertTrue(services.getPostres("us1").size() == 0);
             reposteriaRepository.delete(r);
             userRepository.delete(u);
             
         }
         
-        
+        /*
         @Test
         public void postreConPrecioNegativoTest()throws PostreException{
             Usuario u = new Usuario("us1", "password");   
@@ -207,31 +207,14 @@ public class PostresYaTest {
         
         @Test
          public void validarPedidosQueExistaTest() throws PostreException{
-             List<PostreCant> postreCant = new ArrayList<>();
-             PostreCantId pid = new PostreCantId("p1", "r1", 1);
-             postreCant.add(new PostreCant(pid, new Postre(), 1));
-             //Pedido pedido= new Pedido(postreCant, "direccion", new Date(16/02/02), "en espera", 0);
-         //  pedidoRepository.save(pedido);
-           //List<Pedido> pedidos= services.
-            /// postreRepository.save(p);
-           // r.setPostres(postres);
-            //reposteriaRepository.save(r);
-           
-            //postreRepository.save(p);
-            /* List<PostreCant> postreCant = new ArrayList<>();
-            PostreCantId pid = new PostreCantId("p1", "r1", 1);
-            postreCant.add(new PostreCant(pid, p, 1));
-            Pedido pedido =new Pedido(postreCant, "cl 18 No. 13-15", new Date (16/02/02), "en espera", 15000);
-            *///pedidoRepository.save(pedido);
-     
-            //List<Pedido> pedidos= services.getPedidosByNit("r1");
-            boolean test= false;
-            /*pedidoRepository.delete(pedido.getCodigo());
-            postreRepository.delete(p.getId());
-            reposteriaRepository.delete("r1");
-            userRepository.delete("r1");
-           */
-            //Assert.assertTrue(test);
+  
+            Pedido pedido= new Pedido(new ArrayList<PostreCant>(), "direccion", new Date(16/02/02), "en espera", 0);
+           pedidoRepository.save(pedido);
+           Pedido pedido2=pedidoRepository.findOne(pedido.getCodigo());
+          
+           boolean test= pedido2.getCodigo()==pedido.getCodigo();
+           pedidoRepository.delete(pedido.getCodigo());
+           Assert.assertTrue(test);
             
          }
          
