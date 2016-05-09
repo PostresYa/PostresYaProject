@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value="/cliente")
 public class ClientsController {
     @RequestMapping(value="/check")
-   
-    @RolesAllowed("cliente")
+   @Secured({"cliente"})
+    
     public ResponseEntity<?> check(){
         return new ResponseEntity<>(HttpStatus.ACCEPTED);
     }
