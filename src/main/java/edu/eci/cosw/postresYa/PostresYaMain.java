@@ -62,7 +62,7 @@ public class PostresYaMain {
                 builder.authenticationProvider(new AuthenticationProvider() {
                     @Override
                     public Authentication authenticate(Authentication a) throws AuthenticationException {
-                        
+                        System.out.println(a.getDetails()+" user  "+a.getName()+" pas "+a.getCredentials().toString()+"  otros "+ a.getAuthorities());
                         if (a.getName().equals("validarINVIMA")){
                             return new UsernamePasswordAuthenticationToken(a.getName(),"",null);
                            
@@ -70,7 +70,7 @@ public class PostresYaMain {
                             Usuario usuario=userRepository.Login(a.getName(), a.getCredentials().toString());
                             if(usuario!=null){
                                 List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-                                authorities.add(new SimpleGrantedAuthority("USER"));
+                                authorities.add(new SimpleGrantedAuthority(usuario.getRol()));
                                 return new UsernamePasswordAuthenticationToken(a.getName(), a.getCredentials().toString(), authorities);
 
                             }

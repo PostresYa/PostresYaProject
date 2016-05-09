@@ -35,7 +35,7 @@ CREATE TABLE `coswgr5`.`Postre` (
 -- Table Usuario
 CREATE TABLE `coswgr5`.`Usuario` (
     `username` varchar(30)  NOT NULL,
-    `password` varchar(100)  NOT NULL,
+    `password` varchar(20)  NOT NULL,
     CONSTRAINT `Usuario_pk` PRIMARY KEY (`username`)
 )ENGINE=InnoDB;
 -- Table Reposteria

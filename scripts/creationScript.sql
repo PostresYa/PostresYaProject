@@ -3,6 +3,18 @@
 
 
 -- tables
+
+-- table Cliente
+CREATE TABLE `coswgr5`.`Cliente` (
+    `Usuario_username` varchar(30) NOT NULL,
+    `cedula` int NOT NULL,
+    `cuenta` int NOT NULL,
+    `nombre` varchar(40) NOT NULL,
+    CONSTRAINT `Cliente_pk` PRIMARY KEY (`cedula`)
+)ENGINE=InnoDB;
+
+
+
 -- Table Pedido
 CREATE TABLE `coswgr5`.`Pedido` (
     `id_pedido` int  NOT NULL AUTO_INCREMENT,
@@ -54,8 +66,24 @@ CREATE TABLE `coswgr5`.`Reposteria` (
 -- foreign keys
 -- Reference:  PedidoPostreCantidad_Pedido (table: PedidoPostreCantidad)
 
+
+
+
+
 ALTER TABLE `coswgr5`.`PedidoPostreCantidad` ADD CONSTRAINT `PedidoPostreCantidad_Pedido` FOREIGN KEY `PedidoPostreCantidad_Pedido` (`Pedido_id_pedido`)
     REFERENCES `coswgr5`.`Pedido` (`id_pedido`);
+
+--cliente usuarioo
+ALTER TABLE Cliente ADD CONSTRAINT Cliente_Usuario FOREIGN KEY Cliente_Usuario (Usuario_username)
+    REFERENCES Usuario (username);
+
+
+--pedido cliente
+
+-- Reference: Pedido_Cliente (table: Pedido)
+ALTER TABLE Pedido ADD CONSTRAINT Pedido_Cliente FOREIGN KEY Pedido_Cliente (Cliente_cedula)
+    REFERENCES Cliente (cedula);
+
 -- Reference:  PedidoPostreCantidad_Postre (table: PedidoPostreCantidad)
 
 ALTER TABLE `coswgr5`.`PedidoPostreCantidad` ADD CONSTRAINT `PedidoPostreCantidad_Postre` FOREIGN KEY `PedidoPostreCantidad_Postre` (`Postre_codigo_postre`,`Postre_Reposteria_nit`)

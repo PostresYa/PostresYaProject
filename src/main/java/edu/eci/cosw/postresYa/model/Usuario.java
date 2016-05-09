@@ -19,6 +19,9 @@ import javax.persistence.Table;
 public class Usuario implements java.io.Serializable {
     private String username;
     private String password;
+    private String rol;
+
+    
     public Usuario(){
         
     }
@@ -27,10 +30,12 @@ public class Usuario implements java.io.Serializable {
      * constructor de usuario
      * @param username
      * @param password 
+     * @param rol 
      */
-    public Usuario(String username,String password){
+    public Usuario(String username,String password,String rol){
         this.username=username;
         this.password=password;
+        this.rol=rol;
     }
     
     /**
@@ -66,6 +71,21 @@ public class Usuario implements java.io.Serializable {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+    /**
+     * asigna rol
+     * @return 
+     */
+     @Column(name="rol", nullable = false)
+    public String getRol() {
+        return rol;
+    }
+    /**
+     * cambia rol
+     * @param rol 
+     */
+    public void setRol(String rol) {
+        this.rol = rol;
     }
   
 }

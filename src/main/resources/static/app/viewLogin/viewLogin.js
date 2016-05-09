@@ -14,15 +14,22 @@ angular.module('myApp.viewLogin', ['ngRoute'])
         
     var authenticate = function (credentials, callback) {
 
-    var headers = credentials ? {authorization: "Basic "
+    var headers = credentials ? {authorization: "Basic " 
                 + btoa(credentials.username + ":" + credentials.password)
     } : {};
 
         $http.get('user', {headers: headers}).success(function (data) {
+           
             if (data.name) {
+                if(data.authorities[0].authority == "reposteria"){
+                    $rootScope.authenticated = true;
+                $rootScope.nit=credentials.username; 
+                }else{
+                     $rootScope.authenticated = false;
+                $rootScope.nit="";
+                }
                  
-                $rootScope.authenticated = true;
-                $rootScope.nit=credentials.username;
+               
               
             } else {
                 $rootScope.authenticated = false;

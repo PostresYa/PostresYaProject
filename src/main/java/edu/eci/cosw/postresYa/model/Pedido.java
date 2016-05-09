@@ -14,6 +14,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -40,6 +41,9 @@ import org.hibernate.annotations.FetchMode;
     private int codigo;
     private String estado;
     private int precio;
+    private Cliente cliente;
+
+   
 
     /**
      * Constructor inicial de pedido
@@ -53,14 +57,18 @@ import org.hibernate.annotations.FetchMode;
      * @param postres  Lista de los postres que se solicitdan y su cantidad
      * @param direccion Direccion a la cual se solicito un postre
      * @param fecha Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
+     * @param estado
+     * @param precio
+     * @param cliente
      */
-    public Pedido(List <PostreCant> postres, String direccion, Date fecha,String estado,int precio){
+    public Pedido(List <PostreCant> postres, String direccion, Date fecha,String estado,int precio,Cliente cliente){
         
         this.postres = postres;
         this.fecha = fecha;
         this.direccion = direccion;
         this.estado=estado;
         this.precio=precio;
+        this.cliente=cliente;
       
         
         
@@ -168,6 +176,26 @@ import org.hibernate.annotations.FetchMode;
     @Column(name="estado")
     public String getEstado(){
         return estado;
+    }
+    
+    
+     /**
+     * obtiene el cliente
+     * @return 
+     */
+    @ManyToOne()
+    @Fetch(FetchMode.JOIN)
+    @JoinColumn(name = "Cliente_cedula", nullable = false)
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * asigna un cliente al pedido
+     * @param cliente 
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 
