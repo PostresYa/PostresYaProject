@@ -100,9 +100,9 @@ public class PostresYaMain {
                         .antMatchers("/app/**","/logout","/login","/reposterias/registroINVIMA/**","/reposterias/**").permitAll()
                         .anyRequest().authenticated().and()
                         .logout().logoutSuccessUrl("/")
-                        .and().csrf()
-                        .csrfTokenRepository(csrfTokenRepository()).and()
-                        .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
+                        .and().csrf().disable();
+                        //.csrfTokenRepository(csrfTokenRepository()).and()
+                        //.addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
             }
             
             /**
