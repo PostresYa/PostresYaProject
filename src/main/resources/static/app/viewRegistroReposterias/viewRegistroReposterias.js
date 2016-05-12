@@ -23,30 +23,48 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
         
   
         
-        $scope.validarINVIMA=function(){
-           
-            console.log("VALIDNADO INFORMACION CON EL INVIMA");
-            
-            console.log($scope.nitR);
+        $scope.validarINVIMA=function(){           
+            console.log("VALIDNADO INFORMACION CON EL INVIMA");            
+            console.log($scope.nitR);           
             if ($scope.nitR==$scope.Validarnit){
+                var valid = true;
+                if($scope.nitR.length==11){
+                    console.log($scope.nitR.charAt(9));
+                    for (var i = 0; i <9;i++){
+                    if(isNaN($scope.nitR.charAt(i))){
+                       valid = false; 
+                    }
+                }
+                valid = valid && ($scope.nitR.charAt(9)=="-") && !isNaN($scope.nitR.charAt(10))  ;
+                }else{
+                    alert("Ingrese un NIT con formato valido");
+                }
+                if(valid){
                 reposteriasINVIMA.get({nit:$scope.nitR},function(data){
-                 console.info("consulta INVIMA registrada  ");
-                
-                 console.log(data);
-                 $scope.validada=data.registrado;
-                
-
-                 if(data.registrado==false){
-                     alert("no tiene registro de sanidad vigente");
-                 }else{
-                      document.getElementById("nitReposteria").disabled = true;
-                       document.getElementById("nitReposteriaV").disabled = true;
+                console.info("consulta INVIMA registrada  ");                
+                console.log(data);
+               
+                console.log(data.estadoRegistro);
+                 if(data.estadoRegistro==null){
+                         alert("Nit no encontrado");
+                 }else{                      
+                     if(data.estadoRegistro == "Vigentes" ){
+                         console.log("*_*");
+                         $scope.validada = true;
+                        document.getElementById("nitReposteria").disabled = true;
+                        document.getElementById("nitReposteriaV").disabled = true;
+                     }else{
+                         $scope.validada = false;
+                        alert("El registro de sanidad no es válido");
+                     }                                           
                  }       
 
                   });
                    $rootScope.authenticated=false;
                 $rootScope.nit="";
-                
+             }else{
+                alert("nit invalido");
+             }
             }else{
                 $rootScope.authenticated=false;
                 $rootScope.nit="";
