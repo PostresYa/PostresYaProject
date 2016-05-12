@@ -35,6 +35,8 @@ public class Reposteria implements java.io.Serializable  {
     private String coverageRange; //no sabemos como tratar el rango
     private Usuario usuario;
     private String direccion;
+    private double latitud;
+    private double longitud;
 
     /**
      * Constructor sin parametros de la reposteria
@@ -51,7 +53,7 @@ public class Reposteria implements java.io.Serializable  {
      * @param postres
 
      */
-    public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario,String direccion){
+    public Reposteria(String nit,String name,String coverageRange,List<Postre> postres,Usuario usuario,String direccion,double latitud,double longitud){
         this.nit=nit;
         this.name=name;
         this.coverageRange=coverageRange;
@@ -59,6 +61,8 @@ public class Reposteria implements java.io.Serializable  {
         this.postres=postres;
         this.usuario=usuario;
         this.direccion=direccion;
+        this.latitud=latitud;
+        this.longitud=longitud;
     }
  
     /**
@@ -163,5 +167,26 @@ public class Reposteria implements java.io.Serializable  {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
+    
+    @Column(name = "latitud",  nullable = false)
+    
+    public double getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(double latitud) {
+        this.latitud = latitud;
+    }
+
+    @Column(name = "longitud",  nullable = false)
+    public double getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(double longitud) {
+        this.longitud = longitud;
+    }
+    
+    
     
 }

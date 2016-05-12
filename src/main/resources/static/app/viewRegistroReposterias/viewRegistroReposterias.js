@@ -49,7 +49,7 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                          alert("Nit no encontrado");
                  }else{                      
                      if(data.estadoRegistro == "Vigentes" ){
-                         console.log("*_*");
+                        
                          $scope.validada = true;
                         document.getElementById("nitReposteria").disabled = true;
                         document.getElementById("nitReposteriaV").disabled = true;
@@ -84,14 +84,25 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                     alert("el nit ya esta registrado en la pagina");
                 }else{
                     
+                    var latitud;
+                    var longitud;
 
-                    
-                  
-                     
-                    
-                    
+                    var geocoder = new google.maps.Geocoder();
+
+                    var address = $scope.direccion+",Bogota";
+                    geocoder.geocode( { 'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+
+                       latitud = results[0].geometry.location.lat();
+
+                        longitud = results[0].geometry.location.lng();
+                          
+                        console.log('La longitud es: ' + longitud + ', la latitud es: ' + latitud);
+
+
+                          
                     var newUser={"username":$scope.nitR,"password":$scope.password,"rol":"reposteria"};
-                    var newReposteria={"nit":$scope.nitR,"name":$scope.name,"postres":[], "coverageRange":$scope.CoverageRange, "usuario":newUser,"direccion":$scope.direccion};
+                    var newReposteria={"nit":$scope.nitR,"name":$scope.name,"postres":[], "coverageRange":$scope.CoverageRange, "usuario":newUser,"direccion":$scope.direccion,"latitud":latitud,"longitud":longitud};
                     console.log(newReposteria);    
                         
                         
@@ -111,6 +122,15 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                                   
                                  // $scope.description="";
                          });
+
+
+
+                        } 
+                    });         
+
+
+                    
+                  
                 }
                         
                        /* var newReposteria={"nit":$scope.nit,"name":$scope.name, "coverageRange":$scope.cobertura, usuario:{"username":$scope.usuario,"passwword":$scope.password}};

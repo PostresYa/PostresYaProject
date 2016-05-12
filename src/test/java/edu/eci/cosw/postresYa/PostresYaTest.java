@@ -65,7 +65,7 @@ public class PostresYaTest {
         @Test
         public void ReposteriaRegistradaTest(){
             Usuario u=new Usuario("r1", "pass1","reposteria");
-            Reposteria r=new Reposteria("r1", "prueba", "norte", new ArrayList<Postre>(), u, "centro");
+            Reposteria r=new Reposteria("r1", "prueba", "norte", new ArrayList<Postre>(), u, "centro",4.056,-74.342);
             userRepository.save(u);
             reposteriaRepository.save(r);
             try {
@@ -95,9 +95,9 @@ public class PostresYaTest {
         @Test
         public void DosReposteriasTest() throws PostreException{
             Usuario u=new Usuario("r1", "pass1","reposteria");
-            Reposteria r=new Reposteria("r1", "prueba", "norte", new ArrayList<Postre>(), u, "centro");
+            Reposteria r=new Reposteria("r1", "prueba", "norte", new ArrayList<Postre>(), u, "centro",4.056,-74.342);
             Usuario u1=new Usuario("r2", "pass2","reposteria");
-            Reposteria r2=new Reposteria("r2", "prueba2", "norte2", new ArrayList<Postre>(), u1, "centro");            
+            Reposteria r2=new Reposteria("r2", "prueba2", "norte2", new ArrayList<Postre>(), u1, "centro",4.056,-74.342);            
             userRepository.save(u);
             reposteriaRepository.save(r);
             userRepository.save(u1);
@@ -118,7 +118,7 @@ public class PostresYaTest {
             Postre p = new Postre(new PostreId("code1", "us1"), "name", 0, "description");
             List<Postre> postres=new ArrayList<Postre>();
             postres.add(p);
-            Reposteria r = new Reposteria("us1", "name", "coverageRange",postres, u, "direccion");            
+            Reposteria r = new Reposteria("us1", "name", "coverageRange",postres, u, "direccion",4.056,-74.342);            
             //Assert.assertTrue(services.getPostres("us1").size() == 0);
             userRepository.save(u);
             reposteriaRepository.save(r);
@@ -135,7 +135,7 @@ public class PostresYaTest {
         @Test
         public void variosPostresEnReposteriaTest() throws PostreException{
             Usuario u = new Usuario("us1", "password","reposteria");   
-            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion");  
+            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion",4.056,-74.342);  
             userRepository.save(u);
             reposteriaRepository.save(r);
             Assert.assertTrue(services.getPostres("us1").size() == 0);            
@@ -163,7 +163,7 @@ public class PostresYaTest {
         @Test
         public void sinPostresGuardadosTest() throws PostreException{
             Usuario u = new Usuario("us1", "password","reposteria");   
-            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion");
+            Reposteria r = new Reposteria("us1", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion",4.056,-74.342);
             userRepository.save(u);
             reposteriaRepository.save(r);
             Assert.assertTrue(services.getPostres("us1").size() == 0);
