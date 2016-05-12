@@ -65,6 +65,13 @@ angular.module('myApp.viewRegistroReposterias', ['ngRoute'])
                         $rootScope.nit="";
                     alert("el nit ya esta registrado en la pagina");
                 }else{
+                    
+
+                    
+                  
+                     
+                    
+                    
                     var newUser={"username":$scope.nitR,"password":$scope.password,"rol":"reposteria"};
                     var newReposteria={"nit":$scope.nitR,"name":$scope.name,"postres":[], "coverageRange":$scope.CoverageRange, "usuario":newUser,"direccion":$scope.direccion};
                     console.log(newReposteria);    
