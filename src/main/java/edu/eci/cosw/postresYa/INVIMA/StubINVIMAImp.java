@@ -7,8 +7,11 @@ package edu.eci.cosw.postresYa.INVIMA;
 
 import edu.eci.cosw.postresYa.model.StatusRegistroInvima;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 /**
  *
@@ -34,15 +37,14 @@ public class StubINVIMAImp implements StubINVIMA{
      */
     @Override
     public StatusRegistroInvima validarINVIMA(String nit) {
+        RestTemplate rt = new RestTemplate();
+        Map<String, String> vars = new HashMap<String, String>();
+        vars.put("nit", "nit");
+        StatusRegistroInvima respuesta = rt.getForObject("https://damp-dusk-55729.herokuapp.com/rest/peticiones/invima/{nit}", StatusRegistroInvima.class, nit);
+        return respuesta;
+        
       
-        StatusRegistroInvima status=new StatusRegistroInvima(true);
-        for(String nitInvalido:nitINVALIDOS){
-            if(nitInvalido.equals(nit)){
-                status.setRegistrado(false);
-            }
-        }
      
-        return status;
     }
     
 }
