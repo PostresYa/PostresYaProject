@@ -53,8 +53,7 @@ public class PostresYaTest {
         StubINVIMA INVIMA;
         
         @Test
-        public void nitInvalidoTest(){
-          
+        public void nitInvalidoTest(){          
            Assert.assertEquals(INVIMA.validarINVIMA("604256769-9").getEstadoRegistro(), "Vencidos");
         }
         

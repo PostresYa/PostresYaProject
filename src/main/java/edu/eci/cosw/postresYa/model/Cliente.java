@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ import org.hibernate.annotations.FetchMode;
 @Table(name="Cliente")
 public class Cliente {
     private int cedula;
-    private int cuenta;
+    private BigInteger cuenta;
     private Usuario usuario;
     private String nombre;
 
@@ -40,7 +41,7 @@ public class Cliente {
      * @param usuario
      * @param nombre 
      */
-    public Cliente(int cedula,int cuenta,Usuario usuario,String nombre){
+    public Cliente(int cedula,BigInteger cuenta,Usuario usuario,String nombre){
         this.cedula=cedula;
         this.cuenta=cuenta;
         this.usuario=usuario;
@@ -73,7 +74,7 @@ public class Cliente {
      * @return 
      */
       @Column(name = "cuenta", nullable = false)
-    public int getCuenta() {
+    public BigInteger getCuenta() {
         return cuenta;
     }
 
@@ -81,7 +82,7 @@ public class Cliente {
      * cambiar cuenta
      * @param cuenta 
      */
-    public void setCuenta(int cuenta) {
+    public void setCuenta(BigInteger cuenta) {
         this.cuenta = cuenta;
     }
 /**
