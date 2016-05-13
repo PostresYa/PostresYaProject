@@ -54,12 +54,13 @@ public class PostresYaTest {
         
         @Test
         public void nitInvalidoTest(){
-          //  Assert.assertFalse(INVIMA.validarINVIMA("nit1").isRegistrado());
+          
+           Assert.assertEquals(INVIMA.validarINVIMA("604256769-9").getEstadoRegistro(), "Vencidos");
         }
         
          @Test
-        public void nitValidoTest(){
-            //Assert.assertTrue(INVIMA.validarINVIMA("r1").isRegistrado());
+        public void nitValidoTest(){            
+             Assert.assertEquals(INVIMA.validarINVIMA("124356789-1").getEstadoRegistro(), "Vigentes");
         }
         
         @Test

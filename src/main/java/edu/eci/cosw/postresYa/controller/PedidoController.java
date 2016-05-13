@@ -58,6 +58,11 @@ public class PedidoController {
        pedido.cambiarEstadoPedido(codigo);
        // pedido.changeStatePedido(codigo);
     }
+     
+    @RequestMapping(method = RequestMethod.POST)
+    public void addPedido(@RequestBody Pedido p)throws PostreException{
+        pedido.addPedido(p);
+    }
 
     
 }

@@ -141,5 +141,10 @@ public class PostresServicesImp implements PostresYaServices{
         p.setEstado("Enviado");
         pedidoRepository.save(p);
     }
+
+    @Override
+    public void addPedido(Pedido p) throws PostreException {
+        pedidoRepository.save(p);
+    }
     
 }

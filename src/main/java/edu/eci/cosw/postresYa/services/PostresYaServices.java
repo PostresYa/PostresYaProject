@@ -27,4 +27,5 @@ public interface PostresYaServices {
     
      List<Pedido> getPedidosByNit(String nit) throws PostreException;
      void cambiarEstadoPedido(int code) throws PostreException;
+     void  addPedido(Pedido p) throws PostreException;
 }
