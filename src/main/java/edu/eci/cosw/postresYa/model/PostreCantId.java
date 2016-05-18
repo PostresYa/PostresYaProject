@@ -34,6 +34,17 @@ public class PostreCantId implements java.io.Serializable {
         this.idPedido=idPedido;
     }
     
+        /**
+     * constructor de PostreCantId sin el id del pedido
+     * @param codigoPostre
+     * @param reposteriaNit     
+     */
+    public PostreCantId(String codigoPostre,String reposteriaNit){
+        this.codigoPostre=codigoPostre;
+        this.reposteriaNit=reposteriaNit;
+        
+    }
+    
     /**
      * obtiene el codigo del postre
      * @return 

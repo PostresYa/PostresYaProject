@@ -6,6 +6,7 @@
 package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Cliente;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.Reposteria;
@@ -21,11 +22,12 @@ public interface PostresYaServices {
     void addPostre(Postre postre,String nit) throws PostreException;
     void changePostre(Postre postre,String nit) throws PostreException;
      
-      Reposteria getReposteriaByNit(String nit) throws PostreException;
+    Reposteria getReposteriaByNit(String nit) throws PostreException;
     void saveReposteria(Reposteria reposteria) throws PostreException;
-    List<Reposteria> getAllReposterias() throws PostreException;
-    
-     List<Pedido> getPedidosByNit(String nit) throws PostreException;
-     void cambiarEstadoPedido(int code) throws PostreException;
-     void  addPedido(Pedido p) throws PostreException;
+    List<Reposteria> getAllReposterias() throws PostreException;    
+    List<Pedido> getPedidosByNit(String nit) throws PostreException;
+    void cambiarEstadoPedido(int code) throws PostreException;
+    void  addPedido(Pedido p) throws PostreException;     
+    Cliente getClienteByCedula(Integer cedula) throws PostreException;
+    Cliente getClienteByUsername(String username) throws PostreException;
 }

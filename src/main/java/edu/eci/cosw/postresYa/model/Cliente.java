@@ -5,6 +5,7 @@
  */
 package edu.eci.cosw.postresYa.model;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,7 @@ import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="Cliente")
-public class Cliente {
+public class Cliente implements Serializable {
     private int cedula;
     private BigInteger cuenta;
     private Usuario usuario;

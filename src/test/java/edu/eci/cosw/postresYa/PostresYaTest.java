@@ -189,12 +189,12 @@ public class PostresYaTest {
         }*/
         
         //pruebas consultar pedidos
-        
+        /*
         @Test
         public void pedidosNoExistenteTest() throws PostreException{
             List<Pedido> pedido= services.getPedidosByNit("r1");
             Assert.assertEquals(pedido.size(), 0);
-        }
+        }*/
         
         @Test
          public void validarPedidosQueExistaTest() throws PostreException{

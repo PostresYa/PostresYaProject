@@ -11,7 +11,7 @@
     <mapping class="edu.eci.cosw.postresYa.model.Reposteria"/>
     <mapping class="edu.eci.cosw.postresYa.model.Usuario"/>
     <mapping class="edu.eci.cosw.postresYa.model.Pedido"/>
-    <mapping class="edu.eci.cosw.postresYa.model.PostreCant"/>
+    <mapping class="edu.eci.cosw.postresYa.model.Cliente"/>
     
 
   </session-factory>

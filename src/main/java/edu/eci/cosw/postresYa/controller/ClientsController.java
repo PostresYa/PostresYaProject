@@ -5,13 +5,13 @@
  */
 package edu.eci.cosw.postresYa.controller;
 
-import javax.annotation.security.RolesAllowed;
-import org.springframework.core.io.InputStreamResource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.access.prepost.PreAuthorize;
+import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Cliente;
+import edu.eci.cosw.postresYa.services.PostresYaServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,10 +21,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value="/cliente")
 public class ClientsController {
-    @RequestMapping(value="/check")
-   @Secured({"cliente"})
     
-    public ResponseEntity<?> check(){
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
+    @Autowired
+    PostresYaServices cliente;
+    
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
+    public Cliente getClienteByUsername(@PathVariable String username)throws PostreException{
+        return cliente.getClienteByUsername(username);
     }
 }

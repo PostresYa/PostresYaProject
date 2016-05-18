@@ -6,14 +6,20 @@
 package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Cliente;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
+import edu.eci.cosw.postresYa.model.PostreCant;
+import edu.eci.cosw.postresYa.model.PostreCantId;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.repositories.ClienteRepository;
 import edu.eci.cosw.postresYa.repositories.PedidoRepository;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +44,8 @@ public class PostresServicesImp implements PostresYaServices{
     @Autowired
     PedidoRepository pedidoRepository;
     
+    @Autowired
+    ClienteRepository clienteRepository;
     /**
      * obtiene postres con base al nit
      * @param nit
@@ -128,7 +136,17 @@ public class PostresServicesImp implements PostresYaServices{
 
     @Override
     public List<Pedido> getPedidosByNit(String nit) throws PostreException {
+        List <PostreCant> postres = new ArrayList<>();        
+        //Postres de prueba
+        Postre p = postreRepository.findOne(new PostreId("flan1", "r1"));
+        postres.add(new PostreCant(new PostreCantId(p.getId().getCode(),p.getId().getReposteriaNit()), p, 4));
+        //Pedido pedido = new Pedido(postres, nit, new Date(), nit, 0, clienteRepository.getClienteByCedula(1014238039));
+   
+        
+        
+         
         return pedidoRepository.getPedidosByNit(nit);
+        
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 
     }
@@ -145,6 +163,16 @@ public class PostresServicesImp implements PostresYaServices{
     @Override
     public void addPedido(Pedido p) throws PostreException {
         pedidoRepository.save(p);
+    }
+    
+    @Override
+    public Cliente getClienteByCedula(Integer cedula)throws PostreException{        
+        return clienteRepository.getClienteByCedula(cedula);
+    }
+    
+    @Override
+    public Cliente getClienteByUsername(String username) throws PostreException{
+         return  clienteRepository.getClienteByUsername(username);
     }
     
 }
