@@ -171,7 +171,7 @@ public class PostresServicesImp implements PostresYaServices{
         
         Date date= new Date();
         
-        p.setFecha(new Date(date.toString()));
+        p.setFecha(new Date("25/10/2025"));
         System.out.println("fecha que se va  meter:              "+p.getFecha().toString()+"    "+p.getFecha().getTime());
         p.setPostres(new ArrayList<PostreCant>());
         
