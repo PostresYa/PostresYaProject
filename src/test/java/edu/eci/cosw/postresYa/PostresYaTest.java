@@ -2,17 +2,21 @@ package edu.eci.cosw.postresYa;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.INVIMA.StubINVIMA;
+import edu.eci.cosw.postresYa.model.Cliente;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreCant;
+import edu.eci.cosw.postresYa.model.PostreCantId;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
 import edu.eci.cosw.postresYa.model.Usuario;
+import edu.eci.cosw.postresYa.repositories.ClienteRepository;
 import edu.eci.cosw.postresYa.repositories.PedidoRepository;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
 import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -48,6 +52,9 @@ public class PostresYaTest {
         
         @Autowired
         UserRepository userRepository;
+        
+        @Autowired
+        ClienteRepository clientRepository;
         
         @Autowired
         StubINVIMA INVIMA;
@@ -167,8 +174,8 @@ public class PostresYaTest {
             userRepository.save(u);
             reposteriaRepository.save(r);
             Assert.assertTrue(services.getPostres("us1").size() == 0);
-            reposteriaRepository.delete(r);
-            userRepository.delete(u);
+            reposteriaRepository.delete(r.getNit());
+            userRepository.delete(u.getUsername());
             
         }
         
@@ -198,6 +205,30 @@ public class PostresYaTest {
         
         @Test
          public void validarPedidosQueExistaTest() throws PostreException{
+             
+             Usuario u = new Usuario("us2", "password","cliente");   
+           userRepository.save(u);
+            Cliente cl= new Cliente(1022408185, new BigInteger("12344"), u, "duvan");
+            clientRepository.save(cl);
+            Pedido pedido= new Pedido("direccion", new Date(16/02/02), "en espera", 0,cl);
+            System.out.println("-------------------"+pedido.getCodigo()+"---------------------------------");
+                    
+            pedidoRepository.save(pedido);
+            System.out.println("-------------------"+pedido.getCodigo()+"---------------------------------");
+            
+            Usuario u1 = new Usuario("us3", "password","reposteria");   
+            Reposteria r = new Reposteria("us3", "name", "coverageRange", new ArrayList<Postre>(), u, "direccion",4.056,-74.342);  
+            userRepository.save(u);
+            reposteriaRepository.save(r);
+            Postre p = new Postre(new PostreId("code12", "us3"), "name", 0, "description");
+            postreRepository.save(p);
+            
+            ArrayList<PostreCant> pc= new ArrayList<>();
+            pc.add(new PostreCant(new PostreCantId(p.getId().getCode(), p.getId().getReposteriaNit(), pedido.getCodigo()), p, 10000));
+            pedido.setPostres(pc);
+            pedidoRepository.save(pedido);
+            
+            
   /*
             Pedido pedido= new Pedido(new ArrayList<PostreCant>(), "direccion", new Date(16/02/02), "en espera", 0);
             pedidoRepository.save(pedido);

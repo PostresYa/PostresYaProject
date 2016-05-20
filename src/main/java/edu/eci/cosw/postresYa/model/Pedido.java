@@ -75,6 +75,28 @@ import org.hibernate.annotations.FetchMode;
     }
         
     /**
+     * Constructor con parametro de un pedido, sin los postres
+     * @param direccion Direccion a la cual se solicito un postre
+     * @param fecha Fecha de pedido en la que se realizo, para dar mayor prioridad a la mas antigua
+     * @param estado
+     * @param precio
+     * @param cliente
+     */
+    public Pedido( String direccion, Date fecha,String estado,int precio,Cliente cliente){
+        
+       
+        this.fecha = fecha;
+        this.direccion = direccion;
+        this.estado=estado;
+        this.precio=precio;
+        this.cliente=cliente;
+      
+        
+        
+    }
+   
+    
+    /**
      * Metodo que retorna el precio del pedido
      * @return el precio del pedido
      */
