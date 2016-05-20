@@ -136,15 +136,7 @@ public class PostresServicesImp implements PostresYaServices{
 
     @Override
     public List<Pedido> getPedidosByNit(String nit) throws PostreException {
-        List <PostreCant> postres = new ArrayList<>();        
-        //Postres de prueba
-        Postre p = postreRepository.findOne(new PostreId("flan1", "r1"));
-        postres.add(new PostreCant(new PostreCantId(p.getId().getCode(),p.getId().getReposteriaNit()), p, 4));
-        //Pedido pedido = new Pedido(postres, nit, new Date(), nit, 0, clienteRepository.getClienteByCedula(1014238039));
-   
-        
-        
-         
+
         return pedidoRepository.getPedidosByNit(nit);
         
         // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
