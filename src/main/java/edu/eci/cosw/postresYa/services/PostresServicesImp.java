@@ -7,6 +7,7 @@ package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Cliente;
+import edu.eci.cosw.postresYa.model.Confirmacion;
 import edu.eci.cosw.postresYa.model.Pago;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
@@ -162,13 +163,15 @@ public class PostresServicesImp implements PostresYaServices{
     }
 
     @Override
-    public void addPedido(Pedido p) throws PostreException {
+    public Confirmacion addPedido(Pedido p) throws PostreException {
+        Confirmacion confirmacion;
         Pago pago= new Pago(""+p.getCliente().getCuenta(), "123", p.getCliente().getTipoTarjeta(), p.getCliente().getNombre(), "234567893434-bancolombia", "pago pedido postresYa a"+p.getPostres().get(0).getPostreCantId().getReposteriaNit(), p.getPrecio());
      
         RestTemplate rt = new RestTemplate();
         
         try{
         String responseType= rt.postForObject("http://paymentsgateway.herokuapp.com/rest/payments", pago,String.class);
+        confirmacion=new Confirmacion(responseType);
         System.out.println("este es el codigo de confirmacion"+responseType);
         List<PostreCant> postres=p.getPostres();
         
@@ -186,8 +189,9 @@ public class PostresServicesImp implements PostresYaServices{
         pedidoRepository.save(p);
         }catch(HTTPException e){
             System.out.println("este es el codigo del error"+ e.getStatusCode());
+            confirmacion= new Confirmacion(""+e.getStatusCode());
         }
-        
+        return confirmacion;
     }
     
     @Override

@@ -6,6 +6,7 @@
 package edu.eci.cosw.postresYa.controller;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
+import edu.eci.cosw.postresYa.model.Confirmacion;
 import edu.eci.cosw.postresYa.model.Pedido;
 
 import edu.eci.cosw.postresYa.services.PostresYaServices;
@@ -60,8 +61,8 @@ public class PedidoController {
     }
      
     @RequestMapping(method = RequestMethod.POST)
-    public void addPedido(@RequestBody Pedido p)throws PostreException{
-        pedido.addPedido(p);
+    public Confirmacion addPedido(@RequestBody Pedido p)throws PostreException{
+        return pedido.addPedido(p);
     }
 
     
