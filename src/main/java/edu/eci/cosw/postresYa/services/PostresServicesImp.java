@@ -168,7 +168,7 @@ public class PostresServicesImp implements PostresYaServices{
     public Confirmacion addPedido(Pedido p) throws PostreException {
         Confirmacion confirmacion;
         Pago pago= new Pago(""+p.getCliente().getCuenta(), "123", p.getCliente().getTipoTarjeta(), p.getCliente().getNombre(), "234567893434-bancolombia", "pago pedido postresYa a"+p.getPostres().get(0).getPostreCantId().getReposteriaNit(), p.getPrecio());
-     
+        
         RestTemplate rt = new RestTemplate();
         
         try{
