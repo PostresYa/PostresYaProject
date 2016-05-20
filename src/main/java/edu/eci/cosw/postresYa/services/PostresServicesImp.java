@@ -31,6 +31,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.lang.Integer;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import javax.xml.ws.http.HTTPException;
 import org.springframework.web.client.HttpClientErrorException;
 
@@ -175,10 +177,10 @@ public class PostresServicesImp implements PostresYaServices{
         System.out.println("este es el codigo de confirmacion"+responseType);
         List<PostreCant> postres=p.getPostres();
         
-        Date date= new Date();
-        
-        p.setFecha(new Date(date.toString()));
-        System.out.println("fecha que se va  meter:              "+p.getFecha().toString()+"    "+p.getFecha().getTime());
+        //Date date= new Date();
+        //DateFormat hourdateFormat = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+        //System.out.println("Hora y fecha: "+hourdateFormat.format(date));
+        //p.setFecha(new Date(hourdateFormat.format(date)));
         p.setPostres(new ArrayList<PostreCant>());
         
         pedidoRepository.save(p);
