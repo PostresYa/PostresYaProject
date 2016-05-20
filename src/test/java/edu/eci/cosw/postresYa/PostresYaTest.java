@@ -205,7 +205,7 @@ public class PostresYaTest {
         
         @Test
          public void validarPedidosQueExistaTest() throws PostreException{
-             
+             /*
              Usuario u = new Usuario("us2", "password","cliente");   
            userRepository.save(u);
             Cliente cl= new Cliente(1022408185, new BigInteger("12344"), u, "duvan","AMEX");
@@ -228,7 +228,7 @@ public class PostresYaTest {
             pedido.setPostres(pc);
             pedidoRepository.save(pedido);
             
-            
+            */
   /*
             Pedido pedido= new Pedido(new ArrayList<PostreCant>(), "direccion", new Date(16/02/02), "en espera", 0);
             pedidoRepository.save(pedido);
