@@ -29,7 +29,7 @@ El proyecto PostresYa fue creado por:
 
 
 Este proyecto estara basado en el siguiente diagrama de clases,para satisface las historias de usuario
-<img src="/src/main/resources/static/app/images/DiagramaDeClases.PNG" align="center" />
+<img src="/src/main/resources/static/app/images/DiagramaDeClases.png" align="center" />
 
 ###Tabla de contenido
 1.  Inicio de sesión.
@@ -47,33 +47,8 @@ una vez allí ingrese los datos de usuario( nit y password) y oprima el botón S
 
 Si desea registrarse en la página web ingrese al link de inicio de sesión, y oprima el botón Regístrese, allí encontrara una          validación con el INVIMA para saber si tiene el registro de sanidad vigente, de tenerlo vigente se habilitaran los demás campos       necesarios para completar el registro, de no tenerlo no podrá registrarse en postresYa.
 
-Los nit que se simulan en el INVIMA como invalidos son
+Donde NIT es de la modalidad xxxxxxxxx-x, siendo x cualquier número entre 0 y 9, que usara el siguiente recurso: https://damp-dusk-55729.herokuapp.com/rest/peticiones/invima/NIT
 
-<table >
-  <tbody>
-     <tr>
-      <th>
-        Nit invalido
-      </th>
-    </tr> 
-    <tr>
-      <td>nit1</td>
-    </tr>
-    <tr>
-      <td>nit2</td>
-    </tr>
-    <tr>
-      <td>nit3</td>
-    </tr>
-    <tr>
-      <td>nit4</td>
-    </tr>
-    <tr>
-      <td>nit5</td>
-    </tr>
-  </tbody>
-</table>
-  
   
 ###Registro de un postre
 
