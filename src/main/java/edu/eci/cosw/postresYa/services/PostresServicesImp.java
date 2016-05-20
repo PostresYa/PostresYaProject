@@ -155,7 +155,10 @@ public class PostresServicesImp implements PostresYaServices{
     @Override
     public void addPedido(Pedido p) throws PostreException {
         List<PostreCant> postres=p.getPostres();
+        
+        
         p.setFecha(new Date());
+        System.out.println("fecha que se va  meter:              "+p.getFecha().toString()+"    "+p.getFecha().getTime());
         p.setPostres(new ArrayList<PostreCant>());
         
         pedidoRepository.save(p);
