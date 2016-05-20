@@ -9,6 +9,7 @@ import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.services.PostresYaServices;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Level;
@@ -55,7 +56,7 @@ public class PostreController {
      */
     @RequestMapping(value="/{nit}",method = RequestMethod.GET)
     public List<Postre> getPostres(@PathVariable String nit) throws PostreException {
-        
+       
         return stub.getPostres(nit);
     }
     

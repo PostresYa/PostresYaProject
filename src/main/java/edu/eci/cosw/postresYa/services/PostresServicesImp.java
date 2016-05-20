@@ -155,6 +155,7 @@ public class PostresServicesImp implements PostresYaServices{
     @Override
     public void addPedido(Pedido p) throws PostreException {
         List<PostreCant> postres=p.getPostres();
+        p.setFecha(new Date());
         p.setPostres(new ArrayList<PostreCant>());
         
         pedidoRepository.save(p);
