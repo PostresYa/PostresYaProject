@@ -30,6 +30,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import java.lang.Integer;
+import javax.xml.ws.http.HTTPException;
+import org.springframework.web.client.HttpClientErrorException;
 
 /**
  *
@@ -164,9 +166,10 @@ public class PostresServicesImp implements PostresYaServices{
         Pago pago= new Pago(""+p.getCliente().getCuenta(), "123", p.getCliente().getTipoTarjeta(), p.getCliente().getNombre(), "234567893434-bancolombia", "pago pedido postresYa a"+p.getPostres().get(0).getPostreCantId().getReposteriaNit(), p.getPrecio());
      
         RestTemplate rt = new RestTemplate();
-        String responseType= rt.postForObject("http://paymentsgateway.herokuapp.com/rest/payments", pago,String.class);
-        System.out.println(responseType);
         
+        try{
+        String responseType= rt.postForObject("http://paymentsgateway.herokuapp.com/rest/payments", pago,String.class);
+        System.out.println("este es el codigo de confirmacion"+responseType);
         List<PostreCant> postres=p.getPostres();
         
         Date date= new Date();
@@ -181,6 +184,10 @@ public class PostresServicesImp implements PostresYaServices{
         }
         p.setPostres(postres);
         pedidoRepository.save(p);
+        }catch(HTTPException e){
+            System.out.println("este es el codigo del error"+ e.getStatusCode());
+        }
+        
     }
     
     @Override
