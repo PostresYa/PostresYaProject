@@ -28,7 +28,10 @@ public class Cliente implements Serializable {
     private BigInteger cuenta;
     private Usuario usuario;
     private String nombre;
+    
+    private String tipoTarjeta;
 
+  
     /**
      * constructor vacio
      */
@@ -41,12 +44,16 @@ public class Cliente implements Serializable {
      * @param cuenta
      * @param usuario
      * @param nombre 
+
+     * @param tipoTarjeta 
      */
-    public Cliente(int cedula,BigInteger cuenta,Usuario usuario,String nombre){
+    public Cliente(int cedula,BigInteger cuenta,Usuario usuario,String nombre,String tipoTarjeta){
         this.cedula=cedula;
         this.cuenta=cuenta;
         this.usuario=usuario;
         this.nombre=nombre;
+      
+        this.tipoTarjeta=tipoTarjeta;
                 
     }
     
@@ -121,4 +128,22 @@ public class Cliente implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+    
+    
+    /**
+     * trae tarjeta
+     * @return 
+     */
+     @Column(name = "tipoTarjeta", nullable = false)
+    public String getTipoTarjeta() {
+        return tipoTarjeta;
+    }
+
+    public void setTipoTarjeta(String tipoTarjeta) {
+        this.tipoTarjeta = tipoTarjeta;
+    }
+  
+
+    
+    
 }

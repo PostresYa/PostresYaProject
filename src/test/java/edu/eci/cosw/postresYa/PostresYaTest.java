@@ -208,7 +208,7 @@ public class PostresYaTest {
              
              Usuario u = new Usuario("us2", "password","cliente");   
            userRepository.save(u);
-            Cliente cl= new Cliente(1022408185, new BigInteger("12344"), u, "duvan");
+            Cliente cl= new Cliente(1022408185, new BigInteger("12344"), u, "duvan","AMEX");
             clientRepository.save(cl);
             Pedido pedido= new Pedido("direccion", new Date(16/02/02), "en espera", 0,cl);
             System.out.println("-------------------"+pedido.getCodigo()+"---------------------------------");

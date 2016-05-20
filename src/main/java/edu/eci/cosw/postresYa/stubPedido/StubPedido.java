@@ -49,7 +49,7 @@ public class StubPedido implements StubPed{
         Date d=new Date("2016/03/11");
        
         //Adicion de los postres de prueba a la lista de los pedidos
-        Pedido aux = new Pedido(postres, "Cll 8 #77-14" , d,"en espera",68000,new Cliente(1022, new BigInteger("123"), new Usuario("1", "password", "reposteria"),"duvan barrera"));
+        Pedido aux = new Pedido(postres, "Cll 8 #77-14" , d,"en espera",68000,new Cliente(1022, new BigInteger("123"), new Usuario("1", "password", "reposteria"),"duvan barrera","AMEX"));
         pedidos.add(aux);
         Postre p2 = new Postre(new PostreId("postre3","r1"), "Arequipe", 18000,"con fresas");
         List <PostreCant> postres2 = new ArrayList<>();
@@ -57,7 +57,7 @@ public class StubPedido implements StubPed{
         postres2.add(new PostreCant(new PostreCantId("postre3", "r1", 1),p2, 2));
         d=new Date("2016/03/10");
         //segundo pedido
-        aux = new Pedido(postres2, "Calle 222 #25-32" , d,"en espera",36000,new Cliente(1022, new BigInteger("123"), new Usuario("1", "password", "reposteria"),"duvan barrera"));
+        aux = new Pedido(postres2, "Calle 222 #25-32" , d,"en espera",36000,new Cliente(1022, new BigInteger("123"), new Usuario("1", "password", "reposteria"),"duvan barrera","AMEX"));
        
         pedidos.add(aux);
         

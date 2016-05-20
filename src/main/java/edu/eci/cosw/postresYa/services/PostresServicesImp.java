@@ -7,12 +7,14 @@ package edu.eci.cosw.postresYa.services;
 
 import edu.eci.cosw.postresYa.Exceptions.PostreException;
 import edu.eci.cosw.postresYa.model.Cliente;
+import edu.eci.cosw.postresYa.model.Pago;
 import edu.eci.cosw.postresYa.model.Pedido;
 import edu.eci.cosw.postresYa.model.Postre;
 import edu.eci.cosw.postresYa.model.PostreCant;
 import edu.eci.cosw.postresYa.model.PostreCantId;
 import edu.eci.cosw.postresYa.model.PostreId;
 import edu.eci.cosw.postresYa.model.Reposteria;
+import edu.eci.cosw.postresYa.model.StatusRegistroInvima;
 import edu.eci.cosw.postresYa.repositories.ClienteRepository;
 import edu.eci.cosw.postresYa.repositories.PedidoRepository;
 import edu.eci.cosw.postresYa.repositories.PostreRepository;
@@ -20,9 +22,14 @@ import edu.eci.cosw.postresYa.repositories.ReposteriaRepository;
 import edu.eci.cosw.postresYa.repositories.UserRepository;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import java.lang.Integer;
 
 /**
  *
@@ -154,6 +161,12 @@ public class PostresServicesImp implements PostresYaServices{
 
     @Override
     public void addPedido(Pedido p) throws PostreException {
+        Pago pago= new Pago(""+p.getCliente().getCuenta(), "123", p.getCliente().getTipoTarjeta(), p.getCliente().getNombre(), "234567893434-bancolombia", "pago pedido postresYa a"+p.getPostres().get(0).getPostreCantId().getReposteriaNit(), p.getPrecio());
+     
+        RestTemplate rt = new RestTemplate();
+        String responseType= rt.postForObject("http://paymentsgateway.herokuapp.com/rest/payments", pago,String.class);
+        System.out.println(responseType);
+        
         List<PostreCant> postres=p.getPostres();
         
         Date date= new Date();
